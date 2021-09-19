@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# moodcloud
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Epicodus Capstone: October 2021
 
-## Available Scripts
+#### By Shannon Lee
 
-In the project directory, you can run:
+#### _Table of Contents_
 
-### `yarn start`
+1. [Description](#description)
+2. [Technologies Used](#technologies)
+3. [Setup/Installation Requirements](#setup)
+4. [Component Diagram](#diagram)
+5. [Known Bugs](#bugs)
+6. [License](#license)
+7. [Contact Information](#contact)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Description <a id="description"></a>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<details>
+  <summary>Progress log (will be deleted)</summary>
 
-### `yarn test`
+- Sep 19
+  - Submitted new capstone proposal, set up basic react environment
+  - Planning component diagram, researching authentication w/ Firebase
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+</details>
 
-### `yarn build`
+## Technologies Used <a id="technologies"></a>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React.js
+- JavaScript
+- Webpack
+- JSX
+- CSS
+- Bootstrap
+- Firebase / Firestore
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Setup/Installation Requirements <a id="setup"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Setup requirements
 
-### `yarn eject`
+- Make sure [Node.js](https://nodejs.org/en/) and [Node Package Manager (npm)](https://www.npmjs.com/) are set up on your local machine. If not, follow the installation guide [here](https://www.learnhowtoprogram.com/intermediate-javascript/getting-started-with-javascript/installing-node-js).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Installation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Clone this repository to your machine `$ git clone https://github.com/shanole/moodcloud`
+- In the terminal, navigate to the top level of this directory `moodcloud/`
+- Recreate project environment and install required dependencies `$ npm install`
+- Open project in a development server on your web browser `$ npm start` to open it on http://localhost:3000
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Component Diagrams <a id="diagram"></a>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<details>
+  <summary>Component Diagram</summary>
 
-## Learn More
+</details>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Known Bugs <a id="bugs"></a>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License <a id="license"></a>
 
-### Code Splitting
+_[MIT](https://choosealicense.com/licenses/mit/)_
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Copyright (c) 2021 Shannon Lee
 
-### Analyzing the Bundle Size
+## Contact Information <a id="contact"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**_Shannon Lee [mailto](mailto:shannonleehj@gmail.com)_**
