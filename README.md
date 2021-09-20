@@ -22,6 +22,21 @@
 - Sep 19
   - Submitted new capstone proposal, set up basic react environment
   - Planning component diagram, researching authentication w/ Firebase
+  - Create to do list of tasks
+
+</details>
+
+<details>
+  <summary>TO DOS (will be deleted)</summary>
+
+- [ ] set up basic component structure with static components
+- [ ] develop full CRUD for posts
+- [ ] figure out toggling between form, graph, and post views
+- [ ] create GRAPH with Chart.js
+- [ ] create views for keyword search
+- [ ] authentication / authorization
+- [ ] styling
+- [ ] fancy "cloud" view for keywords
 
 </details>
 
