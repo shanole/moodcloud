@@ -15,4 +15,4 @@ export const showKeyword = (keyword) => ({
   keyword
 });
 
-export const showDashboard = () => ({ type: null });
+export const showDashboard = () => ({ type: c.SHOW_HOME_DASHBOARD });

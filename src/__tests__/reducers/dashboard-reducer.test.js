@@ -61,4 +61,11 @@ describe('dashboardReducer', () => {
       selectedForm: "form"
     })
   });
+
+  test('should successfully reset state to default state with no components showing on dashboard', () => {
+    action = {
+      type: c.SHOW_HOME_DASHBOARD
+    }
+    expect(dashboardReducer(seeAllState,action)).toEqual(defaultState);
+  })
 });

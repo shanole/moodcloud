@@ -26,7 +26,7 @@ describe('dashboard reducer actions', () => {
     })
   });
 
-  test('showDashboard should create a null action and reset state to default and show dashboard without other components', () => {
-    expect(actions.showDashboard()).toEqual({ type: null })
+  test('showDashboard should create a SHOW_HOME_DASHBOARD action', () => {
+    expect(actions.showDashboard()).toEqual({ type: c.SHOW_HOME_DASHBOARD })
   })
 })
