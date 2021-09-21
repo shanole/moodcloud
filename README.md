@@ -23,6 +23,8 @@
   - Submitted new capstone proposal, set up basic react environment
   - Planning component diagram, researching authentication w/ Firebase
   - Create to do list of tasks
+- Sept 21
+  - Static layout
 
 </details>
 
@@ -30,13 +32,20 @@
   <summary>TO DOS (will be deleted)</summary>
 
 - [ ] set up basic component structure with static components
-- [ ] incorporate Redux
+  - [x] set up most static layout for dashboard
+  - [ ] incorporate Redux
+    - [ ] write reducers for dashboard display
 - [ ] develop full CRUD for posts
   - [ ] keyword/hashtag form [react tags?](https://github.com/olahol/react-tagsinput#how-do-i-add-auto-suggestion)
 - [ ] figure out toggling between form, graph, and post views --FINISH BY 9/25
 - [ ] create GRAPH with Chart.js
-- [ ] create views for keyword search
+  - [ ] Each node should be able to link to a specific post
+  - [ ] Change timespans
+  - [ ] Modal on hover?
+- [ ] KeywordDetails component
 - [ ] authentication / authorization / routing --FINISH BY 10/2
+  - [ ] account page
+  - [ ] UserDetails component
 - [ ] styling
 - [ ] BONUS: fancy "cloud" view for keywords --FINISH BY 10/9
 

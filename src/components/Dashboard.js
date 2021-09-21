@@ -9,11 +9,7 @@ class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedKeyword: null,
-      selectedEntry: null,
-      formVisible: false,
-      entryListVisible: false,
-      masterEntryList: {}
+      cloudVisible: true
     };
   }
 
