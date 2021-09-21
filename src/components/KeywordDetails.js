@@ -1,6 +1,6 @@
 import React from 'react';
 
-function EntryDetails() {
+function KeywordDetails() {
   return (
     <div>
       <p>This will be entry details</p>
@@ -9,4 +9,4 @@ function EntryDetails() {
   );
 }
 
-export default EntryDetails;
+export default KeywordDetails;
