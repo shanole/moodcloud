@@ -30,13 +30,15 @@
   <summary>TO DOS (will be deleted)</summary>
 
 - [ ] set up basic component structure with static components
+- [ ] incorporate Redux
 - [ ] develop full CRUD for posts
-- [ ] figure out toggling between form, graph, and post views
+  - [ ] keyword/hashtag form [react tags?](https://github.com/olahol/react-tagsinput#how-do-i-add-auto-suggestion)
+- [ ] figure out toggling between form, graph, and post views --FINISH BY 9/25
 - [ ] create GRAPH with Chart.js
 - [ ] create views for keyword search
-- [ ] authentication / authorization
+- [ ] authentication / authorization / routing --FINISH BY 10/2
 - [ ] styling
-- [ ] fancy "cloud" view for keywords
+- [ ] BONUS: fancy "cloud" view for keywords --FINISH BY 10/9
 
 </details>
 
