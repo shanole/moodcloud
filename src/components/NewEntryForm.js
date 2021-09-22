@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReusableForm from './ReusableForm';
 import { useFirestore } from 'react-redux-firebase'
 import { useDispatch } from 'react-redux'
@@ -25,10 +25,18 @@ function NewEntryForm() {
     })
   }
 
+  // puts current number of keywords in the tag input box in the STATE
+  const [tagsToBeSubmitted, setTags] = useState([]);
+  function getTags(tagsArray) {
+    setTags(tagsArray);
+    console.log(tagsToBeSubmitted);
+  }
+
+
   return (
     <React.Fragment>
       <h3>New Journal Entry</h3>
-      <ReusableForm formSubmissionHandler={addPostToFirestore} buttonText="Submit"/>
+      <ReusableForm newTagHandler={getTags} formSubmissionHandler={addPostToFirestore} buttonText="Submit"/>
     </React.Fragment>
   );
 }

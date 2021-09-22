@@ -1,4 +1,5 @@
 import React from 'react';
+import KeywordForm from './KeywordForm';
 
 function ReusableForm(props) {
   let entryRating, entryBlurb, entryKeywords;
@@ -33,6 +34,9 @@ function ReusableForm(props) {
         <input type="text" name="keyword2" defaultValue = {(entryKeywords)? entryKeywords[1]: ""}/>
         <label htmlFor="keyword3">Keyword3</label>
         <input type="text" name="keyword3" defaultValue = {(entryKeywords)? entryKeywords[2]: ""}/>
+        
+        <KeywordForm addNewTags={props.newTagHandler}/>
+        
         <button type="submit">{props.buttonText}</button>
       </form>
     </React.Fragment>

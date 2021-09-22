@@ -62,7 +62,7 @@ class Dashboard extends React.Component {
         <div>
           <button onClick={this.handleClick}>New Entry Button</button>
           <Graph />
-          <KeywordCloud />
+          <KeywordCloud/>
         </div>
     }
     return(
