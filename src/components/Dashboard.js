@@ -32,14 +32,12 @@ class Dashboard extends React.Component {
   }
   
   handleHomeClick = () => {
-    console.log("home button clicked");
     const { dispatch } = this.props;
     const action = a.showDashboard();
     dispatch(action);
   }
 
   render() {
-    console.log(this.props)
     const { selectedForm, selectedKeyword, selectedEntry } = this.props;
     let currentlyVisibleComponent = null;
 
@@ -82,9 +80,9 @@ class Dashboard extends React.Component {
 
 const mapStateToProps = state => {
   return{
-    selectedForm: state.selectedForm,
-    selectedKeyword: state.selectedKeyword,
-    selectedEntry: state.selectedEntry
+    selectedForm: state.dashboardView.selectedForm,
+    selectedKeyword: state.dashboardView.selectedKeyword,
+    selectedEntry: state.dashboardView.selectedEntry
   }
 }
 

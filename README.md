@@ -31,23 +31,25 @@
 <details>
   <summary>TO DOS (will be deleted)</summary>
 
-- [ ] set up basic component structure with static components
+- [x] set up basic component structure with static components
   - [x] set up most static layout for dashboard
-  - [ ] incorporate Redux
-    - [ ] write reducers for dashboard display
-- [ ] develop full CRUD for posts
+  - [x] incorporate Redux
+    - [x] write reducers for dashboard display
+    - [x] incorporate firebase
+- [ ] develop full CRUD for posts with firestore
   - [ ] keyword/hashtag form [react tags?](https://github.com/olahol/react-tagsinput#how-do-i-add-auto-suggestion)
 - [ ] figure out toggling between form, graph, and post views --FINISH BY 9/25
 - [ ] create GRAPH with Chart.js
   - [ ] Each node should be able to link to a specific post
-  - [ ] Change timespans
-  - [ ] Modal on hover?
+  - [ ] _Change timespans_
+  - [ ] _Modal on hover?_
 - [ ] KeywordDetails component
+- [ ] Routing and landing page
 - [ ] authentication / authorization / routing --FINISH BY 10/2
   - [ ] account page
-  - [ ] UserDetails component
-- [ ] styling
-- [ ] BONUS: fancy "cloud" view for keywords --FINISH BY 10/9
+  - [ ] _UserDetails component_
+- [ ] styling --FINISH BY 10/9
+- [ ] _BONUS: fancy "cloud" view for keywords_
 
 </details>
 

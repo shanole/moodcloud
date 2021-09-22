@@ -11,10 +11,6 @@ import firebase from "./firebase";
 
 const store = createStore(rootReducer);
 
-store.subscribe(() =>
-  console.log(store.getState())
-);
-
 const rrfProps = {
   firebase,
   config: {
@@ -23,6 +19,10 @@ const rrfProps = {
   dispatch: store.dispatch,
   createFirestoreInstance
 }
+
+store.subscribe(() =>
+  console.log(store.getState())
+);
 
 ReactDOM.render(
   <Provider store = {store}>
