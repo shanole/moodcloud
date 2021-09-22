@@ -19,9 +19,9 @@ function NewEntryForm() {
       blurb: event.target.blurb.value,
       // temporary solution for keywords
       keywords: [event.target.keyword1.value, event.target.keyword2.value, event.target.keyword3.value],
-      // change timestamp?
-      timePosted: new Date(Date.now()).toLocaleString('en-US', dateOptions)
-      // timePosted: firestore.FieldValue.serverTimestamp()
+      timePosted: new Date(Date.now()).toLocaleString('en-US', dateOptions),
+      // internal timestamp
+      timestamp: firestore.FieldValue.serverTimestamp()
     })
   }
 

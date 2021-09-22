@@ -25,6 +25,8 @@
   - Create to do list of tasks
 - Sept 21
   - Static layout, Redux, and firebase set up
+- Sept 22
+  - Basic CRUD for new entries
 
 </details>
 
@@ -39,7 +41,7 @@
 - [ ] develop full CRUD for posts with firestore
   - [x] create new entry
   - [x] view entries on dashboard (Entry, EntryList)
-    - [ ] display entry list by DATE
+    - [x] display entry list by DATE
     - [ ] pagination/scrolling
   - [ ] view entry details (EntryDetails)
     - [x] don't forget TIMESTAMP

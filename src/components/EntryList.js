@@ -7,7 +7,7 @@ import { showEntry } from './../actions/index';
 
 function EntryList(props) {
   // order by date
-  useFirestoreConnect({collection: 'entries'});
+  useFirestoreConnect({collection: 'entries', orderBy: ['timestamp', 'desc']});
   
   const entries = useSelector(state => state.firestore.ordered.entries);
 
