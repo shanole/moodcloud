@@ -17,6 +17,7 @@ function NewEntryForm() {
       blurb: event.target.blurb.value,
       // temporary solution for keywords
       keywords: [event.target.keyword1.value, event.target.keyword2.value, event.target.keyword3.value],
+      // change timestamp?
       timePosted: firestore.FieldValue.serverTimestamp()
     })
   }

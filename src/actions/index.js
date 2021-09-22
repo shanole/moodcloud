@@ -16,3 +16,5 @@ export const showKeyword = (keyword) => ({
 });
 
 export const showDashboard = () => ({ type: c.SHOW_HOME_DASHBOARD });
+
+export const toggleEditForm = () => ( { type: c.TOGGLE_EDIT, form: 'edit'})

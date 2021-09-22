@@ -41,12 +41,10 @@ class Dashboard extends React.Component {
     const { selectedForm, selectedKeyword, selectedEntry } = this.props;
     let currentlyVisibleComponent = null;
 
-    if (selectedForm != null) {
-      if (selectedForm === "new") {
-        currentlyVisibleComponent = <NewEntryForm />
-      } else if (selectedForm === "edit") {
-        currentlyVisibleComponent = <EditEntryForm />
-      }
+    if (selectedForm != null && selectedEntry === null) {
+      currentlyVisibleComponent = <NewEntryForm />
+    } else if (selectedForm != null && selectedEntry != null) {
+      currentlyVisibleComponent = <EditEntryForm entry={selectedEntry}/>
     } else if (selectedEntry != null) {
       currentlyVisibleComponent = <EntryDetails entry={selectedEntry} />
     } else if (selectedKeyword != null) {
@@ -55,7 +53,6 @@ class Dashboard extends React.Component {
       currentlyVisibleComponent = 
         <div>
           <button onClick={this.handleClick}>New Entry Button</button>
-          <button onClick={this.handleEditClick}>Edit Entry Button</button>
           <Graph />
           <KeywordCloud />
         </div>
@@ -64,9 +61,9 @@ class Dashboard extends React.Component {
       <Container fluid="md" className="dashboard">
         <Row>
           <Col sm={3}>
+            <button onClick={this.handleHomeClick}>Home</button>
             <UserDetails />
             <EntryList />
-            <button onClick={this.handleHomeClick}>Home</button>
           </Col>
           <Col sm={9}>
             {currentlyVisibleComponent}

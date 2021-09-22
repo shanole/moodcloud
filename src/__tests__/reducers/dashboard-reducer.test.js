@@ -1,6 +1,5 @@
 import { dashboardReducer } from './../../reducers/dashboard-reducer';
 import * as c from './../../actions/ActionTypes';
-import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from 'react-dom/cjs/react-dom.development';
 
 describe('dashboardReducer', () => {
   let action;
@@ -16,6 +15,12 @@ describe('dashboardReducer', () => {
     selectedKeyword: "keyword here",
     selectedEntry: "entry here",
     selectedForm: "form type here"
+  }
+
+  const selectedEntryState = {
+    selectedKeyword: null,
+    selectedEntry: 'entry here',
+    selectedForm: null
   }
 
   test('should return default state if no action is passed into the reducer', () => {    
@@ -67,5 +72,17 @@ describe('dashboardReducer', () => {
       type: c.SHOW_HOME_DASHBOARD
     }
     expect(dashboardReducer(seeAllState,action)).toEqual(defaultState);
+  })
+
+  test('should change selectedForm to edit form and maintain selectedEntry state', () => {
+    action = {
+      type: c.TOGGLE_EDIT,
+      form: 'edit'
+    }
+    expect(dashboardReducer(selectedEntryState, action)).toEqual({
+      selectedKeyword: null,
+      selectedEntry: 'entry here',
+      selectedForm: 'edit'
+    })
   })
 });

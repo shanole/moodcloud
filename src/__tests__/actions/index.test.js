@@ -29,4 +29,11 @@ describe('dashboard reducer actions', () => {
   test('showDashboard should create a SHOW_HOME_DASHBOARD action', () => {
     expect(actions.showDashboard()).toEqual({ type: c.SHOW_HOME_DASHBOARD })
   })
+
+  test('toggleEditForm should create a TOGGLE_FORM action', () => {
+    expect(actions.toggleEditForm()).toEqual({
+      type: c.TOGGLE_EDIT,
+      form: 'edit'
+    })
+  })
 })

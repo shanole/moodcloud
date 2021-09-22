@@ -16,6 +16,8 @@ export const dashboardReducer = (state = defaultState, action) => {
       return {...state, selectedKeyword: null, selectedEntry: null, selectedForm: action.form}
     case c.SHOW_HOME_DASHBOARD:
       return defaultState;
+    case c.TOGGLE_EDIT:
+      return {...state, selectedForm: action.form}
     default:
       return state;
   }
