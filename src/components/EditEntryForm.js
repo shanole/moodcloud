@@ -1,8 +1,10 @@
+// currently redirects to dashboard, having problems redirecting to original post
+
 import React from 'react';
 import ReusableForm from './ReusableForm';
 import { useFirestore } from 'react-redux-firebase';
 import { useDispatch } from 'react-redux'
-import { showEntry } from './../actions/index'
+import { showEntry, showDashboard } from './../actions/index'
 
 function EditEntryForm(props) {
   const { entry } = props;
@@ -17,7 +19,9 @@ function EditEntryForm(props) {
       keywords: [event.target.keyword1.value, event.target.keyword2.value, event.target.keyword3.value],
     }
     return firestore.update({collection: 'entries', doc: entry.id}, propertiesToUpdate).then(() => {      
-      const action = showEntry(entry);
+      // this redirect isn't really working well
+      // const action = showEntry(entry);
+      const action = showDashboard();
       dispatch(action)});
   }
 

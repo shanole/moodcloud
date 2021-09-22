@@ -28,11 +28,11 @@ function ReusableForm(props) {
           defaultValue = {entryBlurb}
           required/>
         <label htmlFor="keyword1">Keyword1</label>
-        <input type="text" name="keyword1" defaultValue = {entryKeywords[0]}/>
+        <input type="text" name="keyword1" defaultValue = {(entryKeywords)? entryKeywords[0]: ""}/>
         <label htmlFor="keyword2">Keyword2</label>
-        <input type="text" name="keyword2" defaultValue = {entryKeywords[1]}/>
+        <input type="text" name="keyword2" defaultValue = {(entryKeywords)? entryKeywords[1]: ""}/>
         <label htmlFor="keyword3">Keyword3</label>
-        <input type="text" name="keyword3" defaultValue = {entryKeywords[2]}/>
+        <input type="text" name="keyword3" defaultValue = {(entryKeywords)? entryKeywords[2]: ""}/>
         <button type="submit">{props.buttonText}</button>
       </form>
     </React.Fragment>

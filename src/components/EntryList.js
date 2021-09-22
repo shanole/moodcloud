@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { showEntry } from './../actions/index';
 
 function EntryList(props) {
+  // order by date
   useFirestoreConnect({collection: 'entries'});
   
   const entries = useSelector(state => state.firestore.ordered.entries);
@@ -24,7 +25,7 @@ function EntryList(props) {
           return <div onClick={() => goToDetails(entry)} key={entry.id}><Entry 
               rating = {entry.rating}
               blurb = {entry.blurb}
-              // timestamp
+              timePosted={entry.timePosted}
               keywords = {entry.keywords}
               id = {entry.id}
               key = {entry.id}
@@ -41,20 +42,6 @@ function EntryList(props) {
       <h3>Loading...</h3>
     )
   }
-
-  // return (
-  //   <div>
-  //     <h3>Entry List Filler</h3>
-  //     <ul>
-  //       <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tortor odio, vestibulum non sollicitudin a, maximus vel nibh. Nam nunc.
-  //       </li>
-  //       <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tortor odio, vestibulum non sollicitudin a, maximus vel nibh. Nam nunc.
-  //       </li>
-  //       <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tortor odio, vestibulum non sollicitudin a, maximus vel nibh. Nam nunc.
-  //       </li>
-  //     </ul>
-  //   </div>
-  // );
 }
 
 export default EntryList;

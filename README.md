@@ -39,8 +39,16 @@
 - [ ] develop full CRUD for posts with firestore
   - [x] create new entry
   - [x] view entries on dashboard (Entry, EntryList)
+    - [ ] display entry list by DATE
+    - [ ] pagination/scrolling
   - [ ] view entry details (EntryDetails)
+    - [x] don't forget TIMESTAMP
+    - [ ] use firestoreConnect to listen for changes in each individual entry
   - [ ] edit/delete entry
+    - [x] basic edit functionality
+    - [x] basic delete functionality
+      - [ ] page to confirm delete?
+    - [ ] make edit form redirect to entry DETAILS, not dashboard?
   - [ ] keyword/hashtag form [react tags?](https://github.com/olahol/react-tagsinput#how-do-i-add-auto-suggestion)
   - [ ] Keyword component?
 - [ ] figure out toggling between form, graph, and post views --FINISH BY 9/25
@@ -54,6 +62,7 @@
   - [ ] account page
   - [ ] _UserDetails component_
 - [ ] styling --FINISH BY 10/9
+- [ ] _limit only one post a day_
 - [ ] _BONUS: fancy "cloud" view for keywords_
 
 </details>

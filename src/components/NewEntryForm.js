@@ -8,6 +8,8 @@ function NewEntryForm() {
   const firestore = useFirestore();
   const dispatch = useDispatch();
 
+  const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}
+
   function addPostToFirestore(event) {
     event.preventDefault();
     const action = showDashboard();
@@ -18,7 +20,8 @@ function NewEntryForm() {
       // temporary solution for keywords
       keywords: [event.target.keyword1.value, event.target.keyword2.value, event.target.keyword3.value],
       // change timestamp?
-      timePosted: firestore.FieldValue.serverTimestamp()
+      timePosted: new Date(Date.now()).toLocaleString('en-US', dateOptions)
+      // timePosted: firestore.FieldValue.serverTimestamp()
     })
   }
 

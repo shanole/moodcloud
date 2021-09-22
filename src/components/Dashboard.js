@@ -9,6 +9,7 @@ import EditEntryForm from './EditEntryForm';
 import EntryDetails from './EntryDetails';
 import KeywordDetails from './KeywordDetails';
 import { connect } from 'react-redux';
+import { withFirestore } from 'react-redux-firebase'
 import * as a from './../actions/index';
 
 class Dashboard extends React.Component {
@@ -27,11 +28,18 @@ class Dashboard extends React.Component {
 
   handleEditClick = () => {
     const { dispatch } = this.props;
-    const action = a.showForm("edit");
+    const action = a.toggleEditForm();
     dispatch(action);
   }
   
   handleHomeClick = () => {
+    const { dispatch } = this.props;
+    const action = a.showDashboard();
+    dispatch(action);
+  }
+
+  handleDeletingEntry = (id) => {
+    this.props.firestore.delete({collection: 'entries', doc: id});
     const { dispatch } = this.props;
     const action = a.showDashboard();
     dispatch(action);
@@ -46,7 +54,7 @@ class Dashboard extends React.Component {
     } else if (selectedForm != null && selectedEntry != null) {
       currentlyVisibleComponent = <EditEntryForm entry={selectedEntry}/>
     } else if (selectedEntry != null) {
-      currentlyVisibleComponent = <EntryDetails entry={selectedEntry} />
+      currentlyVisibleComponent = <EntryDetails entry={selectedEntry} onClickingDelete={this.handleDeletingEntry} onClickingEdit={this.handleEditClick}/>
     } else if (selectedKeyword != null) {
       currentlyVisibleComponent = <KeywordDetails keyword={selectedKeyword} />
     } else {
@@ -84,4 +92,4 @@ const mapStateToProps = state => {
 
 Dashboard = connect(mapStateToProps)(Dashboard);
  
-export default Dashboard;
+export default withFirestore(Dashboard);
