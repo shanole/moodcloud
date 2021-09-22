@@ -1,3 +1,5 @@
+// figure out - adding new keywords to other firestore collection
+
 import React, { useState } from 'react';
 import ReusableForm from './ReusableForm';
 import { useFirestore } from 'react-redux-firebase'
@@ -17,8 +19,7 @@ function NewEntryForm() {
     return firestore.collection('entries').add({
       rating: event.target.rating.value,
       blurb: event.target.blurb.value,
-      // temporary solution for keywords
-      keywords: [event.target.keyword1.value, event.target.keyword2.value, event.target.keyword3.value],
+      keywords: tagsToBeSubmitted,
       timePosted: new Date(Date.now()).toLocaleString('en-US', dateOptions),
       // internal timestamp
       timestamp: firestore.FieldValue.serverTimestamp()
@@ -29,7 +30,6 @@ function NewEntryForm() {
   const [tagsToBeSubmitted, setTags] = useState([]);
   function getTags(tagsArray) {
     setTags(tagsArray);
-    console.log(tagsToBeSubmitted);
   }
 
 

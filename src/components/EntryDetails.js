@@ -32,7 +32,7 @@ function EntryDetails(props) {
       <h4>{props.entry.timePosted}</h4>
       <p>Rating: {props.entry.rating}</p>
       <p>Blurb: {props.entry.blurb}</p>
-      <p>Keywords: {props.entry.keywords.map((keyword,index) => <li key={index}>{keyword}</li>)}</p>
+      <p>Keywords: {props.entry.keywords.map((keyword,index) => <li key={index}>{keyword.text}</li>)}</p>
       <button onClick={props.onClickingEdit}>Edit</button>
       <button onClick={() => props.onClickingDelete(props.entry.id)}>Delete</button>
     </React.Fragment>

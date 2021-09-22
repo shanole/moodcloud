@@ -28,14 +28,8 @@ function ReusableForm(props) {
           placeholder="Write a short blurb about your day here" 
           defaultValue = {entryBlurb}
           required/>
-        <label htmlFor="keyword1">Keyword1</label>
-        <input type="text" name="keyword1" defaultValue = {(entryKeywords)? entryKeywords[0]: ""}/>
-        <label htmlFor="keyword2">Keyword2</label>
-        <input type="text" name="keyword2" defaultValue = {(entryKeywords)? entryKeywords[1]: ""}/>
-        <label htmlFor="keyword3">Keyword3</label>
-        <input type="text" name="keyword3" defaultValue = {(entryKeywords)? entryKeywords[2]: ""}/>
         
-        <KeywordForm addNewTags={props.newTagHandler}/>
+        <KeywordForm prefilledTags={entryKeywords ? entryKeywords : []} addNewTags={props.newTagHandler}/>
         
         <button type="submit">{props.buttonText}</button>
       </form>

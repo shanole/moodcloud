@@ -1,3 +1,5 @@
+// max number of tags?
+
 import React, {useState, useEffect} from 'react';
 import { WithContext as ReactTags } from 'react-tag-input';
 
@@ -20,8 +22,7 @@ const delimiters = [KeyCodes.comma, KeyCodes.enter, KeyCodes.tab];
 
 function KeywordForm(props) {
 
-  const [tags, setTags] = useState([
-  ]);
+  const [tags, setTags] = useState(props.prefilledTags);
 
   useEffect(() => props.addNewTags(tags) )
 
@@ -43,10 +44,6 @@ function KeywordForm(props) {
     setTags(newTags);
   };
 
-  const handleTagClick = index => {
-    console.log('The tag at index ' + index + ' was clicked');
-  };
-
   return (
     <React.Fragment>
       <label>Keywords:</label>
@@ -57,7 +54,6 @@ function KeywordForm(props) {
           handleDelete={handleDelete}
           handleAddition={handleAddition}
           handleDrag={handleDrag}
-          handleTagClick={handleTagClick}
           inputFieldPosition="bottom"
           autocomplete
         />

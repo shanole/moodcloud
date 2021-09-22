@@ -1,6 +1,7 @@
 // currently redirects to dashboard, having problems redirecting to original post
+// figure out - editing keywords collection
 
-import React from 'react';
+import React, {useState} from 'react';
 import ReusableForm from './ReusableForm';
 import { useFirestore } from 'react-redux-firebase';
 import { useDispatch } from 'react-redux'
@@ -16,7 +17,7 @@ function EditEntryForm(props) {
     const propertiesToUpdate = {
       rating: event.target.rating.value,
       blurb: event.target.blurb.value,
-      keywords: [event.target.keyword1.value, event.target.keyword2.value, event.target.keyword3.value],
+      keywords: tagsToBeSubmitted,
     }
     return firestore.update({collection: 'entries', doc: entry.id}, propertiesToUpdate).then(() => {      
       // this redirect isn't really working well
@@ -25,10 +26,15 @@ function EditEntryForm(props) {
       dispatch(action)});
   }
 
+  const [tagsToBeSubmitted, setTags] = useState([]);
+  function updateTags(tagsArray) {
+    setTags(tagsArray);
+  }
+
   return (
     <React.Fragment>
       <h3>Edit post here</h3>
-      <ReusableForm prefilledEntry = {entry} formSubmissionHandler={handleEditPostFormSubmission} buttonText="Update entry" />
+      <ReusableForm newTagHandler={updateTags} prefilledEntry = {entry} formSubmissionHandler={handleEditPostFormSubmission} buttonText="Update entry" />
     </React.Fragment>
   );
 }
