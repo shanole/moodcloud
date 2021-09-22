@@ -24,7 +24,7 @@
   - Planning component diagram, researching authentication w/ Firebase
   - Create to do list of tasks
 - Sept 21
-  - Static layout
+  - Static layout, Redux, and firebase set up
 
 </details>
 
@@ -37,15 +37,20 @@
     - [x] write reducers for dashboard display
     - [x] incorporate firebase
 - [ ] develop full CRUD for posts with firestore
+  - [x] create new entry
+  - [x] view entries on dashboard (Entry, EntryList)
+  - [ ] view entry details (EntryDetails)
+  - [ ] edit/delete entry
   - [ ] keyword/hashtag form [react tags?](https://github.com/olahol/react-tagsinput#how-do-i-add-auto-suggestion)
+  - [ ] Keyword component?
 - [ ] figure out toggling between form, graph, and post views --FINISH BY 9/25
 - [ ] create GRAPH with Chart.js
   - [ ] Each node should be able to link to a specific post
   - [ ] _Change timespans_
   - [ ] _Modal on hover?_
 - [ ] KeywordDetails component
-- [ ] Routing and landing page
-- [ ] authentication / authorization / routing --FINISH BY 10/2
+- [ ] Routing and landing page --FINISH BY 10/2
+- [ ] authentication / authorization
   - [ ] account page
   - [ ] _UserDetails component_
 - [ ] styling --FINISH BY 10/9

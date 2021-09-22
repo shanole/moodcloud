@@ -1,10 +1,13 @@
 import React from 'react';
 
-function EntryDetails() {
+function EntryDetails(props) {
   return (
     <div>
-      <p>This will be entry details</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tortor odio, vestibulum non sollicitudin a, maximus vel nibh. Nam nunc.</p>
+      <hr />
+      <h4>Details page</h4>
+      <p>Rating: {props.entry.rating}</p>
+      <p>Blurb: {props.entry.blurb}</p>
+      <p>Keywords: {props.entry.keywords.map((keyword,index) => <li key={index}>{keyword}</li>)}</p>
     </div>
   );
 }

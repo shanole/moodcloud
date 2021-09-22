@@ -6,7 +6,7 @@ import KeywordCloud from './KeywordCloud';
 import UserDetails from './UserDetails';
 import NewEntryForm from './NewEntryForm';
 import EditEntryForm from './EditEntryForm';
-import EntryDetails from './NewEntryForm';
+import EntryDetails from './EntryDetails';
 import KeywordDetails from './KeywordDetails';
 import { connect } from 'react-redux';
 import * as a from './../actions/index';
@@ -44,7 +44,7 @@ class Dashboard extends React.Component {
     if (selectedForm != null) {
       if (selectedForm === "new") {
         currentlyVisibleComponent = <NewEntryForm />
-      } else {
+      } else if (selectedForm === "edit") {
         currentlyVisibleComponent = <EditEntryForm />
       }
     } else if (selectedEntry != null) {
@@ -73,7 +73,6 @@ class Dashboard extends React.Component {
           </Col>
         </Row>
       </Container>
-
     );
   }
 }
