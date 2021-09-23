@@ -1,8 +1,8 @@
 // having problems using firestore connect to listen for changes in individual entry
 import React from 'react';
 import Keyword from './Keyword';
-// import { useFirestoreConnect, isLoaded } from 'react-redux-firebase'
-// import { useSelector } from 'react-redux'
+import { useFirestoreConnect, isLoaded } from 'react-redux-firebase'
+import { useSelector } from 'react-redux'
 
 
 function EntryDetails(props) {
@@ -10,7 +10,7 @@ function EntryDetails(props) {
   //   {collection: 'entries'}
   // ])
   // const entry = useSelector(state => state.firestore.ordered.entries)[props.entry.id];
-
+  // console.log(entry);
   // if (isLoaded(entry)) {
   //   return (
   //     <div>
@@ -21,7 +21,7 @@ function EntryDetails(props) {
   //       <p>Blurb: {entry.blurb}</p>
   //       <p>Keywords: {entry.keywords.map((keyword,index) => <li key={index}>{keyword}</li>)}</p>
         
-  //       <button onClick={handleEditClick}>Edit</button>
+  //       <button onClick={props.onClickingEdit}>Edit</button>
   //     </div>
   //   )
   // } else {
@@ -34,7 +34,7 @@ function EntryDetails(props) {
       <h4>{entry.timePosted}</h4>
       <p>Rating: {entry.rating}</p>
       <p>Blurb: {entry.blurb}</p>
-      <p style={{display: 'flex'}}>{entry.keywords.map((keyword) => <Keyword text={keyword.text} />)}</p>
+      <p style={{display: 'flex'}}>{entry.keywords.map((keyword, index) => <Keyword key={index} text={keyword.text} />)}</p>
       <button onClick={props.onClickingEdit}>Edit</button>
       <button onClick={() => props.onClickingDelete(props.entry.id)}>Delete</button>
     </React.Fragment>
