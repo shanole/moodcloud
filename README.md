@@ -27,6 +27,7 @@
   - Static layout, Redux, and firebase set up
 - Sept 22
   - Basic CRUD for new entries
+  - I am SO CLOSE to getting the NewEntryForm component to add keywords to the keywords collection... I can get it to add, but not to update averages!!! Figure this out next time, as well as what to do when editing and deleting
 
 </details>
 
@@ -43,7 +44,7 @@
   - [x] view entries on dashboard (Entry, EntryList)
     - [x] display entry list by DATE
     - [ ] pagination/scrolling
-  - [ ] view entry details (EntryDetails)
+  - [x] view entry details (EntryDetails)
     - [x] don't forget TIMESTAMP
   - [ ] edit/delete entry
     - [x] basic edit functionality
@@ -51,20 +52,29 @@
       - [ ] _page to confirm delete?_
     - [x] make edit form redirect to entry DETAILS, not dashboard? --> learn about firestore queries lol
   - [x] keyword/hashtag form [react tags?](https://github.com/react-tags/react-tags)
-  - [ ] keyword collections in firestore
+- [ ] **keyword collections in firestore**
   - [ ] autosuggest
   - [x] Keyword component instead of random list elements
   - [ ] KeywordDetails component - will have average, list of posts
-- [ ] figure out toggling between form, graph, and post views --FINISH BY 9/25
+- [ ] figure out toggling between dashboard, form, keyword, and post views --FINISH BY 9/25
+
+---
+
 - [ ] create GRAPH with Chart.js
   - [ ] Each node should be able to link to a specific post
   - [ ] Change timespans
   - [ ] _Modal on hover?_
 - [ ] Routing and landing page --FINISH BY 10/2
+
+---
+
 - [ ] authentication / authorization
   - [ ] account page
   - [ ] _UserDetails component_
 - [ ] styling --FINISH BY 10/9
+
+---
+
 - [ ] _limit only one post a day_
 - [ ] _BONUS: fancy "cloud" view for keywords_
 
