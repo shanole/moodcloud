@@ -1,4 +1,5 @@
 import React from 'react';
+import Keyword from './Keyword';
 
 function Entry(props) {
   return (
@@ -7,7 +8,7 @@ function Entry(props) {
       <h4>{props.timePosted}</h4>
       <p>Rating: {props.rating}</p>
       <p>Blurb: {props.blurb}</p>
-      <p>Keywords: {props.keywords.map((keyword, index) => <li key={index}>{keyword.text}</li>)}</p>
+      <p style={{display: 'flex'}}>{props.keywords.map((keyword) => <Keyword text={keyword.text} />)}</p>
     </div>
   );
 }

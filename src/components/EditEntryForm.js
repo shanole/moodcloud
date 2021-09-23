@@ -1,5 +1,5 @@
 // currently redirects to dashboard, having problems redirecting to original post
-// figure out - editing keywords collection
+// figure out - editing keywords
 
 import React, {useState} from 'react';
 import ReusableForm from './ReusableForm';

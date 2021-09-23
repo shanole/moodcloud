@@ -51,8 +51,10 @@
     - [x] basic delete functionality
       - [ ] page to confirm delete?
     - [ ] make edit form redirect to entry DETAILS, not dashboard?
-  - [ ] keyword/hashtag form [react tags?](https://github.com/olahol/react-tagsinput#how-do-i-add-auto-suggestion)
-  - [ ] Keyword component?
+  - [x] keyword/hashtag form [react tags?](https://github.com/react-tags/react-tags)
+  - [ ] keyword collections in firestore
+  - [ ] autosuggest
+  - [x] Keyword component instead of random list elements
 - [ ] figure out toggling between form, graph, and post views --FINISH BY 9/25
 - [ ] create GRAPH with Chart.js
   - [ ] Each node should be able to link to a specific post

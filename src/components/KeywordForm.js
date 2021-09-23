@@ -34,16 +34,6 @@ function KeywordForm(props) {
     setTags([...tags, tag]);
   };
 
-  const handleDrag = (tag, currPos, newPos) => {
-    const newTags = tags.slice();
-
-    newTags.splice(currPos, 1);
-    newTags.splice(newPos, 0, tag);
-
-    // re-render
-    setTags(newTags);
-  };
-
   return (
     <React.Fragment>
       <label>Keywords:</label>
@@ -53,8 +43,8 @@ function KeywordForm(props) {
           delimiters={delimiters}
           handleDelete={handleDelete}
           handleAddition={handleAddition}
-          handleDrag={handleDrag}
-          inputFieldPosition="bottom"
+          allowDragDrop={false}
+          inputFieldPosition="top"
           autocomplete
         />
     </React.Fragment>
