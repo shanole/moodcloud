@@ -1,29 +1,34 @@
-// currently redirects to dashboard, having problems redirecting to original post
-// figure out - editing keywords
-
 import React, {useState} from 'react';
 import ReusableForm from './ReusableForm';
 import { useFirestore } from 'react-redux-firebase';
 import { useDispatch } from 'react-redux'
 import { showEntry, showDashboard } from './../actions/index'
 
+
 function EditEntryForm(props) {
   const { entry } = props;
   const firestore = useFirestore();
   const dispatch = useDispatch();
 
-  function handleEditPostFormSubmission(event) {
+  async function handleEditPostFormSubmission(event) {
     event.preventDefault();
     const propertiesToUpdate = {
       rating: event.target.rating.value,
       blurb: event.target.blurb.value,
       keywords: tagsToBeSubmitted,
     }
-    return firestore.update({collection: 'entries', doc: entry.id}, propertiesToUpdate).then(() => {      
-      // this redirect isn't really working well
-      // const action = showEntry(entry);
-      const action = showDashboard();
-      dispatch(action)});
+
+    return firestore.update({collection: 'entries', doc: entry.id}, propertiesToUpdate).then( async () => {      
+      var docRef = firestore.collection('entries').doc(entry.id); 
+      docRef.get().then((doc) => {
+        if (doc.exists) {
+          const action = showEntry(doc.data());
+          dispatch(action);
+        } else {
+          console.log("No such document");
+        }
+      })
+    });
   }
 
   const [tagsToBeSubmitted, setTags] = useState([]);

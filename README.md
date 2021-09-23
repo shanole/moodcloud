@@ -45,22 +45,21 @@
     - [ ] pagination/scrolling
   - [ ] view entry details (EntryDetails)
     - [x] don't forget TIMESTAMP
-    - [ ] use firestoreConnect to listen for changes in each individual entry
   - [ ] edit/delete entry
     - [x] basic edit functionality
     - [x] basic delete functionality
-      - [ ] page to confirm delete?
-    - [ ] make edit form redirect to entry DETAILS, not dashboard?
+      - [ ] _page to confirm delete?_
+    - [x] make edit form redirect to entry DETAILS, not dashboard? --> learn about firestore queries lol
   - [x] keyword/hashtag form [react tags?](https://github.com/react-tags/react-tags)
   - [ ] keyword collections in firestore
   - [ ] autosuggest
   - [x] Keyword component instead of random list elements
+  - [ ] KeywordDetails component - will have average, list of posts
 - [ ] figure out toggling between form, graph, and post views --FINISH BY 9/25
 - [ ] create GRAPH with Chart.js
   - [ ] Each node should be able to link to a specific post
-  - [ ] _Change timespans_
+  - [ ] Change timespans
   - [ ] _Modal on hover?_
-- [ ] KeywordDetails component
 - [ ] Routing and landing page --FINISH BY 10/2
 - [ ] authentication / authorization
   - [ ] account page
