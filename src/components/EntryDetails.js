@@ -10,7 +10,7 @@ function EntryDetails(props) {
       <p>Blurb: {entry.blurb}</p>
       <div style={{display: 'flex'}}>{entry.keywords.map((keyword, index) => <Keyword key={index} text={keyword.text} />)}</div>
       <button onClick={props.onClickingEdit}>Edit</button>
-      <button onClick={() => props.onClickingDelete(props.entry.id)}>Delete</button>
+      <button onClick={() => props.onClickingDelete(entry)}>Delete</button>
     </React.Fragment>
   )
 }

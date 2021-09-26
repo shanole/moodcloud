@@ -38,9 +38,51 @@ class Dashboard extends React.Component {
     dispatch(action);
   }
 
-  handleDeletingEntry = (id) => {
-    this.props.firestore.delete({collection: 'entries', doc: id});
+  handleDeleteKeywordTransaction = async (keyword, rating) => {
+    var ref = this.props.firestore.collection('keywords').doc(keyword);
+    this.props.firestore.runTransaction( async (transaction) => {
+      return transaction.get(ref).then(doc => {
+        if (doc.exists) {
+          let newNumRating = doc.data().numRatings-1;
+          
+          if (newNumRating > 0) {
+            let oldRatingTotal = doc.data().avgRating * doc.data().numRatings;
+            let newAvgRating = (oldRatingTotal - (rating)) / newNumRating;
+            transaction.update(ref, {numRatings: newNumRating, avgRating: newAvgRating})
+          } else {
+            transaction.delete(ref)
+          }
+        }
+      })
+    })
+  }
+
+  handleAddKeywordTransaction = async (keyword, rating) => {
+    var ref = this.props.firestore.collection('keywords').doc(keyword);
+    this.props.firestore.runTransaction( async (transaction) => {
+      return transaction.get(ref).then( (doc) => {
+        if (doc.exists) {
+          let newNumRatings = doc.data().numRatings + 1;
+          let oldRatingTotal = doc.data().avgRating * doc.data().numRatings;
+          let newAvgRating = (oldRatingTotal + (rating)) / newNumRatings;
+          transaction.update(ref, {numRatings: newNumRatings, avgRating: newAvgRating})
+        } else {
+          transaction.set(ref, {numRatings: 1, avgRating: (rating)})
+        }
+      })
+    })
+  }
+
+  handleDeletingKeywords = async (keywordsArray, rating) => {
+    for (const keyword of keywordsArray) {
+      await this.deleteKeywordTransaction(keyword.text, rating);
+    }
+  }
+
+  handleDelete = (entry) => {
     const { dispatch } = this.props;
+    this.props.firestore.delete({collection: 'entries', doc: entry.id});
+    this.handleDeletingKeywords(entry.keywords, parseInt(entry.rating));
     const action = a.showDashboard();
     dispatch(action);
   }
@@ -50,11 +92,11 @@ class Dashboard extends React.Component {
     let currentlyVisibleComponent = null;
 
     if (selectedForm != null && selectedEntry === null) {
-      currentlyVisibleComponent = <NewEntryForm />
+      currentlyVisibleComponent = <NewEntryForm onSubmittingKeyword={this.handleAddKeywordTransaction}/>
     } else if (selectedForm != null && selectedEntry != null) {
       currentlyVisibleComponent = <EditEntryForm entry={selectedEntry}/>
     } else if (selectedEntry != null) {
-      currentlyVisibleComponent = <EntryDetails entry={selectedEntry} onClickingDelete={this.handleDeletingEntry} onClickingEdit={this.handleEditClick}/>
+      currentlyVisibleComponent = <EntryDetails entry={selectedEntry} onClickingDelete={this.handleDelete} onClickingEdit={this.handleEditClick}/>
     } else if (selectedKeyword != null) {
       currentlyVisibleComponent = <KeywordDetails keyword={selectedKeyword} />
     } else {
