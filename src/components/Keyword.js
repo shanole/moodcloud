@@ -25,8 +25,8 @@ function Keyword(props) {
   }
 
   return (
-    <div onClick={() => goToKeywordDetails(props.keyword.text)}>
-      <KeywordBubble>{props.keyword.text}
+    <div onClick={() => goToKeywordDetails(props.keywordData.text)}>
+      <KeywordBubble>{props.keywordData.text}
       </KeywordBubble>
     </div>
   );
