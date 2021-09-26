@@ -53,10 +53,11 @@
     - [x] make edit form redirect to entry DETAILS, not dashboard? --> learn about firestore queries lol
   - [x] keyword/hashtag form [react tags?](https://github.com/react-tags/react-tags)
 - [ ] **keyword collections in firestore**
+  - [x] add and update averages for keywords when creating new post
   - [ ] autosuggest
   - [x] Keyword component instead of random list elements
   - [ ] KeywordDetails component - will have average, list of posts
-- [ ] figure out toggling between dashboard, form, keyword, and post views --FINISH BY 9/25
+- [ ] figure out toggling between dashboard, form, keyword, and post views --FINISH BY 9/26
 
 ---
 
