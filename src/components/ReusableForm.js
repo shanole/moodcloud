@@ -18,7 +18,7 @@ function ReusableForm(props) {
           type="number" 
           id="rating" 
           name="rating" 
-          min="0" max="100" 
+          min="0" max="10" 
           defaultValue = {entryRating}
           required/>
         <label htmlFor="blurb">Tell me about your day</label>

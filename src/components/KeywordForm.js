@@ -1,5 +1,7 @@
 // max number of tags?
 
+import { useSelector } from 'react-redux';
+import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 import React, {useState, useEffect} from 'react';
 import { WithContext as ReactTags } from 'react-tag-input';
 
@@ -22,6 +24,23 @@ const delimiters = [KeyCodes.comma, KeyCodes.enter, KeyCodes.tab];
 
 function KeywordForm(props) {
 
+  useFirestoreConnect({
+    collection: 'keywords',
+    orderBy: ['numRatings', 'desc']
+  });
+
+  const keywords = useSelector(state => state.firestore.ordered.keywords);
+  let keywordSuggestions =[];
+
+  if(isLoaded(keywords)) {
+    keywords.forEach(keyword => 
+      keywordSuggestions.push(
+        {
+          id: keyword.text,
+          text: keyword.text
+        })
+    )}
+
   const [tags, setTags] = useState(props.prefilledTags);
 
   useEffect(() => props.addNewTags(tags) )
@@ -39,7 +58,7 @@ function KeywordForm(props) {
       <label>Keywords:</label>
         <ReactTags
           tags={tags}
-          suggestions={suggestions}
+          suggestions={keywordSuggestions}
           delimiters={delimiters}
           handleDelete={handleDelete}
           handleAddition={handleAddition}

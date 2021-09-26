@@ -54,10 +54,10 @@
   - [x] keyword/hashtag form [react tags?](https://github.com/react-tags/react-tags)
 - [ ] **keyword collections in firestore**
   - [x] add and update averages for keywords when creating new post
-  - [ ] autosuggest
+  - [x] autosuggest
   - [x] Keyword component instead of random list elements
-  - [ ] KeywordDetails component - will have average, list of posts
-- [ ] figure out toggling between dashboard, form, keyword, and post views --FINISH BY 9/26
+  - [x] KeywordDetails component - will have average, list of posts
+- [x] figure out toggling between dashboard, form, keyword, and post views --FINISH BY 9/26
 
 ---
 
