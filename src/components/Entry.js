@@ -20,7 +20,7 @@ function Entry(props) {
         <p>Rating: {entryContent.rating}</p>
         <p>Blurb: {entryContent.blurb}</p>
       </div>
-      <div style={{display: 'flex'}}>{entryContent.keywords.map((keyword, index) => <Keyword key={index} text={keyword.text} />)}</div>
+      <div style={{display: 'flex'}}>{entryContent.keywords.map((keyword, index) => <Keyword key={index} keyword={keyword} />)}</div>
     </React.Fragment>
   );
 }

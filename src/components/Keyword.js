@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { showKeyword } from '../actions';
+import { useFirestore } from 'react-redux-firebase';
 
 const KeywordBubble = styled.div`
 background-color: lightgrey;
@@ -12,15 +13,20 @@ border-radius: 10px;
 `
 
 function Keyword(props) {
+  const firestore = useFirestore();
   const dispatch = useDispatch();
+
   const goToKeywordDetails = (keyword) => {
-    const action = showKeyword(keyword);
-    dispatch(action);
+    var keywordRef = firestore.collection('keywords').doc(keyword);
+    keywordRef.get().then((doc) => {
+      const action = showKeyword(doc.data());
+      dispatch(action);
+    })
   }
 
   return (
-    <div onClick={() => goToKeywordDetails(props.text)}>
-      <KeywordBubble>{props.text}
+    <div onClick={() => goToKeywordDetails(props.keyword.text)}>
+      <KeywordBubble>{props.keyword.text}
       </KeywordBubble>
     </div>
   );

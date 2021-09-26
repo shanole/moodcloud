@@ -67,7 +67,7 @@ class Dashboard extends React.Component {
           let newAvgRating = (oldRatingTotal + (rating)) / newNumRatings;
           transaction.update(ref, {numRatings: newNumRatings, avgRating: newAvgRating})
         } else {
-          transaction.set(ref, {numRatings: 1, avgRating: (rating)})
+          transaction.set(ref, {text: keyword, numRatings: 1, avgRating: (rating)})
         }
       })
     })
