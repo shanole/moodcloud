@@ -75,7 +75,7 @@ class Dashboard extends React.Component {
 
   handleDeletingKeywords = async (keywordsArray, rating) => {
     for (const keyword of keywordsArray) {
-      await this.deleteKeywordTransaction(keyword.text, rating);
+      await this.handleDeleteKeywordTransaction(keyword.text, rating);
     }
   }
 
@@ -94,7 +94,7 @@ class Dashboard extends React.Component {
     if (selectedForm != null && selectedEntry === null) {
       currentlyVisibleComponent = <NewEntryForm onSubmittingKeyword={this.handleAddKeywordTransaction}/>
     } else if (selectedForm != null && selectedEntry != null) {
-      currentlyVisibleComponent = <EditEntryForm entry={selectedEntry}/>
+      currentlyVisibleComponent = <EditEntryForm entry={selectedEntry} updateKeyword={this.handleAddKeywordTransaction} deleteOriginalKeywords={this.handleDeletingKeywords}/>
     } else if (selectedEntry != null) {
       currentlyVisibleComponent = <EntryDetails entry={selectedEntry} onClickingDelete={this.handleDelete} onClickingEdit={this.handleEditClick}/>
     } else if (selectedKeyword != null) {

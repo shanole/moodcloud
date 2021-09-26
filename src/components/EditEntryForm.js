@@ -18,7 +18,16 @@ function EditEntryForm(props) {
       keywords: tagsToBeSubmitted,
     }
 
-    return firestore.update({collection: 'entries', doc: entry.id}, propertiesToUpdate).then( async () => {      
+    const handleKeywordSubmission = async (newKeywords, rating) => {
+      for (const keyword of newKeywords) {
+        await props.updateKeyword(keyword.text, parseInt(rating));
+      }
+    }
+
+    const originalKeywords = entry.keywords;
+    const originalRating = entry.rating;
+
+    firestore.update({collection: 'entries', doc: entry.id}, propertiesToUpdate).then( async () => {      
       var docRef = firestore.collection('entries').doc(entry.id); 
       docRef.get().then((doc) => {
         if (doc.exists) {
@@ -29,6 +38,10 @@ function EditEntryForm(props) {
         }
       })
     });
+    props.deleteOriginalKeywords(originalKeywords, originalRating).then(()=>
+      handleKeywordSubmission(tagsToBeSubmitted, event.target.rating.value)
+    )
+
   }
 
   const [tagsToBeSubmitted, setTags] = useState([]);
