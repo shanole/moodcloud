@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { showKeyword } from '../actions';
 
 const KeywordBubble = styled.div`
 background-color: lightgrey;
@@ -10,9 +12,17 @@ border-radius: 10px;
 `
 
 function Keyword(props) {
+  const dispatch = useDispatch();
+  const goToKeywordDetails = (keyword) => {
+    const action = showKeyword(keyword);
+    dispatch(action);
+  }
+
   return (
-    <KeywordBubble>{props.text}
-    </KeywordBubble>
+    <div onClick={() => goToKeywordDetails(props.text)}>
+      <KeywordBubble>{props.text}
+      </KeywordBubble>
+    </div>
   );
 }
 
