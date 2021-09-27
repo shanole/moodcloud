@@ -1,18 +1,9 @@
 // max number of tags?
 
 import { useSelector } from 'react-redux';
-import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
+import { useFirestoreConnect, isLoaded } from 'react-redux-firebase'
 import React, {useState, useEffect} from 'react';
 import { WithContext as ReactTags } from 'react-tag-input';
-
-const COUNTRIES = ['Thailand','India','Vietnam','Turkey']
-
-const suggestions = COUNTRIES.map(country => {
-  return {
-    id: country,
-    text: country
-  };
-});
 
 const KeyCodes = {
   tab: 9,

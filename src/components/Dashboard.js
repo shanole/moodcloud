@@ -44,7 +44,7 @@ class Dashboard extends React.Component {
     await this.props.firestore.runTransaction( async (transaction) => {
       return transaction.get(ref).then(doc => {
         if (!doc.exists) {
-          throw "document doesn't exist";
+          console.log("document doesn't exist");
         }
         let newNumRating = doc.data().numRatings-1;       
         if (newNumRating > 0) {

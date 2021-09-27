@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Entry from './Entry';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 import { getSnapshotByObject } from 'redux-firestore';
 
-function EntryList(props) {
+function EntryList() {
   const [pointer, setPointer] = useState(null);
 
   const updatePointer = () => {
