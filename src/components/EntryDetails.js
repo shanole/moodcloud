@@ -3,7 +3,7 @@ import Keyword from './Keyword';
 
 function EntryDetails(props) {
   const { entry } = props;
-
+  
   return(
     <React.Fragment>
       <h4>{entry.timePosted}</h4>

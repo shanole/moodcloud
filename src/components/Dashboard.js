@@ -38,21 +38,22 @@ class Dashboard extends React.Component {
     dispatch(action);
   }
 
+  // bug here!! specifically when doc already exists
   handleDeleteKeywordTransaction = async (keyword, rating) => {
     var ref = this.props.firestore.collection('keywords').doc(keyword);
-    this.props.firestore.runTransaction( async (transaction) => {
+    await this.props.firestore.runTransaction( async (transaction) => {
       return transaction.get(ref).then(doc => {
-        if (doc.exists) {
-          let newNumRating = doc.data().numRatings-1;
-          
-          if (newNumRating > 0) {
-            let oldRatingTotal = doc.data().avgRating * doc.data().numRatings;
-            let newAvgRating = (oldRatingTotal - (rating)) / newNumRating;
-            transaction.update(ref, {numRatings: newNumRating, avgRating: newAvgRating})
-          } else {
-            transaction.delete(ref)
-          }
+        if (!doc.exists) {
+          throw "document doesn't exist";
         }
+        let newNumRating = doc.data().numRatings-1;       
+        if (newNumRating > 0) {
+          let oldRatingTotal = doc.data().avgRating * doc.data().numRatings;
+          let newAvgRating = (oldRatingTotal - (rating)) / newNumRating;
+          transaction.set(ref, {numRatings: newNumRating, avgRating: newAvgRating})
+        } else {
+          transaction.delete(ref)
+        } 
       })
     })
   }
@@ -65,7 +66,7 @@ class Dashboard extends React.Component {
           let newNumRatings = doc.data().numRatings + 1;
           let oldRatingTotal = doc.data().avgRating * doc.data().numRatings;
           let newAvgRating = (oldRatingTotal + (rating)) / newNumRatings;
-          transaction.update(ref, {numRatings: newNumRatings, avgRating: newAvgRating})
+          transaction.set(ref, {numRatings: newNumRatings, avgRating: newAvgRating})
         } else {
           transaction.set(ref, {text: keyword, numRatings: 1, avgRating: (rating)})
         }

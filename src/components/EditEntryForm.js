@@ -27,19 +27,28 @@ function EditEntryForm(props) {
     const originalKeywords = entry.keywords;
     const originalRating = entry.rating;
 
-    firestore.update({collection: 'entries', doc: entry.id}, propertiesToUpdate).then( async () => {      
+   firestore.update({collection: 'entries', doc: entry.id}, propertiesToUpdate).then( async () => {      
       var docRef = firestore.collection('entries').doc(entry.id); 
-      docRef.get().then((doc) => {
+      await docRef.get().then((doc) => {
         if (doc.exists) {
-          const action = showEntry(doc.data());
+          const data = {
+            id: doc.id,
+            blurb: doc.data().blurb,
+            rating: doc.data().rating,
+            timestamp: doc.data().timestamp,
+            timePosted: doc.data().timePosted,
+            keywords: doc.data().keywords
+          }
+          const action = showEntry(data);
           dispatch(action);
         } else {
           console.log("No such document");
         }
       })
     });
-    props.deleteOriginalKeywords(originalKeywords, originalRating).then(()=>
+    props.deleteOriginalKeywords(originalKeywords, originalRating).then(()=> {
       handleKeywordSubmission(tagsToBeSubmitted, event.target.rating.value)
+    }
     )
 
   }
