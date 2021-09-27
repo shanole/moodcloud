@@ -66,7 +66,7 @@ function EntryList() {
   const [loadedEntries, setLoadedEntries] = useState([]);
   const [lastKey, setLastKey] = useState("");
   const [loading, setLoading] = useState (false);
-  const [listeners, setListeners] = useState(null);
+  const [firstLoad, setFirstLoad] = useState(true);
 
   // const attachListener = () => {
   //   let listener = firestore.collection('entries').orderBy('timestamp', 'desc').limitToLast(loadedEntries.length > 0 ? loadedEntries.length : 2).onSnapshot((docs) => {
@@ -83,14 +83,17 @@ function EntryList() {
   // }
 
   useEffect( () => {
-    getFirstBatch()
-      .then( (res) => {
-        setLoadedEntries(res.entries);
-        setLastKey(res.lastKey)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    if (firstLoad) {
+      getFirstBatch()
+        .then( (res) => {
+          setLoadedEntries(res.entries);
+          setLastKey(res.lastKey)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+        setFirstLoad(false);
+    }
     })
 
   const fetchMorePosts = (key) => {
@@ -99,8 +102,10 @@ function EntryList() {
         getNextBatch(key)
           .then( (res) => {
             console.log('getNextBatch finished')
+            console.log('loadedEntries before', loadedEntries)
             setLastKey(res.lastKey);
             setLoadedEntries(loadedEntries.concat(res.entries));
+            console.log('loadedEntries after', loadedEntries)
             setLoading(false);
           })
           .catch(err => {
