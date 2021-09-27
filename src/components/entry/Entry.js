@@ -1,7 +1,7 @@
 import React from 'react';
-import Keyword from './Keyword';
+import Keyword from './../keyword/Keyword';
 import { useDispatch } from 'react-redux';
-import { showEntry } from './../actions/index';
+import { showEntry } from './../../actions/index';
 
 function Entry(props) {
   const { entryContent } = props;

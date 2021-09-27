@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { showKeyword } from '../actions';
+import { showKeyword } from '../../actions';
 import { useFirestore } from 'react-redux-firebase';
 
 const KeywordBubble = styled.div`

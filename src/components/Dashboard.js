@@ -1,13 +1,13 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Graph from './Graph';
-import EntryList from './EntryList';
+import EntryList from './entry/EntryList';
 import KeywordCloud from './KeywordCloud';
 import UserDetails from './UserDetails';
-import NewEntryForm from './NewEntryForm';
-import EditEntryForm from './EditEntryForm';
-import EntryDetails from './EntryDetails';
-import KeywordDetails from './KeywordDetails';
+import NewEntryForm from './entry/NewEntryForm';
+import EditEntryForm from './entry/EditEntryForm';
+import EntryDetails from './entry/EntryDetails';
+import KeywordDetails from './keyword/KeywordDetails';
 import { connect } from 'react-redux';
 import { withFirestore } from 'react-redux-firebase'
 import * as a from './../actions/index';

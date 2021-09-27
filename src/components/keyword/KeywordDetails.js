@@ -1,5 +1,5 @@
 import React from 'react';
-import Entry from './Entry';
+import Entry from './../entry/Entry';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Keyword from './Keyword';
+import Keyword from './../keyword/Keyword';
 
 function EntryDetails(props) {
   const { entry } = props;

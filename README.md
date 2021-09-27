@@ -47,7 +47,7 @@
   - [x] view entries on dashboard (Entry, EntryList)
     - [x] display entry list by DATE
     - [x] pagination
-      - [ ] _infinite scroll_
+      - [x] _infinite scroll_
   - [x] view entry details (EntryDetails)
     - [x] don't forget TIMESTAMP
   - [x] edit/delete entry

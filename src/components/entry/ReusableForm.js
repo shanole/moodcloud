@@ -1,5 +1,5 @@
 import React from 'react';
-import KeywordForm from './KeywordForm';
+import KeywordForm from './../keyword/KeywordForm';
 
 function ReusableForm(props) {
   let entryRating, entryBlurb, entryKeywords;

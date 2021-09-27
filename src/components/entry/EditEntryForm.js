@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import ReusableForm from './ReusableForm';
 import { useFirestore } from 'react-redux-firebase';
 import { useDispatch } from 'react-redux'
-import { showEntry } from './../actions/index'
+import { showEntry } from '../../actions/index'
 
 
 function EditEntryForm(props) {
