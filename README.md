@@ -43,7 +43,7 @@
   - [x] create new entry
   - [x] view entries on dashboard (Entry, EntryList)
     - [x] display entry list by DATE
-    - [ ] pagination/scrolling
+    - [x] pagination/scrolling
   - [x] view entry details (EntryDetails)
     - [x] don't forget TIMESTAMP
   - [ ] edit/delete entry
@@ -52,7 +52,7 @@
       - [ ] _page to confirm delete?_
     - [x] make edit form redirect to entry DETAILS, not dashboard? --> learn about firestore queries lol
   - [x] keyword/hashtag form [react tags?](https://github.com/react-tags/react-tags)
-- [ ] **keyword collections in firestore**
+- [x] **keyword collections in firestore**
   - [x] add and update averages for keywords when creating new post
   - [x] autosuggest
   - [x] Keyword component instead of random list elements
