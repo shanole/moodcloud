@@ -1,43 +1,122 @@
 import React, { useState } from 'react';
 import Entry from './Entry';
-import { useSelector } from 'react-redux';
-import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
-import { getSnapshotByObject } from 'redux-firestore';
+import { useFirestore } from 'react-redux-firebase'
 
 function EntryList() {
-  const [pointer, setPointer] = useState(null);
 
-  const updatePointer = () => {
-    if (isLoaded(entries)) {
-      setPointer(getSnapshotByObject(entries[entries.length-1]))
+function EntryList() {
+  const firestore = useFirestore();
+
+  const getFirstBatch = async () => {
+    try {
+      const data = await firestore 
+        .collection('entries')
+        .orderBy('timestamp', 'desc')
+        .limit(3)
+        .get();
+      
+      let entries = [];
+      let lastKey = "";
+      data.forEach( (doc) => {
+        entries.push({
+          id: doc.id,
+          blurb:doc.data().blurb,
+          rating: doc.data().rating,
+          keywords: doc.data().keywords,
+          timestamp: doc.data().timestamp,
+          timePosted: doc.data().timePosted
+        })
+        lastKey = doc.data().timestamp;
+      });
+      return { entries , lastKey }
+    } catch(e) {
+      console.log(e)
     }
   }
-  // order by date
-  useFirestoreConnect({collection: 'entries', orderBy: ['timestamp', 'desc'], limit: 2, ...(pointer && { startAfter: pointer })});
-  
-  const entries = useSelector(state => state.firestore.ordered.entries);
 
-  if (isLoaded(entries) && !isEmpty(entries)) {
-    return(
-      <React.Fragment>
-        <button onClick={() => setPointer(null)}>Back to Top</button>
-        {entries.map( entry => {
+  const getNextBatch = async (key) => {
+    console.log('getNextBatch called!!')
+    try {
+      const data = await firestore 
+        .collection('entries')
+        .orderBy('timestamp', 'desc')
+        .startAfter(key)
+        .limit(3)
+        .get();
+      
+      let entries = [];
+      let lastKey = "";
+      data.forEach( (doc) => {
+        entries.push({
+          id: doc.id,
+          blurb:doc.data().blurb,
+          rating: doc.data().rating,
+          keywords: doc.data().keywords,
+          timestamp: doc.data().timestamp,
+          timePosted: doc.data().timePosted
+        })
+        lastKey = doc.data().timestamp;
+      });
+      return { entries, lastKey }
+    } catch(e) {
+      console.log(e)
+    }
+  }
+
+  const [loadedEntries, setLoadedEntries] = useState([]);
+  const [lastKey, setLastKey] = useState("");
+  const [loading, setLoading] = useState (false);
+  const [firstRender, setFirstRender] = useState(true);
+  const [listeners, setListeners] = useState(null);
+
+  const attachListener = () => {
+    let listener = firestore.collection('entries').orderBy('timestamp', 'desc').limitToLast(loadedEntries.length > 0 ? loadedEntries.length : 2).onSnapshot((docs) => {
+      console.log('change detected by listener')
+      const newList = docs.map((doc) => {doc.data()});
+      console.log('newLIst in listener', newList)
+      setLoadedEntries(newList);
+    })
+    setListeners(listener);
+  }
+
+  const detachListener = () => {
+    setListeners(listeners());
+  }
+
+  useEffect( () => {
+    getFirstBatch()
+      .then( (res) => {
+        setLoadedEntries(res.entries);
+        setLastKey(res.lastKey)
+        attachListener();
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    }, [])
+
+  const backToTop = () => {
+    getFirstBatch()
+      .then( (res) => {
+        setLoadedEntries(res.entries);
+        setLastKey(res.lastKey)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  const allPosts = (
+    <div style={{height: "500px", overflowY: "auto"}}>
+        {loadedEntries.map( entry => {
           return <Entry key={entry.id} entryContent={entry}/>
         })}
-        <button onClick={updatePointer}>See More</button>
-      </React.Fragment>
+        <button>See More</button>
+      </div>
     )
-  } else if (isLoaded(entries) && isEmpty(entries)) {
-    return(
-      <React.Fragment>
-        <button onClick={() => setPointer(null)}>Back to Top</button>
-        <h3>No entries.</h3>
-      </React.Fragment>
-    )
-  } else {
-    return(
-      <h3>Loading...</h3>
-    )
+
+
+  return(<div></div>);
   }
 }
 
