@@ -34,6 +34,7 @@ function EntryList() {
 
   const getNextBatch = async (key) => {
     console.log('getNextBatch called!!')
+    console.log('key', key);
     try {
       const data = await firestore 
         .collection('entries')
@@ -55,6 +56,7 @@ function EntryList() {
         })
         lastKey = doc.data().timestamp;
       });
+      console.log('new entries',entries)
       return { entries, lastKey }
     } catch(e) {
       console.log(e)
@@ -66,37 +68,37 @@ function EntryList() {
   const [loading, setLoading] = useState (false);
   const [listeners, setListeners] = useState(null);
 
-  const attachListener = () => {
-    let listener = firestore.collection('entries').orderBy('timestamp', 'desc').limitToLast(loadedEntries.length > 0 ? loadedEntries.length : 2).onSnapshot((docs) => {
-      console.log('change detected by listener')
-      const newList = docs.map((doc) => {return doc.data()});
-      console.log('newLIst in listener', newList)
-      setLoadedEntries(newList);
-    })
-    setListeners(listener);
-  }
+  // const attachListener = () => {
+  //   let listener = firestore.collection('entries').orderBy('timestamp', 'desc').limitToLast(loadedEntries.length > 0 ? loadedEntries.length : 2).onSnapshot((docs) => {
+  //     console.log('change detected by listener')
+  //     const newList = docs.map((doc) => {return doc.data()});
+  //     console.log('newLIst in listener', newList)
+  //     setLoadedEntries(newList);
+  //   })
+  //   setListeners(listener);
+  // }
 
-  const detachListener = () => {
-    setListeners(listeners());
-  }
+  // const detachListener = () => {
+  //   setListeners(listeners());
+  // }
 
   useEffect( () => {
     getFirstBatch()
       .then( (res) => {
         setLoadedEntries(res.entries);
         setLastKey(res.lastKey)
-        attachListener();
       })
       .catch(err => {
         console.log(err)
       })
-    }, [])
+    })
 
   const fetchMorePosts = (key) => {
       if (key !== "") {
         setLoading(true);
         getNextBatch(key)
           .then( (res) => {
+            console.log('getNextBatch finished')
             setLastKey(res.lastKey);
             setLoadedEntries(loadedEntries.concat(res.entries));
             setLoading(false);
@@ -126,7 +128,6 @@ function EntryList() {
         })}
       </div>
     )
-
 
   return(
     <React.Fragment>
