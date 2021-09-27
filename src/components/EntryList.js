@@ -33,8 +33,6 @@ function EntryList() {
   }
 
   const getNextBatch = async (key) => {
-    console.log('getNextBatch called!!')
-    console.log('key', key);
     try {
       const data = await firestore 
         .collection('entries')
@@ -56,7 +54,6 @@ function EntryList() {
         })
         lastKey = doc.data().timestamp;
       });
-      console.log('new entries',entries)
       return { entries, lastKey }
     } catch(e) {
       console.log(e)
@@ -67,20 +64,6 @@ function EntryList() {
   const [lastKey, setLastKey] = useState("");
   const [loading, setLoading] = useState (false);
   const [firstLoad, setFirstLoad] = useState(true);
-
-  // const attachListener = () => {
-  //   let listener = firestore.collection('entries').orderBy('timestamp', 'desc').limitToLast(loadedEntries.length > 0 ? loadedEntries.length : 2).onSnapshot((docs) => {
-  //     console.log('change detected by listener')
-  //     const newList = docs.map((doc) => {return doc.data()});
-  //     console.log('newLIst in listener', newList)
-  //     setLoadedEntries(newList);
-  //   })
-  //   setListeners(listener);
-  // }
-
-  // const detachListener = () => {
-  //   setListeners(listeners());
-  // }
 
   useEffect( () => {
     if (firstLoad) {
@@ -94,18 +77,38 @@ function EntryList() {
         })
         setFirstLoad(false);
     }
-    })
+    }, [firstLoad, getFirstBatch])
+
+  useEffect(() => {
+    const currentLoadedPosts = loadedEntries.length > 0 ? loadedEntries.length : 3;
+    const unsubscribe = firestore.collection('entries').orderBy('timestamp', 'desc').limit(currentLoadedPosts)
+      .onSnapshot( snapshot => {
+        if (snapshot.size) {
+          let newList = []
+          snapshot.forEach((doc) => { 
+            newList.push ({
+                id: doc.id,
+                blurb:doc.data().blurb,
+                rating: doc.data().rating,
+                keywords: doc.data().keywords,
+                timestamp: doc.data().timestamp,
+                timePosted: doc.data().timePosted })
+          });
+          setLoadedEntries(newList);
+        }
+      })
+    return () => {
+      unsubscribe()
+    }
+  }, [firestore])
 
   const fetchMorePosts = (key) => {
       if (key !== "") {
         setLoading(true);
         getNextBatch(key)
           .then( (res) => {
-            console.log('getNextBatch finished')
-            console.log('loadedEntries before', loadedEntries)
             setLastKey(res.lastKey);
             setLoadedEntries(loadedEntries.concat(res.entries));
-            console.log('loadedEntries after', loadedEntries)
             setLoading(false);
           })
           .catch(err => {
