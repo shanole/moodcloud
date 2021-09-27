@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Entry from './Entry';
 import { useFirestore } from 'react-redux-firebase'
-
-function EntryList() {
 
 function EntryList() {
   const firestore = useFirestore();
@@ -66,13 +64,12 @@ function EntryList() {
   const [loadedEntries, setLoadedEntries] = useState([]);
   const [lastKey, setLastKey] = useState("");
   const [loading, setLoading] = useState (false);
-  const [firstRender, setFirstRender] = useState(true);
   const [listeners, setListeners] = useState(null);
 
   const attachListener = () => {
     let listener = firestore.collection('entries').orderBy('timestamp', 'desc').limitToLast(loadedEntries.length > 0 ? loadedEntries.length : 2).onSnapshot((docs) => {
       console.log('change detected by listener')
-      const newList = docs.map((doc) => {doc.data()});
+      const newList = docs.map((doc) => {return doc.data()});
       console.log('newLIst in listener', newList)
       setLoadedEntries(newList);
     })
@@ -95,6 +92,22 @@ function EntryList() {
       })
     }, [])
 
+  const fetchMorePosts = (key) => {
+      if (key !== "") {
+        setLoading(true);
+        getNextBatch(key)
+          .then( (res) => {
+            setLastKey(res.lastKey);
+            setLoadedEntries(loadedEntries.concat(res.entries));
+            setLoading(false);
+          })
+          .catch(err => {
+            console.log(err);
+            setLoading(false);
+          });
+      }
+    }
+
   const backToTop = () => {
     getFirstBatch()
       .then( (res) => {
@@ -111,13 +124,22 @@ function EntryList() {
         {loadedEntries.map( entry => {
           return <Entry key={entry.id} entryContent={entry}/>
         })}
-        <button>See More</button>
       </div>
     )
 
 
-  return(<div></div>);
-  }
+  return(
+    <React.Fragment>
+      <button onClick={backToTop}>back to top</button>
+      {allPosts}
+      {loading ? (<p>Loading...</p>
+      ) : lastKey !== "" && lastKey !== undefined ? (<button onClick={() => fetchMorePosts(lastKey)}>more</button>
+      ) : (
+      <p>No more</p>
+      )}
+    </React.Fragment>
+    );
 }
+
 
 export default EntryList;
