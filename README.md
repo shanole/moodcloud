@@ -28,6 +28,9 @@
 - Sept 22
   - Basic CRUD for new entries
   - I am SO CLOSE to getting the NewEntryForm component to add keywords to the keywords collection... I can get it to add, but not to update averages!!! Figure this out next time, as well as what to do when editing and deleting
+- Sept 26
+  - Finished database design for keyword collection
+  - Incorporated pagination w/ EntryList - having trouble w/ infinite scroll
 
 </details>
 
@@ -39,20 +42,21 @@
   - [x] incorporate Redux
     - [x] write reducers for dashboard display
     - [x] incorporate firebase
-- [ ] develop full CRUD for posts with firestore
+- [x] develop full CRUD for posts with firestore
   - [x] create new entry
   - [x] view entries on dashboard (Entry, EntryList)
     - [x] display entry list by DATE
-    - [ ] pagination/scrolling
+    - [x] pagination
+      - [ ] _infinite scroll_
   - [x] view entry details (EntryDetails)
     - [x] don't forget TIMESTAMP
-  - [ ] edit/delete entry
+  - [x] edit/delete entry
     - [x] basic edit functionality
     - [x] basic delete functionality
       - [ ] _page to confirm delete?_
     - [x] make edit form redirect to entry DETAILS, not dashboard? --> learn about firestore queries lol
   - [x] keyword/hashtag form [react tags?](https://github.com/react-tags/react-tags)
-- [ ] **keyword collections in firestore**
+- [x] **keyword collections in firestore**
   - [x] add and update averages for keywords when creating new post
   - [x] autosuggest
   - [x] Keyword component instead of random list elements

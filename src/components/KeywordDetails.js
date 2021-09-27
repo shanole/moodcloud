@@ -15,6 +15,7 @@ function KeywordDetails(props) {
 
   const entries = useSelector(state => state.firestore.ordered.keywordEntries)
 
+  console.log(entries);
   if (isLoaded(entries) && !isEmpty(entries)) {
     return(
       <React.Fragment>

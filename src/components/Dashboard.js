@@ -50,7 +50,7 @@ class Dashboard extends React.Component {
         if (newNumRating > 0) {
           let oldRatingTotal = doc.data().avgRating * doc.data().numRatings;
           let newAvgRating = (oldRatingTotal - (rating)) / newNumRating;
-          transaction.set(ref, {numRatings: newNumRating, avgRating: newAvgRating})
+          transaction.set(ref, {text: keyword, numRatings: newNumRating, avgRating: newAvgRating})
         } else {
           transaction.delete(ref)
         } 
@@ -66,7 +66,7 @@ class Dashboard extends React.Component {
           let newNumRatings = doc.data().numRatings + 1;
           let oldRatingTotal = doc.data().avgRating * doc.data().numRatings;
           let newAvgRating = (oldRatingTotal + (rating)) / newNumRatings;
-          transaction.set(ref, {numRatings: newNumRatings, avgRating: newAvgRating})
+          transaction.set(ref, {text: keyword, numRatings: newNumRatings, avgRating: newAvgRating})
         } else {
           transaction.set(ref, {text: keyword, numRatings: 1, avgRating: (rating)})
         }
