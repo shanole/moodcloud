@@ -20,7 +20,7 @@ class Dashboard extends React.Component {
     };
   }
 
-  handleClick = () => {
+  handleNewFormClick = () => {
     const { dispatch } = this.props;
     const action = a.showForm("new");
     dispatch(action);
@@ -102,7 +102,6 @@ class Dashboard extends React.Component {
     } else {
       currentlyVisibleComponent = 
         <div>
-          <button onClick={this.handleClick}>New Entry Button</button>
           <Graph />
           <KeywordCloud/>
         </div>
@@ -111,7 +110,6 @@ class Dashboard extends React.Component {
       <Container fluid="md" className="dashboard">
         <Row>
           <Col sm={3}>
-            <button onClick={this.handleHomeClick}>Home</button>
             <UserDetails />
             <EntryList limit={3}/>
           </Col>
