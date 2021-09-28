@@ -19,9 +19,10 @@ function Graph() {
   
   useEffect(() => {
     if (isLoaded(graphData)) {
-      setEntries(graphData);
-      setLabels(graphData.map(entry => {return entry.timePosted.slice(0,3)}))
-      setDatapoints(graphData.map(entry => {return entry.rating}))
+      let reversedData = [...graphData].reverse()
+      setEntries(reversedData);
+      setLabels(reversedData.map(entry => {return entry.timePosted.slice(0,3)}))
+      setDatapoints(reversedData.map(entry => {return entry.rating}))
     }
   }, [setLabels, setDatapoints, graphData])
   

@@ -73,17 +73,15 @@
   - [x] Each node should be able to link to a specific post
   - [x] Change timespans
   - [x] Modal on hover
-- [ ] Routing and landing page --FINISH BY 10/2
-
----
-
-- [ ] authentication / authorization
+- [ ] Routing and landing page
+- [ ] authentication / authorization --FINISH BY 10/2
   - [ ] account page
   - [ ] _UserDetails component_
-- [ ] styling --FINISH BY 10/9
 
 ---
 
+- [ ] styling
+- [ ] readme --FINISH BY 10/9
 - [ ] _limit only one post a day_
 - [ ] _BONUS: fancy "cloud" view for keywords_
 
