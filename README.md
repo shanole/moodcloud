@@ -35,6 +35,7 @@
   - Finished infinite scrolling EntryList
   - Researched Chart.js
   - Got basic implementation of chart down
+  - Started authentication/authorization
 
 </details>
 
@@ -73,9 +74,12 @@
   - [x] Each node should be able to link to a specific post
   - [x] Change timespans
   - [x] Modal on hover
-- [ ] Routing and landing page
+- [x] Routing and landing page
 - [ ] authentication / authorization --FINISH BY 10/2
+  - [ ] may need to change firestore db structure, esp for KEYWORDS -- all entries should have a userId assc w them; keywords may need to be nested in a user document
+  - [ ] security rules
   - [ ] account page
+  - [ ] _profile pic_
   - [ ] _UserDetails component_
 
 ---

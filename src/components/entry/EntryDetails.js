@@ -1,8 +1,11 @@
 import React from 'react';
 import Keyword from './../keyword/Keyword';
+import { useDispatch } from 'react-redux';
+import { toggleEditForm } from './../../actions/index';
 
 function EntryDetails(props) {
   const { entry } = props;
+  const dispatch = useDispatch();
   
   return(
     <React.Fragment>
@@ -10,8 +13,8 @@ function EntryDetails(props) {
       <p>Rating: {entry.rating}</p>
       <p>Blurb: {entry.blurb}</p>
       <div style={{display: 'flex'}}>{entry.keywords.map((keyword, index) => <Keyword key={index} keywordData={keyword} />)}</div>
-      <button onClick={props.onClickingEdit}>Edit</button>
-      <button onClick={() => props.onClickingDelete(entry)}>Delete</button>
+      <button onClick={() => dispatch(toggleEditForm())}>Edit</button>
+      <button onClick={() => props.onClickingDelete}>Delete</button>
     </React.Fragment>
   )
 }

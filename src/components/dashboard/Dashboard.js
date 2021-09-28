@@ -20,18 +20,21 @@ class Dashboard extends React.Component {
     };
   }
 
+  // unneeded?
   handleNewFormClick = () => {
     const { dispatch } = this.props;
     const action = a.showForm("new");
     dispatch(action);
   }
 
+  // unneeded?
   handleEditClick = () => {
     const { dispatch } = this.props;
     const action = a.toggleEditForm();
     dispatch(action);
   }
   
+  // unneeded?
   handleHomeClick = () => {
     const { dispatch } = this.props;
     const action = a.showDashboard();
@@ -96,7 +99,7 @@ class Dashboard extends React.Component {
     } else if (selectedForm != null && selectedEntry != null) {
       currentlyVisibleComponent = <EditEntryForm entry={selectedEntry} updateKeyword={this.handleAddKeywordTransaction} deleteOriginalKeywords={this.handleDeletingKeywords}/>
     } else if (selectedEntry != null) {
-      currentlyVisibleComponent = <EntryDetails entry={selectedEntry} onClickingDelete={this.handleDelete} onClickingEdit={this.handleEditClick}/>
+      currentlyVisibleComponent = <EntryDetails entry={selectedEntry} onClickingDelete={this.handleDelete} />
     } else if (selectedKeyword != null) {
       currentlyVisibleComponent = <KeywordDetails keyword={selectedKeyword} />
     } else {
