@@ -34,6 +34,7 @@
 - Sept 27
   - Finished infinite scrolling EntryList
   - Researched Chart.js
+  - Got basic implementation of chart down
 
 </details>
 
@@ -68,10 +69,10 @@
 
 ---
 
-- [ ] create GRAPH with Chart.js
-  - [ ] Each node should be able to link to a specific post
-  - [ ] Change timespans
-  - [ ] _Modal on hover?_
+- [x] create GRAPH with Chart.js
+  - [x] Each node should be able to link to a specific post
+  - [x] Change timespans
+  - [x] Modal on hover
 - [ ] Routing and landing page --FINISH BY 10/2
 
 ---
