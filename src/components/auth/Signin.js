@@ -5,36 +5,36 @@ function Signin(){
 
   const firebase = useFirebase();
 
+  const createNewUser = async ({ email, password, username }) => {
+    await firebase.createUser({ email, password}, { username, email })
+  }
+
+  const login = async({email, password}) => {
+    await firebase.login({email, password})
+  }
+
   const doSignUp = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    // const username = event.target.displayName.value;
+    const username = event.target.username.value;
 
-    firebase.auth().createUserWithEmailAndPassword(email, password).then(function(){
-      console.log("successfully signed up!");
-    }).catch(function(error) {
-      console.log(error.message);
-    });
+    createNewUser({ email, password, username})
+        .then( () => console.log('successfully signed up!!'))
+        .catch((error) => console.log(error.message));
   }
 
   function doSignIn(event) {
     event.preventDefault();
     const email = event.target.signinEmail.value;
     const password = event.target.signinPassword.value;
-    firebase.auth().signInWithEmailAndPassword(email, password).then(function() {
-      console.log("Successfully signed in!");
-    }).catch(function(error) {
-      console.log(error.message);
-    });
+    login({ email, password })
+      .then( () => console.log('succesfully signed in!!'))
+      .catch((error) => console.log(error.message))
   }
 
   function doSignOut() {
-    firebase.auth().signOut().then(function() {
-      console.log("Successfully signed out!");
-    }).catch(function(error) {
-      console.log(error.message);
-    });
+    firebase.logout().then(() => console.log('logged out!!')).catch((e) => console.log(e.message))
   }
 
   return (
@@ -45,10 +45,10 @@ function Signin(){
           type='text'
           name='email'
           placeholder='email' />
-        {/* <input
+        <input
           type='text'
           name='username'
-          placeholder='username' /> */}
+          placeholder='username' />
         <input
           type='password'
           name='password'
