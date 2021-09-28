@@ -163,22 +163,30 @@ function EntryList(props) {
       })
   }
 
+  const handleScroll = (event) => {
+    const bottom = event.target.scrollHeight - event.target.scrollTop === event.target.clientHeight;
+    if (bottom) {
+      fetchMorePosts(lastKey)
+    }
+  }
+
   const allPosts = (
-    <div style={{height: "500px", overflowY: "auto"}}>
+    <div onScroll={handleScroll} style={{height: "500px", overflowY: "auto"}}>
         {loadedEntries.map( entry => {
           return <Entry key={entry.id} entryContent={entry}/>
         })}
       </div>
     )
+    
   return(
     <React.Fragment>
-      <button onClick={backToTop}>back to top</button>
+      
       {allPosts}
       {loading ? (<p>Loading...</p>
-      ) : lastKey !== "" && lastKey !== undefined ? (<button onClick={() => fetchMorePosts(lastKey)}>more</button>
-      ) : (
-      <p>No more</p>
+      ) : lastKey !== "" && lastKey !== undefined ? (null) : (
+        <button onClick={backToTop}>back to top</button>
       )}
+      
     </React.Fragment>
     );
 }
