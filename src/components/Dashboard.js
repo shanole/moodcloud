@@ -38,7 +38,6 @@ class Dashboard extends React.Component {
     dispatch(action);
   }
 
-  // bug here!! specifically when doc already exists
   handleDeleteKeywordTransaction = async (keyword, rating) => {
     var ref = this.props.firestore.collection('keywords').doc(keyword);
     await this.props.firestore.runTransaction( async (transaction) => {

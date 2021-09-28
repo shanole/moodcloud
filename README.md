@@ -31,6 +31,9 @@
 - Sept 26
   - Finished database design for keyword collection
   - Incorporated pagination w/ EntryList - having trouble w/ infinite scroll
+- Sept 27
+  - Finished infinite scrolling EntryList
+  - Researched Chart.js
 
 </details>
 
