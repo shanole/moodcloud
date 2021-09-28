@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import ReusableForm from './ReusableForm';
 import { useFirestore } from 'react-redux-firebase'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { showDashboard } from './../../actions/index'
+
+const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}
 
 function NewEntryForm(props) {
   const firestore = useFirestore();
   const dispatch = useDispatch();
-
-  const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}
+  const auth = useSelector(state => state.firebase.auth);
 
   const handleKeywordSubmission = async (newKeywords, rating) => {
     for (const keyword of newKeywords) {
@@ -20,6 +21,7 @@ function NewEntryForm(props) {
     event.preventDefault();
     firestore.collection('entries').add(
       {
+      uuid: auth.uid,
       rating: event.target.rating.value,
       blurb: event.target.blurb.value,
       keywords: tagsToBeSubmitted,
@@ -36,6 +38,9 @@ function NewEntryForm(props) {
   function getTags(tagsArray) {
     setTags(tagsArray);
   }
+
+  console.log(auth);
+
   return (
     <React.Fragment>
       <h3>New Journal Entry</h3>

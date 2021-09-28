@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import ReusableForm from './ReusableForm';
 import { useFirestore } from 'react-redux-firebase';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { showEntry } from '../../actions/index'
 
 
@@ -9,6 +9,7 @@ function EditEntryForm(props) {
   const { entry } = props;
   const firestore = useFirestore();
   const dispatch = useDispatch();
+  const auth = useSelector(state => state.firebase.auth);
 
   async function handleEditPostFormSubmission(event) {
     event.preventDefault();
@@ -32,6 +33,7 @@ function EditEntryForm(props) {
       await docRef.get().then((doc) => {
         if (doc.exists) {
           const data = {
+            uuid: auth.uid,
             id: doc.id,
             blurb: doc.data().blurb,
             rating: doc.data().rating,
