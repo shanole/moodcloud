@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from './components/dashboard/Dashboard';
 import Navbar from './components/dashboard/Navbar';
-import Signin from './components/auth/Signin';
+import AccountControl from './components/auth/AccountControl';
 import LandingPage from './components/landing/LandingPage'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -12,7 +12,7 @@ function App() {
     <Router>
       <Switch>
         <Route path ="/signin">
-          <Signin />
+          <AccountControl />
         </Route>
         <Route path="/dashboard">
           <Navbar />
