@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path ="/signin">
+        <Route path ="/account">
           <AccountControl />
         </Route>
         <PrivateRoute path="/dashboard">

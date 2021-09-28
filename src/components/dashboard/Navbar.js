@@ -1,6 +1,7 @@
 import React from 'react';
-import { useDispatch } from 'react-redux'
-import { showDashboard, showForm } from './../../actions/index'
+import { useDispatch } from 'react-redux';
+import { showDashboard, showForm } from './../../actions/index';
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -17,7 +18,10 @@ function Navbar() {
   return (
     <div style={{display: 'flex', justifyContent: 'space-between'}}>
       <h3 onClick={goHome}>moodcloud</h3>
-      <div className="nav"><h3 onClick={goToForm}>post new</h3></div>
+      <div className="nav">
+        <h3 onClick={goToForm}>post new</h3>
+        <h3><Link to="/account">account</Link></h3>
+      </div>
     </div>
   );
 }

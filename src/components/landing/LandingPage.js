@@ -14,7 +14,7 @@ function LandingPage() {
       <h1>Welcome</h1>
       <p><Link to="/dashboard">Go to dashboard</Link></p>
       <p><Link to="/dashboard" onClick={goToForm}>New post</Link></p>
-      <p><Link to="/signin">Sign in</Link></p>
+      <p><Link to="/account">Sign in</Link></p>
     </React.Fragment>
     );
 }
