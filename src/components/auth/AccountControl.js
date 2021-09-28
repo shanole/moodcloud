@@ -8,6 +8,7 @@ function AccountControl() {
   const firebase = useFirebase();
   
   const auth = useSelector(state => state.firebase.auth)
+  
   const [signUpStatus, setSignUpStatus] = useState(false);
 
   let visibleComponent;

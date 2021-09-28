@@ -1,29 +1,33 @@
-import React from "react";
-import { useFirebase, useFirebaseConnect } from 'react-redux-firebase'
+import React, { useEffect } from "react";
+import { useFirebase } from 'react-redux-firebase'
 import { useSelector } from 'react-redux'
+import { isLoaded, isEmpty } from 'react-redux-firebase'
 
 function Signin(){
 
   const firebase = useFirebase();
-
-  useFirebaseConnect('auth');
-
-  const auth = useSelector(state => state.firebase.auth);
+  const auth = useSelector(state => state.firebase.auth)
 
   const login = async({email, password}) => {
     await firebase.login({email, password})
   }
-
+  
   function doSignIn(event) {
     event.preventDefault();
     const email = event.target.signinEmail.value;
     const password = event.target.signinPassword.value;
     login({ email, password })
-      .then( () => console.log('succesfully signed in!!', auth))
+      .then( () => {
+        window.location = 'dashboard'
+        console.log('succesfully signed in!!')})
       .catch((error) => console.log(error.message))
   }
 
-  
+  // firebase.auth().onAuthStateChanged(user => {
+  //   if(user) {
+  //     window.location = 'dashboard'; //After successful login, user will be redirected to dashboard
+  //   }
+  // });
 
   return (
     <React.Fragment>
