@@ -1,12 +1,16 @@
 import React from "react";
 import { useFirebase } from 'react-redux-firebase'
+import { useSelector } from 'react-redux'
 
 function Signin(){
 
   const firebase = useFirebase();
 
+  const auth = useSelector(state => state.firebase.auth);
+  const currentUser = firebase.auth().currentUser;
+
   const createNewUser = async ({ email, password, username }) => {
-    await firebase.createUser({ email, password}, { username, email })
+    await firebase.createUser({ email, password, displayName: username}, { username, email })
   }
 
   const login = async({email, password}) => {
@@ -29,13 +33,15 @@ function Signin(){
     const email = event.target.signinEmail.value;
     const password = event.target.signinPassword.value;
     login({ email, password })
-      .then( () => console.log('succesfully signed in!!'))
+      .then( () => console.log('succesfully signed in!!', auth))
       .catch((error) => console.log(error.message))
   }
 
   function doSignOut() {
     firebase.logout().then(() => console.log('logged out!!')).catch((e) => console.log(e.message))
   }
+
+
 
   return (
     <React.Fragment>
