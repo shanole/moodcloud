@@ -3,44 +3,46 @@ import Entry from './Entry';
 import { useFirestore } from 'react-redux-firebase'
 
 function EntryList(props) {
-  const getFirstBatch = async () => {
-    try {
-      let data;
-      if (keyword !== undefined) {
-        data =  firestore
-          .collection('entries')
-          .orderBy('timestamp','desc')
-          .limit(limit)
-          .where('keywords','array-contains',{id: keyword, text: keyword})
-      } else {
-        data = firestore 
-          .collection('entries')
-          .orderBy('timestamp', 'desc')
-          .limit(limit)
-      }      
-      let entries = [];
-      let lastKey = "";
-      const docs = await data.get();
-      docs.forEach( (doc) => {
-        entries.push({
-          id: doc.id,
-          blurb:doc.data().blurb,
-          rating: doc.data().rating,
-          keywords: doc.data().keywords,
-          timestamp: doc.data().timestamp,
-          timePosted: doc.data().timePosted
-        })
-        lastKey = doc.data().timestamp;
-      });
-    return { entries , lastKey }
-  } catch(e) {
-    console.log(e)
-  }
-  }
   const firestore = useFirestore();
-
+  
   const { keyword, limit } = props;
-
+  
+  const getFirstBatch = useCallback(
+    async () => {
+      try {
+        let data;
+        if (keyword !== undefined) {
+          data =  firestore
+            .collection('entries')
+            .orderBy('timestamp','desc')
+            .limit(limit)
+            .where('keywords','array-contains',{id: keyword, text: keyword})
+        } else {
+          data = firestore 
+            .collection('entries')
+            .orderBy('timestamp', 'desc')
+            .limit(limit)
+        }      
+        let entries = [];
+        let lastKey = "";
+        const docs = await data.get();
+        docs.forEach( (doc) => {
+          entries.push({
+            id: doc.id,
+            blurb:doc.data().blurb,
+            rating: doc.data().rating,
+            keywords: doc.data().keywords,
+            timestamp: doc.data().timestamp,
+            timePosted: doc.data().timePosted
+          })
+          lastKey = doc.data().timestamp;
+        });
+      return { entries , lastKey }
+    } catch(e) {
+      console.log(e)
+    }
+    }, [firestore, keyword, limit]
+  )
 
   const getNextBatch = async (key) => {
     try {
