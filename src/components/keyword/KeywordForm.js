@@ -14,13 +14,16 @@ const KeyCodes = {
 const delimiters = [KeyCodes.comma, KeyCodes.enter, KeyCodes.tab];
 
 function KeywordForm(props) {
+  const auth = useSelector(state => state.firebase.auth);
 
   useFirestoreConnect({
     collection: 'keywords',
-    orderBy: ['numRatings', 'desc']
+    doc: auth.uid,
+    subcollections: [{collection: 'userKeywords', orderBy: ['numRatings', 'desc']}],
+    storeAs: 'userKeywords'
   });
-
-  const keywords = useSelector(state => state.firestore.ordered.keywords);
+  
+  const keywords = useSelector(state => state.firestore.ordered.userKeywords);
   let keywordSuggestions =[];
 
   if(isLoaded(keywords)) {

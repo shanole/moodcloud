@@ -42,7 +42,9 @@ class Dashboard extends React.Component {
   }
 
   handleDeleteKeywordTransaction = async (keyword, rating) => {
-    var ref = this.props.firestore.collection('keywords').doc(keyword);
+    const uuid = this.props.firebase.auth().currentUser.uid;
+
+    var ref = this.props.firestore.collection('keywords').doc(uuid).collection('userKeywords').doc(keyword);
     await this.props.firestore.runTransaction( async (transaction) => {
       return transaction.get(ref).then(doc => {
         if (!doc.exists) {
@@ -61,7 +63,9 @@ class Dashboard extends React.Component {
   }
 
   handleAddKeywordTransaction = async (keyword, rating) => {
-    var ref = this.props.firestore.collection('keywords').doc(keyword);
+    const uuid = this.props.firebase.auth().currentUser.uid;
+
+    var ref = this.props.firestore.collection('keywords').doc(uuid).collection('userKeywords').doc(keyword);
     this.props.firestore.runTransaction( async (transaction) => {
       return transaction.get(ref).then( (doc) => {
         if (doc.exists) {
