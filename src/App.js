@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Dashboard from './components/Dashboard';
-import Navbar from './components/Navbar';
+import Dashboard from './components/dashboard/Dashboard';
+import Navbar from './components/dashboard/Navbar';
 
 // will need to add routing
 function App() {

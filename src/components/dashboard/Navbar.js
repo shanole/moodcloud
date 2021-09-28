@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux'
-import { showDashboard, showForm } from './../actions/index'
+import { showDashboard, showForm } from './../../actions/index'
 
 function Navbar() {
   const dispatch = useDispatch();

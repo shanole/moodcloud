@@ -3,7 +3,7 @@ import Chart from 'chart.js/auto';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 import { useDispatch } from 'react-redux'
-import { showEntry } from './../actions/index'
+import { showEntry } from './../../actions/index'
 
 function Graph() {  
   const chartRef = useRef(null)
