@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Entry from './Entry';
 import { useFirestore } from 'react-redux-firebase'
+import { useSelector } from 'react-redux';
 
 function EntryList(props) {
   const firestore = useFirestore();
-  
+
+  const auth = useSelector(state => state.firebase.auth);
+
   const { keyword, limit } = props;
   
   const getFirstBatch = useCallback(
@@ -14,12 +17,14 @@ function EntryList(props) {
         if (keyword !== undefined) {
           data =  firestore
             .collection('entries')
+            .where('uuid', '==', auth.uid)
             .where('keywords','array-contains',{id: keyword, text: keyword})
             .orderBy('timestamp','desc')
             .limit(limit)
         } else {
           data = firestore 
             .collection('entries')
+            .where('uuid', '==', auth.uid)
             .orderBy('timestamp', 'desc')
             .limit(limit)
         }      
@@ -28,6 +33,7 @@ function EntryList(props) {
         const docs = await data.get();
         docs.forEach( (doc) => {
           entries.push({
+            uuid: auth.uid,
             id: doc.id,
             blurb:doc.data().blurb,
             rating: doc.data().rating,
@@ -50,6 +56,7 @@ function EntryList(props) {
       if (keyword !== undefined) {
         data = firestore
           .collection('entries')
+          .where('uuid', '==', auth.uid)
           .where('keywords','array-contains',{id: keyword, text: keyword})
           .orderBy('timestamp','desc')
           .startAfter(key)
@@ -57,6 +64,7 @@ function EntryList(props) {
       } else {
         data = firestore 
           .collection('entries')
+          .where('uuid', '==', auth.uid)
           .orderBy('timestamp', 'desc')
           .startAfter(key)
           .limit(limit)
@@ -67,6 +75,7 @@ function EntryList(props) {
       const docs = await data.get();
         docs.forEach( (doc) => {
           entries.push({
+            uuid: auth.uid,
             id: doc.id,
             blurb:doc.data().blurb,
             rating: doc.data().rating,
@@ -107,12 +116,14 @@ function EntryList(props) {
       if (keyword !== undefined) {
         data = firestore
           .collection('entries')
+          .where('uuid', '==', auth.uid)
           .where('keywords','array-contains',{id: keyword, text: keyword})
           .orderBy('timestamp','desc')
           .limit(currentLoadedPosts)
       } else {
         data = firestore 
           .collection('entries')
+          .where('uuid', '==', auth.uid)
           .orderBy('timestamp', 'desc')
           .limit(currentLoadedPosts)
       }   
@@ -121,6 +132,7 @@ function EntryList(props) {
           let newList = []
           snapshot.forEach((doc) => { 
             newList.push ({
+                uuid: auth.uid,
                 id: doc.id,
                 blurb:doc.data().blurb,
                 rating: doc.data().rating,

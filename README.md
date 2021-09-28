@@ -78,14 +78,15 @@
 - [ ] authentication / authorization --FINISH BY 10/2
   - [ ] may need to change firestore db structure, esp for KEYWORDS -- all entries should have a userId assc w them; keywords may need to be nested in a user document
   - [ ] security rules
-  - [ ] account page
-  - [ ] _profile pic_
-  - [ ] _UserDetails component_
+  - [ ] account profile
+    - [ ] _profile pic_
+    - [ ] _UserDetails component_
 
 ---
 
-- [ ] styling
+- [ ] UI & styling
 - [ ] readme --FINISH BY 10/9
+  - [ ] component diagram
 - [ ] _limit only one post a day_
 - [ ] _BONUS: fancy "cloud" view for keywords_
 

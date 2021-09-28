@@ -1,8 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Chart from 'chart.js/auto';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
-import { useDispatch } from 'react-redux'
 import { showEntry } from './../../actions/index'
 
 function Graph() {  
@@ -11,10 +10,11 @@ function Graph() {
   const [labels, setLabels] = useState([]);
   const [datapoints, setDatapoints] = useState([]);
   const [timespan, setTimespan] = useState(7);
+
   const dispatch = useDispatch()
+  const auth = useSelector(state => state.firebase.auth);
 
-  useFirestoreConnect({collection: 'entries', storeAs: 'graphData', orderBy: ['timestamp', 'desc'], ...(timespan && {limit: timespan})} );
-
+  useFirestoreConnect({collection: 'entries', storeAs: 'graphData', orderBy: ['timestamp', 'desc'], where: ['uuid','==',auth.uid], ...(timespan && {limit: timespan})} );
   const graphData = useSelector(state => state.firestore.ordered.graphData);
   
   useEffect(() => {
