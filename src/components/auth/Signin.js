@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
+// redirecting to dashboard still doesn't work
+import React from "react";
 import { useFirebase } from 'react-redux-firebase'
-import { useSelector } from 'react-redux'
-import { isLoaded, isEmpty } from 'react-redux-firebase'
 
 function Signin(){
 
   const firebase = useFirebase();
-  const auth = useSelector(state => state.firebase.auth)
 
   const login = async({email, password}) => {
     await firebase.login({email, password})

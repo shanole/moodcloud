@@ -1,7 +1,9 @@
+// redirecting to dashboard still doesn't work
+
 import React, { useState } from 'react'
 import {  Route,  Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux'
-import { useFirebase, useFirebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase'
+import { useFirebase, isLoaded, isEmpty } from 'react-redux-firebase'
 
 function PrivateRoute({ children, ...rest }) {
   // useFirebaseConnect('auth');

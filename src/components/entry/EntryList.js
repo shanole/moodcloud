@@ -1,3 +1,5 @@
+// for some reason it doesn't rerender when u delete the last post??
+
 import React, { useState, useEffect, useCallback } from 'react';
 import Entry from './Entry';
 import { useFirestore } from 'react-redux-firebase'
@@ -47,7 +49,7 @@ function EntryList(props) {
     } catch(e) {
       console.log(e)
     }
-    }, [firestore, keyword, limit]
+    }, [firestore, keyword, limit, auth.uid]
   )
 
   const getNextBatch = async (key) => {
@@ -146,7 +148,7 @@ function EntryList(props) {
     return () => {
       unsubscribe()
     }
-  }, [keyword, limit, loadedEntries.length, firestore])
+  }, [keyword, limit, loadedEntries.length, firestore, auth.uid])
 
   const fetchMorePosts = (key) => {
       if (key !== "") {
