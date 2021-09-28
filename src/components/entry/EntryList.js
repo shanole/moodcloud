@@ -1,21 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Entry from './Entry';
 import { useFirestore } from 'react-redux-firebase'
 
-function EntryList() {
-  const firestore = useFirestore();
-
+function EntryList(props) {
   const getFirstBatch = async () => {
     try {
-      const data = await firestore 
-        .collection('entries')
-        .orderBy('timestamp', 'desc')
-        .limit(3)
-        .get();
-      
+      let data;
+      if (keyword !== undefined) {
+        data =  firestore
+          .collection('entries')
+          .orderBy('timestamp','desc')
+          .limit(limit)
+          .where('keywords','array-contains',{id: keyword, text: keyword})
+      } else {
+        data = firestore 
+          .collection('entries')
+          .orderBy('timestamp', 'desc')
+          .limit(limit)
+      }      
       let entries = [];
       let lastKey = "";
-      data.forEach( (doc) => {
+      const docs = await data.get();
+      docs.forEach( (doc) => {
         entries.push({
           id: doc.id,
           blurb:doc.data().blurb,
@@ -26,34 +32,48 @@ function EntryList() {
         })
         lastKey = doc.data().timestamp;
       });
-      return { entries , lastKey }
-    } catch(e) {
-      console.log(e)
-    }
+    return { entries , lastKey }
+  } catch(e) {
+    console.log(e)
   }
+  }
+  const firestore = useFirestore();
+
+  const { keyword, limit } = props;
+
 
   const getNextBatch = async (key) => {
     try {
-      const data = await firestore 
-        .collection('entries')
-        .orderBy('timestamp', 'desc')
-        .startAfter(key)
-        .limit(3)
-        .get();
-      
+      let data;
+      if (keyword !== undefined) {
+        data = firestore
+          .collection('entries')
+          .orderBy('timestamp','desc')
+          .startAfter(key)
+          .limit(limit)
+          .where('keywords','array-contains',{id: keyword, text: keyword})
+      } else {
+        data = firestore 
+          .collection('entries')
+          .orderBy('timestamp', 'desc')
+          .startAfter(key)
+          .limit(limit)
+      }
+    
       let entries = [];
       let lastKey = "";
-      data.forEach( (doc) => {
-        entries.push({
-          id: doc.id,
-          blurb:doc.data().blurb,
-          rating: doc.data().rating,
-          keywords: doc.data().keywords,
-          timestamp: doc.data().timestamp,
-          timePosted: doc.data().timePosted
-        })
-        lastKey = doc.data().timestamp;
-      });
+      const docs = await data.get();
+        docs.forEach( (doc) => {
+          entries.push({
+            id: doc.id,
+            blurb:doc.data().blurb,
+            rating: doc.data().rating,
+            keywords: doc.data().keywords,
+            timestamp: doc.data().timestamp,
+            timePosted: doc.data().timePosted
+          })
+          lastKey = doc.data().timestamp;
+      })
       return { entries, lastKey }
     } catch(e) {
       console.log(e)
@@ -80,9 +100,21 @@ function EntryList() {
     }, [firstLoad, getFirstBatch])
 
   useEffect(() => {
-    const currentLoadedPosts = loadedEntries.length > 0 ? loadedEntries.length : 3;
-    const unsubscribe = firestore.collection('entries').orderBy('timestamp', 'desc').limit(currentLoadedPosts)
-      .onSnapshot( snapshot => {
+    const currentLoadedPosts = loadedEntries.length > 0 ? loadedEntries.length : limit;
+    let data;
+      if (keyword !== undefined) {
+        data = firestore
+          .collection('entries')
+          .orderBy('timestamp','desc')
+          .limit(currentLoadedPosts)
+          .where('keywords','array-contains',{id: keyword.text, text: keyword.text})
+      } else {
+        data = firestore 
+          .collection('entries')
+          .orderBy('timestamp', 'desc')
+          .limit(currentLoadedPosts)
+      }   
+    const unsubscribe = data.onSnapshot( snapshot => {
         if (snapshot.size) {
           let newList = []
           snapshot.forEach((doc) => { 
@@ -100,7 +132,7 @@ function EntryList() {
     return () => {
       unsubscribe()
     }
-  }, [firestore])
+  }, [keyword, limit, loadedEntries.length, firestore])
 
   const fetchMorePosts = (key) => {
       if (key !== "") {
@@ -136,7 +168,6 @@ function EntryList() {
         })}
       </div>
     )
-
   return(
     <React.Fragment>
       <button onClick={backToTop}>back to top</button>
