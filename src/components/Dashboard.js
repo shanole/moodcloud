@@ -114,7 +114,7 @@ class Dashboard extends React.Component {
           <Col sm={3}>
             <button onClick={this.handleHomeClick}>Home</button>
             <UserDetails />
-            <EntryList limit={1}/>
+            <EntryList limit={3}/>
           </Col>
           <Col sm={9}>
             {currentlyVisibleComponent}

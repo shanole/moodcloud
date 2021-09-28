@@ -14,9 +14,9 @@ function EntryList(props) {
         if (keyword !== undefined) {
           data =  firestore
             .collection('entries')
+            .where('keywords','array-contains',{id: keyword, text: keyword})
             .orderBy('timestamp','desc')
             .limit(limit)
-            .where('keywords','array-contains',{id: keyword, text: keyword})
         } else {
           data = firestore 
             .collection('entries')
@@ -50,10 +50,10 @@ function EntryList(props) {
       if (keyword !== undefined) {
         data = firestore
           .collection('entries')
+          .where('keywords','array-contains',{id: keyword, text: keyword})
           .orderBy('timestamp','desc')
           .startAfter(key)
           .limit(limit)
-          .where('keywords','array-contains',{id: keyword, text: keyword})
       } else {
         data = firestore 
           .collection('entries')
@@ -107,9 +107,9 @@ function EntryList(props) {
       if (keyword !== undefined) {
         data = firestore
           .collection('entries')
+          .where('keywords','array-contains',{id: keyword, text: keyword})
           .orderBy('timestamp','desc')
           .limit(currentLoadedPosts)
-          .where('keywords','array-contains',{id: keyword.text, text: keyword.text})
       } else {
         data = firestore 
           .collection('entries')
