@@ -102,7 +102,7 @@ function EntryList(props) {
     }, [firstLoad, getFirstBatch])
 
   useEffect(() => {
-    const currentLoadedPosts = loadedEntries.length > 0 ? loadedEntries.length : limit;
+    const currentLoadedPosts = loadedEntries.length > limit ? loadedEntries.length : limit;
     let data;
       if (keyword !== undefined) {
         data = firestore
