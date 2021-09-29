@@ -76,8 +76,9 @@
   - [x] Modal on hover
 - [x] Routing and landing page
 - [ ] authentication / authorization --FINISH BY 10/2
-  - [ ] may need to change firestore db structure, esp for KEYWORDS -- all entries should have a userId assc w them; keywords may need to be nested in a user document
-  - [ ] security rules
+  - [x] may need to change firestore db structure, esp for KEYWORDS -- all entries should have a userId assc w them; keywords may need to be nested in a user document
+  - [ ] redirecting when logging in not working
+  - [x] security rules
   - [ ] account profile
     - [ ] _profile pic_
     - [ ] _UserDetails component_

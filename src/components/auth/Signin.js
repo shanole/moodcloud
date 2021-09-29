@@ -1,4 +1,5 @@
 // redirecting to dashboard still doesn't work
+
 import React from "react";
 import { useFirebase } from 'react-redux-firebase'
 
@@ -16,7 +17,7 @@ function Signin(){
     const password = event.target.signinPassword.value;
     login({ email, password })
       .then( () => {
-        window.location = 'dashboard'
+        // window.location = 'dashboard'
         console.log('succesfully signed in!!')})
       .catch((error) => console.log(error.message))
   }
