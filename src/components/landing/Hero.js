@@ -14,7 +14,7 @@ function Hero() {
   let button;
 
   if ((isLoaded(auth)) && (!isEmpty(auth))) {
-    button = <Link to='w/dashboard'>go inside</Link>
+    button = <Link to='/dashboard'>go inside</Link>
   } else {
     button = <HashLink smooth to='/#account'>join us</HashLink>
   }
