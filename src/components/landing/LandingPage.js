@@ -8,8 +8,8 @@ function LandingPage() {
   return (
     <React.Fragment>
       <Hero />
-      <AccountControl/>
       <About />
+      <AccountControl/>
     </React.Fragment>
     );
 }

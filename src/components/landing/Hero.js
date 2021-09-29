@@ -4,6 +4,9 @@ import { isLoaded, isEmpty } from 'react-redux-firebase'
 import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 import StyledHero from './styles/StyledHero';
+import gradientVid from './../../assets/img/gradient-vid.mp4';
+import gradientbg from './../../assets/img/gradient1.jpg';
+
 
 function Hero() {
   const auth = useSelector(state => state.firebase.auth);
@@ -19,6 +22,9 @@ function Hero() {
 
   return (
   <StyledHero>
+    <video playsInLine autoPlay muted loop id="bgvideo">
+      <source src={gradientVid} type="video/mp4" />
+    </video>
     <div className="content">
       <h1>moodcloud</h1>
       <p>Welcome to moodcloud</p>

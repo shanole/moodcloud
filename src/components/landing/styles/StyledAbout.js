@@ -3,8 +3,8 @@ import styled from "styled-components";
 export default styled.div`
   height: 100vh;
   position: relative;
-  background-color: #E1A7B0;
-  color: white;
+  background-color: white;
+  color: black;
 
   .content {
     display: flex;
