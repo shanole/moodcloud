@@ -13,6 +13,7 @@ function App() {
     <Router>
       <Switch>
         <Route path ="/account">
+          <Navbar />
           <UserControl />
         </Route>
         <PrivateRoute path="/dashboard">

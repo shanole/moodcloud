@@ -110,15 +110,14 @@ class Dashboard extends React.Component {
       currentlyVisibleComponent = 
         <div>
           <Graph />
-          <KeywordCloud/>
+          <EntryList limit={3}/>
         </div>
     }
     return(
       <Container fluid="md" className="dashboard">
         <Row>
           <Col sm={3}>
-            <UserDetails />
-            <EntryList limit={3}/>
+            <UserDetails />           
           </Col>
           <Col sm={9}>
             {currentlyVisibleComponent}

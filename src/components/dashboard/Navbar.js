@@ -17,9 +17,10 @@ function Navbar() {
 
   return (
     <div style={{display: 'flex', justifyContent: 'space-between'}}>
-      <h3 onClick={goHome}>moodcloud</h3>
+      <Link to='/'>moodcloud</Link>
       <div className="nav">
-        <h3 onClick={goToForm}>post new</h3>
+        <Link to='/dashboard' onClick={goHome}>dashboard</Link>
+        <Link to='/dashboard' onClick={goToForm}>postNew</Link>
         <h3><Link to="/account">account</Link></h3>
       </div>
     </div>

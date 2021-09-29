@@ -5,7 +5,7 @@ function Register() {
   const firebase = useFirebase();
 
   const createNewUser = async ({ email, password, username }) => {
-    await firebase.createUser({ email, password}, { username, email })
+    await firebase.createUser({ email, password}, { displayName: username, email })
   }
 
   const doSignUp = (event) => {
@@ -16,7 +16,6 @@ function Register() {
 
     createNewUser({ email, password, username})
         .then( () => console.log('successfully signed up!!'))
-        // .then( () => auth.updateProfile({ displayName: username}) )
         .catch((error) => console.log(error.message));
   }
 
