@@ -36,6 +36,10 @@
   - Researched Chart.js
   - Got basic implementation of chart down
   - Started authentication/authorization
+- Sept 28
+  - got auth/authorization logic figured out
+  - created different routes
+  - created and styled landing page
 
 </details>
 
@@ -77,9 +81,10 @@
 - [x] Routing and landing page
 - [ ] authentication / authorization --FINISH BY 10/2
   - [x] may need to change firestore db structure, esp for KEYWORDS -- all entries should have a userId assc w them; keywords may need to be nested in a user document
-  - [ ] redirecting when logging in not working
+  - [x] redirecting when logging in not working
   - [x] security rules
   - [ ] account profile
+    - [ ] username?
     - [ ] _profile pic_
     - [ ] _UserDetails component_
 
