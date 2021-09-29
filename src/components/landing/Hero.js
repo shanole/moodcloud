@@ -30,9 +30,11 @@ function Hero() {
       <p>{button}</p>
       <p><HashLink to="#about">about</HashLink></p>
     </div>
-    <video autoPlay muted loop id="bgvideo">
-      <source src={gradientVid} type="video/mp4" />
-    </video>
+    <div id='videoWrapper'>
+      <video autoPlay muted loop id="bgvideo">
+        <source src={gradientVid} type="video/mp4" />
+      </video> 
+    </div>
   </StyledHero>
   );
 }
