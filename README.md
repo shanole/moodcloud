@@ -79,14 +79,14 @@
   - [x] Change timespans
   - [x] Modal on hover
 - [x] Routing and landing page
-- [ ] authentication / authorization --FINISH BY 10/2
+- [x] authentication / authorization --FINISH BY 10/2
   - [x] may need to change firestore db structure, esp for KEYWORDS -- all entries should have a userId assc w them; keywords may need to be nested in a user document
   - [x] redirecting when logging in not working
   - [x] security rules
-  - [ ] account profile
-    - [ ] username?
-    - [ ] _profile pic_
-    - [ ] _UserDetails component_
+- [ ] UserControl components
+  - [ ] form to set displayName
+  - [ ] profile pic
+  - [ ] _reset pw, change email, other user customization options_
 
 ---
 
