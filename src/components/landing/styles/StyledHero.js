@@ -3,11 +3,8 @@ import gradientbg from './../../../assets/img/gradient1.jpg'
 
 export default styled.div`
   height: 100vh;
-  position: relative;
+  width: 100vh;
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   .content {
     display: flex;
@@ -15,19 +12,18 @@ export default styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
+    width: 100%;
     height: 100%;
     position: absolute;
     z-index: +1;
   }
 
-  video #bgvideo {
-    position: relative;
-    min-width: 100%;
-    min-height: 100%;
-    width: 100%
-    height: auto;
-    objectFit: cover;
+  video {
+    position: fixed;
     z-index: -1;
+    min-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
   }
 
 `;

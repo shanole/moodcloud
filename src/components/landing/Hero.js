@@ -14,7 +14,7 @@ function Hero() {
   let button;
 
   if ((isLoaded(auth)) && (!isEmpty(auth))) {
-    button = <Link to='/dashboard'>go inside</Link>
+    button = <Link to='w/dashboard'>go inside</Link>
   } else {
     button = <HashLink smooth to='/#account'>join us</HashLink>
   }
@@ -22,15 +22,15 @@ function Hero() {
 
   return (
   <StyledHero>
-    <video playsInLine autoPlay muted loop id="bgvideo">
-      <source src={gradientVid} type="video/mp4" />
-    </video>
     <div className="content">
       <h1>moodcloud</h1>
       <p>Welcome to moodcloud</p>
       <p>{button}</p>
       <p><HashLink to="#about">about</HashLink></p>
     </div>
+    <video autoPlay muted loop id="bgvideo">
+      <source src={gradientVid} type="video/mp4" />
+    </video>
   </StyledHero>
   );
 }
