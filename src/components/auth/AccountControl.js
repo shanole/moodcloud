@@ -3,6 +3,10 @@ import { useSelector } from 'react-redux'
 import { isLoaded, isEmpty, useFirebase } from 'react-redux-firebase'
 import Register from './Register';
 import Signin from './Signin';
+import StyledAccountControl from './styles/StyledAccountControl';
+import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux'
+import { showForm } from './../../actions/index'
 
 function AccountControl() {
   const firebase = useFirebase();
@@ -11,6 +15,12 @@ function AccountControl() {
   
   const [signUpStatus, setSignUpStatus] = useState(false);
 
+  const dispatch = useDispatch();
+
+  const goToForm = () => {
+    dispatch(showForm("new"));
+  }
+
   let visibleComponent;
 
   function doSignOut() {
@@ -18,20 +28,32 @@ function AccountControl() {
   }
 
   if ((isLoaded(auth)) && (!isEmpty(auth))) {
-    return(<button onClick = {doSignOut}>Log out</button>)
+    return (<StyledAccountControl>
+      <div className="content" id="account">
+        <Link to='/dashboard' onClick = {goToForm}>how was your day?</Link>
+        <button onClick = {doSignOut}>Log out</button>
+      </div>
+    </StyledAccountControl>)
   }
 
   if (signUpStatus) {
-    visibleComponent = <Register />
+    visibleComponent = <div>
+      <Register />
+      <p onClick={() => setSignUpStatus(false)}>Already have an account? Log in here</p>
+    </div>
   } else {
-    visibleComponent = <Signin />
+    visibleComponent = <div>
+      <Signin />
+      <p onClick={() => setSignUpStatus(true)}>Register for an account</p>
+    </div>
   }
+
   return (
-    <React.Fragment>
-      {visibleComponent}
-      <button onClick={() => setSignUpStatus(true)}>Register for an account</button>
-      <button onClick={() => setSignUpStatus(false)}>Login</button>
-    </React.Fragment>
+    <StyledAccountControl>
+      <div className="content" id="account">
+        {visibleComponent}       
+      </div>
+    </StyledAccountControl>
   );
 }
 

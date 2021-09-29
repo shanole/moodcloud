@@ -30,7 +30,7 @@ function PrivateRoute({ children, ...rest }) {
           // this may redirect to anchor in the future
           <Redirect
             to={{
-              pathname: "/",
+              pathname: "/#account",
               state: { from: location }
             }}
           />

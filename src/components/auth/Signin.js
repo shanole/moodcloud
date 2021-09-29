@@ -22,11 +22,11 @@ function Signin(){
       .catch((error) => console.log(error.message))
   }
 
-  // firebase.auth().onAuthStateChanged(user => {
-  //   if(user) {
-  //     window.location = 'dashboard'; //After successful login, user will be redirected to dashboard
-  //   }
-  // });
+  firebase.auth().onAuthStateChanged(user => {
+    if(user) {
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
+    }
+  });
 
   return (
     <React.Fragment>
