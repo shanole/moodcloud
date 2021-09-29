@@ -62,6 +62,16 @@ function UserControl() {
   return firebase.updateProfile({displayName: event.target.displayName.value})
   }
 
+  function doSignOut() {
+    firebase.logout().then(() => console.log('logged out!!')).catch((e) => console.log(e.message))
+  }
+
+  firebase.auth().onAuthStateChanged(user => {
+    if(!user) {
+      window.location = '/';
+    }
+  });
+
   let visibleComponent;
 
   if (formVisible) {
@@ -108,6 +118,7 @@ function UserControl() {
       <img src={profile.photoUrl} width="300" height="300" alt="profile-pic"  style={{borderRadius: '50%'}}/>
       <h3>hello, {profile.displayName}</h3>
       {visibleComponent}
+      <button onClick={doSignOut}>log out</button>
       {/* <div>
         {
           isLoaded(profile)

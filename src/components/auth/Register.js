@@ -3,9 +3,10 @@ import { useFirebase } from 'react-redux-firebase'
 
 function Register() {
   const firebase = useFirebase();
+  const storage = firebase.storage();
 
   const createNewUser = async ({ email, password, username }) => {
-    await firebase.createUser({ email, password}, { displayName: username, email })
+    await firebase.createUser({ email, password}, { displayName: username, email, photoUrl: 'https://firebasestorage.googleapis.com/v0/b/moodcloud-b54e6.appspot.com/o/cloud%20icon.jpg?alt=media&token=66d69bc3-d470-450d-b19d-264f4d2c3d6e' })
   }
 
   const doSignUp = (event) => {
