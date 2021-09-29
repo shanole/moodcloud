@@ -12,10 +12,10 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path ="/account">
+        <PrivateRoute path ="/account">
           <Navbar />
           <UserControl />
-        </Route>
+        </PrivateRoute>
         <PrivateRoute path="/dashboard">
           <Navbar />
           <div className="container">
