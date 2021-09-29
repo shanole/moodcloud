@@ -108,13 +108,13 @@ function UserControl() {
       <img src={profile.photoUrl} width="300" height="300" alt="profile-pic"  style={{borderRadius: '50%'}}/>
       <h3>hello, {profile.displayName}</h3>
       {visibleComponent}
-      <div>
+      {/* <div>
         {
           isLoaded(profile)
             ? JSON.stringify(profile, null, 2)
             : 'Loading...'
         }
-      </div>
+      </div> */}
     </div>
   )
 }
