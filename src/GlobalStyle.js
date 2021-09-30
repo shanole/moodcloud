@@ -6,11 +6,10 @@ font-family: ${theme.fonts.sansSerif};
 
 a {
   text-decoration: none;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+}
+
+button {
+  border: none;
 }
 
 .primary-link {
@@ -22,9 +21,6 @@ a {
   color: ${theme.colors.navy};
 }
 
-button {
-  border: none;
-}
 
 input {
   width: 100%;

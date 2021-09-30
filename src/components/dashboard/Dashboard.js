@@ -7,7 +7,6 @@ import NewEntryForm from './../entry/NewEntryForm';
 import EditEntryForm from './../entry/EditEntryForm';
 import EntryDetails from './../entry/EntryDetails';
 import KeywordDetails from './../keyword/KeywordDetails';
-import StyledDashboard from './styles/StyledDashboard'
 import { connect } from 'react-redux';
 import { withFirestore } from 'react-redux-firebase'
 import * as a from './../../actions/index';
@@ -114,7 +113,7 @@ class Dashboard extends React.Component {
         </div>
     }
     return(
-      <StyledDashboard>
+      <React.Fragment>
         <Container fluid="md" className="dashboard">
           <Row>
             <Col sm={3}>
@@ -125,7 +124,7 @@ class Dashboard extends React.Component {
             </Col>
           </Row>
         </Container>
-      </StyledDashboard>
+      </React.Fragment>
     );
   }
 }

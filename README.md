@@ -40,6 +40,9 @@
   - got auth/authorization logic figured out
   - created different routes
   - created and styled landing page
+- Sept 29
+  - user can now change display name and profile photo
+  - styling for landing page
 
 </details>
 

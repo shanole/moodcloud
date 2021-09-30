@@ -28,7 +28,10 @@ function AccountControl() {
     firebase.logout()
       .then(() => {
         console.log('logged out!!');
-        window.location = '/';
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
       })
       .catch((e) => console.log(e.message))
   }

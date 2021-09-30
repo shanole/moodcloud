@@ -1,6 +1,8 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import GlobalStyling from './GlobalStyling';
+import GlobalStyle from './GlobalStyle';
+import DashboardStyle from './DashboardStyle';
+import LandingPageStyle from './LandingPageStyle';
 import Dashboard from './components/dashboard/Dashboard';
 import Navbar from './components/dashboard/Navbar';
 import UserControl from './components/auth/UserControl';
@@ -11,23 +13,29 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // will need to add routing
 function App() {
   return (
-    <GlobalStyling>
+    <GlobalStyle>
     <Router>
       <Switch>
         <PrivateRoute path ="/account">
-          <Navbar />
-          <UserControl />
+         <DashboardStyle>
+            <Navbar />
+            <UserControl />
+          </DashboardStyle>
         </PrivateRoute>
         <PrivateRoute path="/dashboard">
-          <Navbar />
+          <DashboardStyle>          
+            <Navbar />
             <Dashboard />
+          </DashboardStyle>
         </PrivateRoute>
         <Route path="/">
-          <LandingPage />
+          <LandingPageStyle>
+            <LandingPage />
+          </LandingPageStyle>
         </Route>
       </Switch>
     </Router>
-    </GlobalStyling>
+    </GlobalStyle>
   );
 }
 
