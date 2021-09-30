@@ -1,4 +1,25 @@
 import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styled from "styled-components";
+
+const UpButton = styled.div`
+  background-color: #969696;
+  opacity: 70%;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 1em;
+  width: 3em;
+  height: 3em;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+`
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,11 +50,11 @@ export default function ScrollToTop() {
 
 //scroll-to-top classes: fixed, bottom:0, right:0
   return (
-    <div className="scroll-to-top" style={{ color: 'white', position: 'fixed', bottom: '0', right: '0'}}>
+    <div>
       {isVisible && (
-        <div onClick={scrollToTop}>
-          <h3>back up</h3>
-        </div>
+        <UpButton onClick={scrollToTop}>
+          <FontAwesomeIcon icon='long-arrow-alt-up'/>
+        </UpButton>
       )}
     </div>
   );

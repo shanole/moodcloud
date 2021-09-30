@@ -23,7 +23,7 @@ function Register() {
 
   return (
     <StyledForm>
-      <h1>Sign up</h1>
+      <h1>Register</h1>
       <form onSubmit={doSignUp}>
         <input
           type='text'

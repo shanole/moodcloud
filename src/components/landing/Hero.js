@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 import StyledHero from './styles/StyledHero';
 import gradientVid from './../../assets/img/gradient-vid.mp4';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Hero() {
   const auth = useSelector(state => state.firebase.auth);
@@ -17,7 +18,7 @@ function Hero() {
     welcomeMessage = `welcome to moodboard, ${profile.displayName}`
     button = <Link to='/dashboard' className='btn primary-link'>go inside</Link>
   } else {
-    welcomeMessage = 'welcome to moodcloud'
+    welcomeMessage = 'welcome to moodcloud '
     button = <HashLink smooth to='/#account' className='btn primary-link'>join us</HashLink>
   }
   
@@ -28,7 +29,7 @@ function Hero() {
       <h1>moodcloud</h1>
       <p>{welcomeMessage}</p>
       {button}
-      <HashLink to="#about" className='btn primary-link'>about</HashLink>
+      <HashLink to="#about" className='btn primary-link'><FontAwesomeIcon icon='long-arrow-alt-down'/></HashLink>
     </div>
     <div id='videoWrapper'>
       <video autoPlay muted loop id="bgvideo">
