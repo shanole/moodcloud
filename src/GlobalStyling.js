@@ -2,11 +2,7 @@ import styled from "styled-components";
 import theme from './theme';
 
 export default styled.div`
-
-* {
-  box-sizing: border-box;
-  font-family: ${theme.fonts.sansSerif};
-}
+font-family: ${theme.fonts.sansSerif};
 
 a {
   text-decoration: none;
@@ -36,7 +32,7 @@ input {
   margin-bottom: 5px;
   border-radius: 5px;
   display: block;
-  padding: 2px 10px;
+  padding: 5px 10px;
   color: ${theme.colors.mediumGray}
 }
 
@@ -53,6 +49,7 @@ h1 {
 }
 
 .btn {
+  font-size: 22px;
   border: 1px solid ${theme.colors.cream};
   width: 250px;
   border-radius: 20px;

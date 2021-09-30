@@ -36,8 +36,8 @@ function AccountControl() {
   if ((isLoaded(auth)) && (!isEmpty(auth))) {
     return (<StyledAccountControl>
       <div className="content" id="account">
-        <Link to='/dashboard' onClick = {goToForm} className='btn primary-link'>how was your day?</Link>
-        <button onClick = {doSignOut}>Log out</button>
+        <Link to='/dashboard' onClick={goToForm} className='question'>how was your day?</Link>
+        <button className='btn primary-link' onClick = {doSignOut}>sign out</button>
       </div>
     </StyledAccountControl>)
   }
@@ -52,7 +52,7 @@ function AccountControl() {
   } else {
     visibleComponent = <div>
       <Signin />
-      <p className='toggle'onClick={() => setSignUpStatus(true)}>Register for an account</p>
+      <p className='toggle' onClick={() => setSignUpStatus(true)}>Register for an account</p>
     </div>
   }
 

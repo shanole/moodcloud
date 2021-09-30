@@ -36,4 +36,7 @@ export default styled.div`
       border: none;
     }
   }
+  .about h1 {
+    margin-bottom: 30px;
+  }
 `;
