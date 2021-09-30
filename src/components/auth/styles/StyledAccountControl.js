@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import gradientbg from './../../../assets/img/gradient2.jpg'
+import theme from "../../../theme";
 
 export default styled.div`
   height: 100vh;
   position: relative;
-  background-color: #E1A7B0;
   background: url(${gradientbg}) no-repeat center center/cover;
   position: relative;
-  color: white;
+  color: ${theme.colors.cream};
 
   .content {
     display: flex;
@@ -21,7 +21,7 @@ export default styled.div`
     .toggle {
       margin-top: 15px;    
       &:hover {
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid ${theme.colors.cream};
         cursor: pointer;
       }
     }

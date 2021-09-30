@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import theme from './theme';
 
 export default styled.div`
 
 * {
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: ${theme.fonts.sansSerif};
 }
 
 a {
@@ -17,12 +18,12 @@ a {
 }
 
 .primary-link {
-  color: #fff
+  color: ${theme.colors.cream}
 }
 
 .secondary-link {
-  background-color: #fff;
-  color: #000;
+  background-color: ${theme.colors.cream};
+  color: ${theme.colors.navy};
 }
 
 button {
@@ -36,7 +37,7 @@ input {
   border-radius: 5px;
   display: block;
   padding: 2px 10px;
-  color: #4f4f4f
+  color: ${theme.colors.mediumGray}
 }
 
 textarea {
@@ -48,18 +49,18 @@ label {
 }
 
 h1 {
-  font-family: "DM Serif Display", serif;
+  font-family: ${theme.fonts.serif};
 }
 
 .btn {
-  border: 1px solid #fff;
+  border: 1px solid ${theme.colors.cream};
   width: 250px;
   border-radius: 20px;
   margin: 5px 0px 5px 0px;
 
   &:hover {
-    background-color: #fff;
-    color: #cf96b6;
+    background-color: ${theme.colors.cream};
+    color: ${theme.colors.pink};
   }
 }
 

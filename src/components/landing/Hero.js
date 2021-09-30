@@ -29,7 +29,8 @@ function Hero() {
       <h1>moodcloud</h1>
       <p>{welcomeMessage}</p>
       {button}
-      <HashLink to="#about" className='btn primary-link'><FontAwesomeIcon icon='long-arrow-alt-down'/></HashLink>
+      <HashLink to="#about" className='plain-link learn'>learn more</HashLink>
+      <HashLink to="#about" className='plain-link'><FontAwesomeIcon icon='long-arrow-alt-down'/></HashLink>
     </div>
     <div id='videoWrapper'>
       <video autoPlay muted loop id="bgvideo">

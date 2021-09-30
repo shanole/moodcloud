@@ -1,15 +1,28 @@
 import styled from "styled-components";
-import gradientbg from './../../../assets/img/gradient1.jpg'
+import theme from "../../../theme";
 
 export default styled.div`
   height: 100vh;
-  color: white;
+  color: ${theme.colors.cream};
 
   h1 {
     font-size: 8vh;
   }
 
   p {
+    font-size: 25px;
+  }
+
+  .learn {
+    font-family: ${theme.fonts.serif};
+    font-style: italic;
+    letter-spacing: 0.1em;
+    margin-top: 40px;
+    margin-bottom: 5px;
+  }
+
+  .plain-link {
+    color: ${theme.colors.cream};
     font-size: 25px;
   }
 

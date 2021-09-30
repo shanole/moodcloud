@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import theme from './../../../theme';
 
 export default styled.div`
   height: 100vh;
   position: relative;
-  background-color: white;
-  color: black;
+  background-color: ${theme.colors.cream};
+  color: ${theme.colors.navy};
 
   .content {
     display: flex;
