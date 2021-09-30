@@ -5,6 +5,14 @@ export default styled.div`
   height: 100vh;
   color: white;
 
+  h1 {
+    font-size: 8vh;
+  }
+
+  p {
+    font-size: 25px;
+  }
+
   .content {
     display: flex;
     flex-direction: column;
@@ -14,6 +22,7 @@ export default styled.div`
     width: 100%;
     height: 100%;
     position: absolute;
+    z-index: +1;
   }
 
   #videoWrapper {

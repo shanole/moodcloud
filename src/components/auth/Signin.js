@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useFirebase } from 'react-redux-firebase'
+import StyledForm from "./styles/StyledForm";
 
 function Signin(){
 
@@ -29,7 +30,7 @@ function Signin(){
   });
 
   return (
-    <React.Fragment>
+    <StyledForm>
       <h1>Sign In</h1>
       <form onSubmit={doSignIn}>
         <input
@@ -39,10 +40,10 @@ function Signin(){
         <input
           type='password'
           name='signinPassword'
-          placeholder='Password' />
-        <button type='submit'>Sign in</button>
+          placeholder='password' />
+        <button className='btn primary-link' type='submit'>Sign in</button>
       </form>
-    </React.Fragment>
+    </StyledForm>
   );
 }
 

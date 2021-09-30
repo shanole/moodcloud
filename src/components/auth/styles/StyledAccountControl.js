@@ -13,8 +13,17 @@ export default styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-content: center;
     justify-content: center;
     text-align: center;
     height: 100%;
+
+    .toggle {
+      margin-top: 15px;    
+      &:hover {
+        border-bottom: 1px solid white;
+        cursor: pointer;
+      }
+    }
   }
 `;

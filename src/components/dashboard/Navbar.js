@@ -21,7 +21,7 @@ function Navbar() {
       <div className="nav">
         <Link to='/dashboard' onClick={goHome}>dashboard</Link>
         <Link to='/dashboard' onClick={goToForm}>postNew</Link>
-        <h3><Link to="/account">account</Link></h3>
+        <Link to="/account">account</Link>
       </div>
     </div>
   );

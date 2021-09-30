@@ -83,14 +83,15 @@
   - [x] may need to change firestore db structure, esp for KEYWORDS -- all entries should have a userId assc w them; keywords may need to be nested in a user document
   - [x] redirecting when logging in not working
   - [x] security rules
-- [ ] UserControl components
-  - [ ] form to set displayName
-  - [ ] profile pic
+- [x] UserControl components
+  - [x] form to set displayName
+  - [x] profile pic
   - [ ] _reset pw, change email, other user customization options_
 
 ---
 
 - [ ] UI & styling
+  - [ ] responsive
 - [ ] readme --FINISH BY 10/9
   - [ ] component diagram
 - [ ] _limit only one post a day_

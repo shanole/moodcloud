@@ -15,10 +15,10 @@ function Hero() {
 
   if ((isLoaded(auth)) && (!isEmpty(auth))) {
     welcomeMessage = `welcome to moodboard, ${profile.displayName}`
-    button = <Link to='/dashboard'>go inside</Link>
+    button = <Link to='/dashboard' className='btn primary-link'>go inside</Link>
   } else {
     welcomeMessage = 'welcome to moodcloud'
-    button = <HashLink smooth to='/#account'>join us</HashLink>
+    button = <HashLink smooth to='/#account' className='btn primary-link'>join us</HashLink>
   }
   
 
@@ -27,8 +27,8 @@ function Hero() {
     <div className="content">
       <h1>moodcloud</h1>
       <p>{welcomeMessage}</p>
-      <p>{button}</p>
-      <p><HashLink to="#about">about</HashLink></p>
+      {button}
+      <HashLink to="#about" className='btn primary-link'>about</HashLink>
     </div>
     <div id='videoWrapper'>
       <video autoPlay muted loop id="bgvideo">
