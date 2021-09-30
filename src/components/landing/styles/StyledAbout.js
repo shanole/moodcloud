@@ -7,12 +7,33 @@ export default styled.div`
   background-color: ${theme.colors.cream};
   color: ${theme.colors.navy};
 
-  .content {
+  .wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 100%;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .column {
+    flex-basis: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    height: 100%;
+    align-items: center;
+    padding: 200px;
+    @media (max-width: 768px) {
+      padding: 40px;
+    }
+  }
+  .chart {
+    border-right: 1px black solid;
+    @media (max-width: 768px) {
+      border: none;
+    }
   }
 `;
