@@ -6,6 +6,7 @@ font-family: ${theme.fonts.sansSerif};
 
 a {
   text-decoration: none;
+  color: ${theme.colors.navy};
 }
 
 button {

@@ -114,12 +114,12 @@ class Dashboard extends React.Component {
     }
     return(
       <React.Fragment>
-        <Container fluid="md" className="dashboard">
+        <Container fluid="md" className="dashboard-container">
           <Row>
-            <Col sm={3}>
+            <Col className='col-sm' sm={4}>
               <UserDetails />           
             </Col>
-            <Col sm={9}>
+            <Col className='col-lg' sm={6}>
               {currentlyVisibleComponent}
             </Col>
           </Row>

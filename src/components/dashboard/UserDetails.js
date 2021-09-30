@@ -15,10 +15,10 @@ function UserDetails() {
   return (
     <div>
       <img src={profile.photoUrl} width="300" height="300" alt="profile-pic"  style={{borderRadius: '50%'}}/>
-      <h3>Hello, {profile.displayName}</h3>
-      <p><Link to='/account'>Edit user details</Link></p>
-      <p onClick={() => dispatch(showForm('new'))}>New post</p>
-      <p onClick={() => dispatch(showDashboard())}>Home</p>
+      <h3 className='section-heading'>Hello, {profile.displayName}</h3>
+      <p><Link to='/account' className='link'>Edit user details</Link></p>
+      <p className='link' onClick={() => dispatch(showForm('new'))}>New post</p>
+      <p className='link' onClick={() => dispatch(showDashboard())}>Home</p>
     </div>
   );
 }

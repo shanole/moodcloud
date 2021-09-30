@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { showDashboard, showForm } from './../../actions/index';
 import { Link } from "react-router-dom";
+import StyledNavbar from './styles/StyledNavbar';
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -16,14 +17,14 @@ function Navbar() {
   }
 
   return (
-    <div style={{display: 'flex', justifyContent: 'space-between'}}>
-      <Link to='/'>moodcloud</Link>
+    <StyledNavbar>
+      <Link className='logo' to='/'>moodcloud</Link>
       <div className="nav">
-        <Link to='/dashboard' onClick={goHome}>dashboard</Link>
-        <Link to='/dashboard' onClick={goToForm}>postNew</Link>
-        <Link to="/account">account</Link>
+        <Link className='nav-link' to='/dashboard' onClick={goHome}>dashboard</Link>
+        <Link className='nav-link' to='/dashboard' onClick={goToForm}>postNew</Link>
+        <Link className='nav-link' to="/account">account</Link>
       </div>
-    </div>
+    </StyledNavbar>
   );
 }
 
