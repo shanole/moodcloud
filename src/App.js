@@ -20,9 +20,7 @@ function App() {
         </PrivateRoute>
         <PrivateRoute path="/dashboard">
           <Navbar />
-          <div className="container">
             <Dashboard />
-          </div>
         </PrivateRoute>
         <Route path="/">
           <LandingPage />

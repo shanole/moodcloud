@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux'
 import { useFirebase, useFirebaseConnect, isLoaded } from 'react-redux-firebase'
-
+import { Container, Row, Col } from 'react-bootstrap';
 
 function UserControl() {
   const [formVisible, setFormVisible] = useState(false);
@@ -113,7 +113,7 @@ function UserControl() {
   )
   }
   return (
-    <div>
+    <Container>
       <h2>user profile</h2>
       <img src={profile.photoUrl} width="300" height="300" alt="profile-pic"  style={{borderRadius: '50%'}}/>
       <h3>hello, {profile.displayName}</h3>
@@ -126,7 +126,7 @@ function UserControl() {
             : 'Loading...'
         }
       </div> */}
-    </div>
+    </Container>
   )
 }
 export default UserControl;

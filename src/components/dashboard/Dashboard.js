@@ -2,12 +2,12 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Graph from './Graph';
 import EntryList from '../entry/EntryList';
-import KeywordCloud from './KeywordCloud';
 import UserDetails from './UserDetails';
 import NewEntryForm from './../entry/NewEntryForm';
 import EditEntryForm from './../entry/EditEntryForm';
 import EntryDetails from './../entry/EntryDetails';
 import KeywordDetails from './../keyword/KeywordDetails';
+import StyledDashboard from './styles/StyledDashboard'
 import { connect } from 'react-redux';
 import { withFirestore } from 'react-redux-firebase'
 import * as a from './../../actions/index';
@@ -114,16 +114,18 @@ class Dashboard extends React.Component {
         </div>
     }
     return(
-      <Container fluid="md" className="dashboard">
-        <Row>
-          <Col sm={3}>
-            <UserDetails />           
-          </Col>
-          <Col sm={9}>
-            {currentlyVisibleComponent}
-          </Col>
-        </Row>
-      </Container>
+      <StyledDashboard>
+        <Container fluid="md" className="dashboard">
+          <Row>
+            <Col sm={3}>
+              <UserDetails />           
+            </Col>
+            <Col sm={9}>
+              {currentlyVisibleComponent}
+            </Col>
+          </Row>
+        </Container>
+      </StyledDashboard>
     );
   }
 }

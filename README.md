@@ -79,7 +79,7 @@
   - [x] Change timespans
   - [x] Modal on hover
 - [x] Routing and landing page
-- [x] authentication / authorization --FINISH BY 10/2
+- [x] authentication / authorization
   - [x] may need to change firestore db structure, esp for KEYWORDS -- all entries should have a userId assc w them; keywords may need to be nested in a user document
   - [x] redirecting when logging in not working
   - [x] security rules
@@ -90,8 +90,25 @@
 
 ---
 
-- [ ] UI & styling
-  - [ ] responsive
+- [ ] UI & styling that is responsive
+  - [ ] basic dashboard layout & 'global' styling
+    - [ ] why does the dashboard re-render??
+  - [ ] navbar
+  - [ ] chart
+    - [ ] demo chart on landing page --FINISH BY 10/2
+  - [ ] new form
+    - [ ] react tags
+    - [ ] input range
+  - [ ] entries
+    - [ ] entry list
+    - [ ] entry details
+  - [ ] keywords
+    - [ ] keyword pill
+    - [ ] keyword details
+  - [ ] user
+    - [ ] user control
+    - [ ] user profile
+  - [ ] animations
 - [ ] readme --FINISH BY 10/9
   - [ ] component diagram
 - [ ] _limit only one post a day_
