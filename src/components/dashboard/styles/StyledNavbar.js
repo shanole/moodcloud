@@ -15,7 +15,7 @@ export default styled.div`
   }
 
   height: 5.5vh;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 
   .logo {
     font-family: ${theme.fonts.serif};

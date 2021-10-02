@@ -3,8 +3,7 @@ import ReusableForm from './ReusableForm';
 import { useFirestore } from 'react-redux-firebase'
 import { useDispatch, useSelector } from 'react-redux'
 import { showDashboard } from './../../actions/index'
-
-const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}
+import dateOptions from '../util/dateOptions';
 
 function NewEntryForm(props) {
   const firestore = useFirestore();

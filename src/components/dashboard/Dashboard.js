@@ -108,7 +108,6 @@ class Dashboard extends React.Component {
     } else {
       currentlyVisibleComponent = 
         <div>
-          <Graph />
           <EntryList limit={3}/>
         </div>
     }
@@ -116,10 +115,13 @@ class Dashboard extends React.Component {
       <React.Fragment>
         <Container fluid="md" className="dashboard-container">
           <Row>
-            <Col className='col-sm' sm={4}>
               <UserDetails />           
+          </Row>
+          <Row>
+            <Col className='col-sm' sm={5}>
+              <Graph />
             </Col>
-            <Col className='col-lg' sm={6}>
+            <Col className='col-lg' sm={5}>
               {currentlyVisibleComponent}
             </Col>
           </Row>

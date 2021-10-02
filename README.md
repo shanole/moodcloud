@@ -114,6 +114,7 @@
   - [ ] animations
 - [ ] readme --FINISH BY 10/9
   - [ ] component diagram
+        _ [ ] \_weather widget with openWeather?_
 - [ ] _limit only one post a day_
 - [ ] _BONUS: fancy "cloud" view for keywords_
 
