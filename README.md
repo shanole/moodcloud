@@ -43,6 +43,8 @@
 - Sept 29
   - user can now change display name and profile photo
   - styling for landing page
+- Oct 2
+  - working on styling all the dashboard components!
 
 </details>
 
@@ -65,7 +67,6 @@
   - [x] edit/delete entry
     - [x] basic edit functionality
     - [x] basic delete functionality
-      - [ ] _page to confirm delete?_
     - [x] make edit form redirect to entry DETAILS, not dashboard? --> learn about firestore queries lol
   - [x] keyword/hashtag form [react tags?](https://github.com/react-tags/react-tags)
 - [x] **keyword collections in firestore**
@@ -89,7 +90,6 @@
 - [x] UserControl components
   - [x] form to set displayName
   - [x] profile pic
-  - [ ] _reset pw, change email, other user customization options_
 
 ---
 
@@ -111,13 +111,22 @@
     - [ ] keyword details
   - [ ] user
     - [ ] user control
-    - [ ] user profile
+    - [ ] user profile --FINISH BY END OF 10/3
   - [ ] animations
+  - [ ] final theming touches
+  - [ ] responsive design
 - [ ] readme --FINISH BY 10/9
   - [ ] component diagram
-        _ [ ] \_weather widget with openWeather?_
+
+---
+
+stretch goals/bonus features
+
+- [ ] _keyword cloud_
+- [ ] _page to confirm delete?_
+- [ ] _weather widget with openWeather?_
+- [ ] _reset pw, change email, other user customization options_
 - [ ] _limit only one post a day_
-- [ ] _BONUS: fancy "cloud" view for keywords_
 
 </details>
 
