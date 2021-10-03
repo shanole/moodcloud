@@ -6,24 +6,28 @@ color: ${theme.colors.navy};
 background-color: ${theme.colors.cream};
 height: 100%;
 
-
 .dashboard-container {
+  margin: auto;
 }
 
-.col-sm {
+.col-l {
   border-right: 1px solid ${theme.colors.navy};
+  width: 50%
   display: flex;
   flex-direction: column;
   align-content: center;
+  margin-right: 20px;
 }
 
-.col-lg {
-  padding: 0px 80px;
+.col-r {
+  width: 50%;
+  margin-left: 20px;
 }
 
 .section-heading {
   font-family: ${theme.fonts.serif};
   font-size: 35px;
+  text-align: center;
 }
 
 .link {

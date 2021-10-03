@@ -6,7 +6,7 @@ export default styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // background-color: ${theme.colors.pinkNavbar};
+  // background-color: ${theme.colors.cream};
   background-image: url(${gradientbg});
   opacity: 70%;
 

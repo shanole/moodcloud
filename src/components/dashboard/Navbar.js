@@ -21,7 +21,7 @@ function Navbar() {
       <Link className='logo' to='/'>moodcloud</Link>
       <div className="nav">
         <Link className='nav-link' to='/dashboard' onClick={goHome}>dashboard</Link>
-        <Link className='nav-link' to='/dashboard' onClick={goToForm}>postNew</Link>
+        <Link className='nav-link' to='/dashboard' onClick={goToForm}>new entry</Link>
         <Link className='nav-link' to="/account">account</Link>
       </div>
     </StyledNavbar>

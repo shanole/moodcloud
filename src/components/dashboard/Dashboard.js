@@ -108,6 +108,7 @@ class Dashboard extends React.Component {
     } else {
       currentlyVisibleComponent = 
         <div>
+          <h3 className='section-heading'>entries</h3>
           <EntryList limit={3}/>
         </div>
     }
@@ -118,10 +119,11 @@ class Dashboard extends React.Component {
               <UserDetails />           
           </Row>
           <Row>
-            <Col className='col-sm' sm={5}>
+            <Col className='col-l' sm={5}>
+              <h3 className='section-heading'>mood chart</h3>
               <Graph />
             </Col>
-            <Col className='col-lg' sm={5}>
+            <Col className='col-r' sm={5}>
               {currentlyVisibleComponent}
             </Col>
           </Row>

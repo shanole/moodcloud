@@ -12,10 +12,8 @@ function PrivateRoute({ children, ...rest }) {
   const firebase = useFirebase();
   const [loggedIn, setLoggedIn] = useState(false);
 
-  // memory leak?
   firebase.auth().onAuthStateChanged(user => {
     if(user) {
-      // window.location = 'home.html'; //After successful login, user will be redirected to home.html
       setLoggedIn(true);
     }
   });
@@ -27,7 +25,6 @@ function PrivateRoute({ children, ...rest }) {
         (isLoaded(auth) && !isEmpty(auth)) || loggedIn ? (
           children
         ) : (
-          // this may redirect to anchor in the future
           <Redirect
             to={{
               pathname: "/#account",

@@ -3,6 +3,7 @@ import Chart from 'chart.js/auto';
 import { useSelector, useDispatch } from 'react-redux';
 import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 import { showEntry } from './../../actions/index'
+import theme from '../../theme';
 
 function Graph() {  
   const chartRef = useRef(null)
@@ -35,27 +36,25 @@ function Graph() {
         datasets: [{ 
           data: datapoints,
           label: "Mood Rating",
-          borderColor: "#3e95cd",
-          backgroundColor: "#7bb6dd",
+          borderColor: theme.colors.pink,
+          backgroundColor: theme.colors.pink,
+          hoverBorderColor: theme.colors.lightPink,
+          hoverBackgroundColor: theme.colors.lightPink,
+          pointHoverRadius: 7,
           fill: false,
         }
         ],
       },
       options: { 
         plugins: {
-          title: {
-              display: true,
-              fullSize: true,
-              text: 'Mood Chart',
-              font: {
-                size: 30
-              }
-          },
           legend: {
             display: false
           },
           // the little box thing?
           tooltip: {
+            displayColors:false,
+            backgroundColor: theme.colors.navy,
+            titleFont: {size: 15},
             callbacks: {
               title: function(tooltipItem) {
                 let index = tooltipItem[0].dataIndex
@@ -63,14 +62,20 @@ function Graph() {
               },
               afterLabel: function(tooltipItem) {
                 let index = tooltipItem.dataIndex;
-                return entries[index].keywords.map(keyword => keyword.text)
+                return 'Keywords: '+ entries[index].keywords.map(keyword => keyword.text)
               }
             }
           }
         },
         scales: {
           yAxes: {
-            beginAtZero: true
+            beginAtZero: true,
+            max: 10
+          }
+        },
+        elements: {
+          line: {
+            tension: 0.25
           }
         },
         onClick: function clickHandler(evt) {

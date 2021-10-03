@@ -16,10 +16,10 @@ function UserDetails() {
   return (
     <StyledUserDetails>
       <div className='profile-pic'>
-        <img src={profile.photoUrl} alt="profile pic"/>
+        <Link to='/account'><img src={profile.photoUrl} alt="profile pic"/></Link>
       </div>
-      <h3 className='section-heading'>Hello, {profile.displayName}</h3>
-      <h4 className='date'>Today's date is {dateString} and it's...</h4>
+      <h3 className='section-heading'>Hello, <Link to='/account' className='link'>{profile.displayName}</Link></h3>
+      <h4 className='date'>Today's is {dateString} and it's...</h4>
       {/* <div className='user-nav-links'>
         <p><Link to='/account' className='link'>Edit user details</Link></p>
         <p className='link' onClick={() => dispatch(showForm('new'))}>New post</p>
