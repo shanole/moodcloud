@@ -14,7 +14,6 @@ padding: 8px 15px;
 }
 
 .entry-title {
-  font-family: ${theme.fonts.serif};
   &: hover {
     color: ${theme.colors.pink};
   }
@@ -35,26 +34,5 @@ padding: 8px 15px;
     flex: 2;
     padding-right: 15px;
   }
-  .rating {
-    font-family: ${theme.fonts.serif};
-    font-size: 35px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
-    
-    .number {
-      color: ${theme.colors.pink};
-    }
-
-    .rating-label {
-      font-family: ${theme.fonts.sansSerif};
-      font-size: 12px;
-    }
-  }
-}
-.entry-keywords {
-  display: flex;
 }
 `

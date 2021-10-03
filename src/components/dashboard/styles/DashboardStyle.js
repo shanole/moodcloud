@@ -33,7 +33,8 @@ min-height: 100vh;
     z-index: 1;
     background: url(${gradientbg}) no-repeat;
     // background: ${theme.colors.lightPinkNavBar};
-    max-width: 1100px;
+    width: auto;
+    max-width: 800px;
     // height: 58%;
     overflow: auto;
     margin: auto;
@@ -72,6 +73,33 @@ min-height: 100vh;
 p.link {
   display: table;
   flex-direction: column;
+}
+
+.entry-keywords {
+  display: flex;
+}
+
+.entry-title {
+  font-family: ${theme.fonts.serif};
+}
+
+.rating {
+  font-family: ${theme.fonts.serif};
+  font-size: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  
+  .number {
+    color: ${theme.colors.pink};
+  }
+
+  .rating-label {
+    font-family: ${theme.fonts.sansSerif};
+    font-size: 12px;
+  }
 }
 
 `

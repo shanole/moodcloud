@@ -103,9 +103,12 @@
   - [x] new form
     - [x] react tags
     - [x] input range
-  - [ ] entries
-    - [ ] entry list
-    - [ ] entry details
+  - [x] entries
+    - [x] entry list
+    - [x] entry details
+  - [ ] chart column
+    - [ ] date toggle buttons
+    - [ ] add average?
   - [ ] keywords
     - [ ] keyword pill
     - [ ] keyword details
