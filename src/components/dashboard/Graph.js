@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 import { showEntry } from './../../actions/index'
 import theme from '../../theme';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Graph() {  
   const chartRef = useRef(null)
@@ -70,7 +71,12 @@ function Graph() {
         scales: {
           yAxes: {
             beginAtZero: true,
-            max: 10
+            max: 10,
+            title: {
+              display: true,
+              text: 'mood rating',
+              align: 'end'
+            }
           }
         },
         elements: {

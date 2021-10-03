@@ -95,7 +95,8 @@ class Dashboard extends React.Component {
 
   render() {
     const { selectedForm, selectedKeyword, selectedEntry } = this.props;
-    let currentlyVisibleComponent = null;
+    let currentlyVisibleComponent;
+    let modal;
 
     if (selectedForm != null && selectedEntry === null) {
       currentlyVisibleComponent = <NewEntryForm onSubmittingKeyword={this.handleAddKeywordTransaction}/>
@@ -106,26 +107,27 @@ class Dashboard extends React.Component {
     } else if (selectedKeyword != null) {
       currentlyVisibleComponent = <KeywordDetails keyword={selectedKeyword} />
     } else {
-      currentlyVisibleComponent = 
-        <div>
-          <h3 className='section-heading'>entries</h3>
-          <EntryList limit={3}/>
-        </div>
+      currentlyVisibleComponent = null;
     }
+    
+    modal = (currentlyVisibleComponent) ? <div className="modal-comp">{currentlyVisibleComponent}</div> : null;
+
     return(
       <React.Fragment>
         <Container fluid="md" className="dashboard-container">
           <Row>
               <UserDetails />           
           </Row>
-          <Row>
+          <Row className='columns'>
             <Col className='col-l' sm={5}>
               <h3 className='section-heading'>mood chart</h3>
               <Graph />
             </Col>
             <Col className='col-r' sm={5}>
-              {currentlyVisibleComponent}
+              <h3 className='section-heading'>entries</h3>
+              <EntryList limit={3}/>
             </Col>
+            {modal}
           </Row>
         </Container>
       </React.Fragment>

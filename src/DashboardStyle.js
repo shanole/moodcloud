@@ -4,25 +4,41 @@ import theme from './theme';
 export default styled.div`
 color: ${theme.colors.navy};
 background-color: ${theme.colors.cream};
-height: 100%;
+height: 100vh;
 
 .dashboard-container {
   margin: auto;
 }
 
-.col-l {
-  border-right: 1px solid ${theme.colors.navy};
-  width: 50%
+.columns {
   display: flex;
-  flex-direction: column;
-  align-content: center;
-  margin-right: 20px;
+  justify-content: center;
+
+  .col-l {
+    border-right: 1px solid ${theme.colors.navy};
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-right: 20px;
+  }
+  
+  .col-r {
+    margin-left: 20px;
+  }
+
+  .modal-comp {
+    position: fixed;
+    z-index: 1;
+    background: ${theme.colors.lightPinkNavBar};
+    width: 60%;
+    height: 55%;
+    overflow: auto;
+    margin: auto;
+    padding: 30px;
+    border-radius: 25px;
+  }
 }
 
-.col-r {
-  width: 50%;
-  margin-left: 20px;
-}
 
 .section-heading {
   font-family: ${theme.fonts.serif};
@@ -41,4 +57,5 @@ p.link {
   display: table;
   flex-direction: column;
 }
+
 `
