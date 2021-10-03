@@ -31,11 +31,24 @@ height: 100vh;
     z-index: 1;
     background: ${theme.colors.lightPinkNavBar};
     width: 60%;
-    height: 55%;
+    height: 58%;
     overflow: auto;
     margin: auto;
     padding: 30px;
     border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+
+    .close-modal {
+      width: 100%;
+      margin-bottom: 10px;
+      font-style: italic;
+
+      &:hover {
+        cursor: pointer;
+        color: ${theme.colors.cream}
+      }
+    }
   }
 }
 

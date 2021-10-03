@@ -10,6 +10,7 @@ import KeywordDetails from './../keyword/KeywordDetails';
 import { connect } from 'react-redux';
 import { withFirestore } from 'react-redux-firebase'
 import * as a from './../../actions/index';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -110,7 +111,9 @@ class Dashboard extends React.Component {
       currentlyVisibleComponent = null;
     }
     
-    modal = (currentlyVisibleComponent) ? <div className="modal-comp">{currentlyVisibleComponent}</div> : null;
+    modal = (currentlyVisibleComponent) ? <div className="modal-comp"><div className='close-modal' onClick={this.handleHomeClick}><FontAwesomeIcon icon='long-arrow-alt-left' /> back</div>
+      {currentlyVisibleComponent}
+      </div> : null;
 
     return(
       <React.Fragment>

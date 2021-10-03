@@ -23,18 +23,14 @@ button {
 }
 
 
-input {
+input, textarea {
   width: 100%;
   border: 1px;
   margin-bottom: 5px;
   border-radius: 5px;
   display: block;
   padding: 5px 10px;
-  color: ${theme.colors.mediumGray}
-}
-
-textarea {
-  width: 100%;
+  color: ${theme.colors.mediumGray};
 }
 
 label {

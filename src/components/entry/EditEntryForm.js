@@ -62,8 +62,7 @@ function EditEntryForm(props) {
 
   return (
     <React.Fragment>
-      <h3>Edit post here</h3>
-      <ReusableForm newTagHandler={updateTags} prefilledEntry = {entry} formSubmissionHandler={handleEditPostFormSubmission} buttonText="Update entry" />
+      <ReusableForm title='Edit entry' newTagHandler={updateTags} prefilledEntry = {entry} formSubmissionHandler={handleEditPostFormSubmission} buttonText="Update entry" />
     </React.Fragment>
   );
 }

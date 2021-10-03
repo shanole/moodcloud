@@ -1,5 +1,6 @@
 import React from 'react';
 import KeywordForm from './../keyword/KeywordForm';
+import StyledForm from './styles/StyledForm';
 
 function ReusableForm(props) {
   let entryRating, entryBlurb, entryKeywords;
@@ -11,7 +12,8 @@ function ReusableForm(props) {
   }
 
   return ( 
-    <React.Fragment>
+    <StyledForm>
+      <h3 className='form-title'>{props.title}</h3>
       <form onSubmit={props.formSubmissionHandler}>
         <label htmlFor="rating">How was your day?</label>
         <input 
@@ -31,9 +33,9 @@ function ReusableForm(props) {
         
         <KeywordForm prefilledTags={entryKeywords ? entryKeywords : []} addNewTags={props.newTagHandler}/>
         
-        <button type="submit">{props.buttonText}</button>
+        <button className='btn form-submit' type="submit">{props.buttonText}</button>
       </form>
-    </React.Fragment>
+    </StyledForm>
    );
 }
 

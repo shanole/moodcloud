@@ -42,8 +42,7 @@ function NewEntryForm(props) {
 
   return (
     <React.Fragment>
-      <h3>New Journal Entry</h3>
-      <ReusableForm newTagHandler={getTags} formSubmissionHandler={addPostToFirestore} buttonText="Submit"/>
+      <ReusableForm title='New Journal Entry' newTagHandler={getTags} formSubmissionHandler={addPostToFirestore} buttonText="Submit"/>
     </React.Fragment>
   );
 }
