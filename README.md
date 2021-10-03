@@ -108,13 +108,13 @@
     - [x] entry details
   - [ ] chart column
     - [ ] date toggle buttons
-    - [ ] add average?
   - [ ] keywords
     - [ ] keyword pill
     - [ ] keyword details
   - [ ] user
     - [ ] user control
     - [ ] user profile --FINISH BY END OF 10/3
+  - [ ] keyword cloud
   - [ ] animations
   - [ ] final theming touches
   - [ ] responsive design
@@ -125,7 +125,6 @@
 
 stretch goals/bonus features
 
-- [ ] _keyword cloud_
 - [ ] _page to confirm delete?_
 - [ ] _weather widget with openWeather?_
 - [ ] _reset pw, change email, other user customization options_

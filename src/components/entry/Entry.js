@@ -23,7 +23,7 @@ function Entry(props) {
             </div>
           <div className='content blurb'>{entryContent.blurb}</div>
         </div>
-      <div className='entry-keywords'>{entryContent.keywords.map((keyword, index) => <Keyword key={index} keywordData={keyword} />)}</div>
+      <div className='entry-keywords'>{entryContent.keywords.map((keyword, index) => <Keyword rating={entryContent.rating} key={index} keywordData={keyword} />)}</div>
     </StyledEntry>
   );
 }

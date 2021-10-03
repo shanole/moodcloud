@@ -11,5 +11,10 @@ export default {
   fonts: {
     serif: "'DM Serif Display', serif",
     sansSerif: "'Roboto', san-serif"
+  },
+  keywords: {
+    bad: '#BCBEDE',
+    ok: '#E0CBE0',
+    great: '#F1CAD2'
   }
 };

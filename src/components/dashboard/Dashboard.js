@@ -122,6 +122,9 @@ class Dashboard extends React.Component {
               <UserDetails />           
           </Row>
           <Row className='columns'>
+            {/* <Col>
+              <UserDetails />
+            </Col> */}
             <Col className='col-l' sm={5}>
               <h3 className='section-heading'>mood chart</h3>
               <Graph />

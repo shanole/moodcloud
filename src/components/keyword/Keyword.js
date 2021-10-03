@@ -1,21 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { showKeyword } from '../../actions';
 import { useFirestore } from 'react-redux-firebase';
-
-const KeywordBubble = styled.div`
-background-color: lightgrey;
-margin: 0px 10px 10px 0px;
-box-sizing: border-box;
-padding: 5px 10px;
-border-radius: 10px;
-`
+import KeywordBubble from './KeywordBubble';
 
 function Keyword(props) {
   const firestore = useFirestore();
   const dispatch = useDispatch();
   const auth = useSelector(state => state.firebase.auth);
+  const [rating, setRating] = useState(null);
 
   const goToKeywordDetails = (keyword) => {
     var keywordRef = firestore.collection('keywords').doc(auth.uid).collection('userKeywords').doc(keyword);
@@ -25,9 +18,13 @@ function Keyword(props) {
     })
   }
 
+  firestore.collection('keywords').doc(auth.uid).collection('userKeywords').doc(props.keywordData.text).get().then(doc => {
+    setRating(Math.round(doc.data().avgRating));
+  })
+
   return (
     <div onClick={() => goToKeywordDetails(props.keywordData.text)}>
-      <KeywordBubble>{props.keywordData.text}
+      <KeywordBubble rating = {rating}>{props.keywordData.text}
       </KeywordBubble>
     </div>
   );
