@@ -5,7 +5,7 @@ import Entry from './Entry';
 import { useFirestore } from 'react-redux-firebase'
 import { useSelector } from 'react-redux';
 import StyledEntryList from './styles/StyledEntryList';
-import ScrollToTop from '../util/ScrollToTop';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function EntryList(props) {
   const firestore = useFirestore();
@@ -99,6 +99,7 @@ function EntryList(props) {
   const [lastKey, setLastKey] = useState("");
   const [loading, setLoading] = useState (false);
   const [firstLoad, setFirstLoad] = useState(true);
+  const [scrollUpVisible, setScrollUpVisible] = useState(false);
 
   useEffect( () => {
     if (firstLoad) {
@@ -169,18 +170,17 @@ function EntryList(props) {
     }
 
   const backToTop = () => {
-    getFirstBatch()
-      .then( (res) => {
-        setLoadedEntries(res.entries);
-        setLastKey(res.lastKey)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    document.getElementById('list').scrollTo({top: 0, behavior: 'smooth'})
   }
 
   const handleScroll = (event) => {
     const bottom = event.target.scrollHeight - event.target.scrollTop === event.target.clientHeight;
+
+    if (event.target.scrollTop > 200) {
+      setScrollUpVisible(true);
+    } else if (event.target.scrollTop <= 200) {
+      setScrollUpVisible(false);
+    }
     if (bottom) {
       fetchMorePosts(lastKey)
     }
@@ -194,17 +194,15 @@ function EntryList(props) {
         {loading ? (<p>Loading...</p>
       ) : lastKey !== "" && lastKey !== undefined ? (null) : (
         "All entries loaded!"
-        // <button onClick={backToTop}>back to top</button>
-      )}
-      <ScrollToTop />
+        )}
       </div>
     )
     
-  return(
-    <StyledEntryList>
+    return(
+      <StyledEntryList>
       
       {allPosts}
-      
+      {scrollUpVisible && (<button className='scroll-up' onClick={backToTop}><FontAwesomeIcon icon='long-arrow-alt-up'/></button>)}
     </StyledEntryList>
     );
 }

@@ -3,26 +3,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from "styled-components";
 
 const UpButton = styled.div`
-  background-color: #fff;
-  opacity: 80%;
-  color: pink;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  font-size: 1em;
-  width: 3em;
-  height: 3em;
-  margin-right: 20px;
-  margin-bottom: 10px;
-  display: flex;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
+background-color: #fff;
+opacity: 80%;
+color: pink;
+position: fixed;
+bottom: 0;
+right: 0;
+font-size: 1em;
+width: 3em;
+height: 3em;
+margin-right: 20px;
+margin-bottom: 10px;
+display: flex;
+align-content: center;
+align-items: center;
+justify-content: center;
+border-radius: 10px;
 
-  &:hover {
-    cursor: pointer;
-  }
+&:hover {
+  cursor: pointer;
+}
 `
 
 export default function ScrollToTop() {
