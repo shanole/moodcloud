@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import theme from './theme';
-import gradientbg from './assets/img/gradient1.jpg'
+import theme from '../../../theme';
+import gradientbg from './../../../assets/img/gradient1.jpg'
 
 export default styled.div`
 color: ${theme.colors.navy};

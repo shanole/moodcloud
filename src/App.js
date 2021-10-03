@@ -1,8 +1,8 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import GlobalStyle from './GlobalStyle';
-import DashboardStyle from './DashboardStyle';
-import LandingPageStyle from './LandingPageStyle';
+import DashboardStyle from './components/dashboard/styles/DashboardStyle';
+import LandingPageStyle from './components/landing/styles/LandingPageStyle';
 import Dashboard from './components/dashboard/Dashboard';
 import Navbar from './components/dashboard/Navbar';
 import UserControl from './components/auth/UserControl';

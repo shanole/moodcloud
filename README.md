@@ -94,14 +94,15 @@
 ---
 
 - [ ] UI & styling that is responsive
-  - [ ] basic dashboard layout & 'global' styling
+  - [x] basic dashboard layout & 'global' styling
     - [ ] why does the dashboard re-render??
-  - [ ] navbar
-  - [ ] chart
+    - [ ] privateroute redirecting
+  - [x] navbar
+  - [x] chart
     - [ ] demo chart on landing page --FINISH BY 10/2
-  - [ ] new form
-    - [ ] react tags
-    - [ ] input range
+  - [x] new form
+    - [x] react tags
+    - [x] input range
   - [ ] entries
     - [ ] entry list
     - [ ] entry details
