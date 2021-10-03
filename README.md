@@ -45,6 +45,8 @@
   - styling for landing page
 - Oct 2
   - working on styling all the dashboard components!
+- Oct 3
+  - more styling dashboard components
 
 </details>
 
@@ -109,7 +111,7 @@
   - [ ] chart column
     - [ ] date toggle buttons
   - [ ] keywords
-    - [ ] keyword pill
+    - [x] keyword pill
     - [ ] keyword details
   - [ ] user
     - [ ] user control

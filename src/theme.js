@@ -6,7 +6,8 @@ export default {
     lightPink: '#E0B9CF',
     pinkNavbar: '#ffc0cb',
     lightPinkNavBar: '#FFDCE1',
-    mediumGray: '#4f4f4f'
+    mediumGray: '#4f4f4f',
+    mintGray: '#D0EEDF'
   }, 
   fonts: {
     serif: "'DM Serif Display', serif",
