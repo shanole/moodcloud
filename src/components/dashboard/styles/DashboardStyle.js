@@ -5,7 +5,7 @@ import gradientbg from './../../../assets/img/gradient1.jpg'
 export default styled.div`
 color: ${theme.colors.navy};
 background-color: ${theme.colors.cream};
-height: 100vh;
+min-height: 100vh;
 
 .dashboard-container {
   margin: auto;
@@ -25,6 +25,7 @@ height: 100vh;
   
   .col-r {
     margin-left: 20px;
+    padding-right: 10px;
   }
 
   .modal-comp {

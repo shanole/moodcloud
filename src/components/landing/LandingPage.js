@@ -7,15 +7,12 @@ import ScrollToTop from '../util/ScrollToTop';
 // add a scroll to top button?
 function LandingPage() {
   return (
-    <React.Fragment>
+    <div id='landing'>
       <Hero />
       <About />
       <AccountControl/>
-      {/* <div style={{
-        position: 'fixed', bottom: '0', right:'0'
-      }}>HELLO</div> */}
-      <ScrollToTop />
-    </React.Fragment>
+      <ScrollToTop el='landing'/>
+    </div>
     );
 }
 

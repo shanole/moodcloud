@@ -4,6 +4,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Entry from './Entry';
 import { useFirestore } from 'react-redux-firebase'
 import { useSelector } from 'react-redux';
+import StyledEntryList from './styles/StyledEntryList';
+import ScrollToTop from '../util/ScrollToTop';
 
 function EntryList(props) {
   const firestore = useFirestore();
@@ -185,23 +187,25 @@ function EntryList(props) {
   }
 
   const allPosts = (
-    <div onScroll={handleScroll} style={{height: "500px", overflowY: "auto"}}>
+    <div id='list' onScroll={handleScroll}>
         {loadedEntries.map( entry => {
           return <Entry key={entry.id} entryContent={entry}/>
         })}
+        {loading ? (<p>Loading...</p>
+      ) : lastKey !== "" && lastKey !== undefined ? (null) : (
+        "All entries loaded!"
+        // <button onClick={backToTop}>back to top</button>
+      )}
+      <ScrollToTop />
       </div>
     )
     
   return(
-    <React.Fragment>
+    <StyledEntryList>
       
       {allPosts}
-      {loading ? (<p>Loading...</p>
-      ) : lastKey !== "" && lastKey !== undefined ? (null) : (
-        <button onClick={backToTop}>back to top</button>
-      )}
       
-    </React.Fragment>
+    </StyledEntryList>
     );
 }
 

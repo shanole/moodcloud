@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import ReusableForm from './ReusableForm';
 import { useFirestore } from 'react-redux-firebase';
 import { useDispatch, useSelector } from 'react-redux'
-import { showEntry } from '../../actions/index'
+import { showDashboard } from '../../actions/index'
 
 
 function EditEntryForm(props) {
@@ -41,8 +41,7 @@ function EditEntryForm(props) {
             timePosted: doc.data().timePosted,
             keywords: doc.data().keywords
           }
-          const action = showEntry(data);
-          dispatch(action);
+          dispatch(showDashboard());
         } else {
           console.log("No such document");
         }
