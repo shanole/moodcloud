@@ -31,5 +31,46 @@ form {
     margin-top: 20px;
     background: ${theme.colors.cream};
   }
+  .range {
+    width: 100%;
+
+    input[type=range]{
+      -webkit-appearance: none;
+      margin-bottom: 0px;
+      background: none;
+
+      ::-webkit-slider-runnable-track {
+        background: #fff;
+        height: 6px;
+        padding: 0px;
+      }
+
+      ::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        border: none;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        background: ${theme.colors.pink};
+        margin-top: -4px;
+      }
+
+      :focus {
+        outline: none;
+      }
+    }
+
+    .range-labels {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      padding: 9px;
+  
+      li {
+        position: relative;
+        list-style-type: none;
+      }
+    }
+  }
 }
 `

@@ -4,6 +4,51 @@ import { useSelector } from 'react-redux';
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase'
 import React, {useState, useEffect} from 'react';
 import { WithContext as ReactTags } from 'react-tag-input';
+import styled from 'styled-components';
+import theme from '../../theme';
+
+const StyledTags = styled.div`
+.ReactTags__selected {
+    span.ReactTags__tag {
+    border: none;
+    background: ${theme.colors.cream};
+    color: ${theme.colors.navy};
+    font-size: 14px;
+    display: inline-block;
+    padding: 5px 8px;
+    margin: 0 5px;
+    border-radius: 10px;
+  }
+  .ReactTags__remove {
+    color: black;
+    background: none;
+    margin-left: 8px;
+    cursor: pointer;
+  }
+}
+
+.ReactTags__suggestions {
+  position: absolute;
+  ul {
+    list-style-type: none;
+    background: white;
+    width: 200px;
+  }
+  li {
+    padding: 5px 6px;
+    margin: 0
+    
+    mark {
+      background: none;
+      font-weight: 600;
+    }
+  }
+  li.ReactTags__activeSuggestion {
+    background: none;
+    cursor: pointer;
+  }
+}
+`
 
 const KeyCodes = {
   tab: 9,
@@ -48,7 +93,7 @@ function KeywordForm(props) {
   };
 
   return (
-    <React.Fragment>
+    <StyledTags>
       <label>Keywords:</label>
         <ReactTags
           tags={tags}
@@ -60,7 +105,7 @@ function KeywordForm(props) {
           inputFieldPosition="top"
           autocomplete
         />
-    </React.Fragment>
+    </StyledTags>
   );
 }
 

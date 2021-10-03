@@ -15,14 +15,29 @@ function ReusableForm(props) {
     <StyledForm>
       <h3 className='form-title'>{props.title}</h3>
       <form onSubmit={props.formSubmissionHandler}>
-        <label htmlFor="rating">How was your day?</label>
-        <input 
-          type="number" 
-          id="rating" 
-          name="rating" 
-          min="0" max="10" 
-          defaultValue = {entryRating}
-          required/>
+        <label htmlFor="rating">How was your day? (0 = terrible! 10 = best day ever!)</label>
+        <div className='range'>
+          <input 
+            type="range" 
+            id="rating" 
+            name="rating" 
+            min="0" max="10" step="1" 
+            defaultValue = {entryRating}
+            required/>
+            <ul class="range-labels">
+              <li class="active selected">0</li>
+              <li>1 </li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+              <li>6</li>
+              <li>7</li>
+              <li>8</li>
+              <li>9</li>
+              <li>10</li>
+            </ul>
+        </div>
         <label htmlFor="blurb">Tell me about your day</label>
         <textarea 
           name="blurb" 

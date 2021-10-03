@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import theme from './theme';
+import gradientbg from './assets/img/gradient1.jpg'
 
 export default styled.div`
 color: ${theme.colors.navy};
@@ -27,11 +28,12 @@ height: 100vh;
   }
 
   .modal-comp {
-    position: fixed;
+    position: absolute;
     z-index: 1;
-    background: ${theme.colors.lightPinkNavBar};
-    width: 60%;
-    height: 58%;
+    background: url(${gradientbg}) no-repeat;
+    // background: ${theme.colors.lightPinkNavBar};
+    max-width: 1100px;
+    // height: 58%;
     overflow: auto;
     margin: auto;
     padding: 30px;
