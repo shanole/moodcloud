@@ -6,6 +6,7 @@ export default styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
+min-width: 500px;
 
 .keyword-title {
   font-family: ${theme.fonts.serif};
@@ -31,7 +32,6 @@ align-items: center;
   }
 }
 .keyword-entries {
-  min-width: 400px;
-  max-width: 500px;
+  width: 500px;
 }
 `

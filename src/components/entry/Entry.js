@@ -14,7 +14,8 @@ function Entry(props) {
   }
 
   return (
-    <StyledEntry onClick={()=> goToDetails(entryContent)}>
+    <StyledEntry>
+      <div onClick={()=> goToDetails(entryContent)}>
         <h4 className='entry-title'>{entryContent.timePosted}</h4>
         <div className='entry-content'>
           <div className='content rating'>
@@ -23,6 +24,7 @@ function Entry(props) {
             </div>
           <div className='content blurb'>{entryContent.blurb}</div>
         </div>
+      </div>
       <div className='entry-keywords'>{entryContent.keywords.map((keyword, index) => <Keyword rating={entryContent.rating} key={index} keywordData={keyword} />)}</div>
     </StyledEntry>
   );
