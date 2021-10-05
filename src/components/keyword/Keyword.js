@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { showKeyword } from '../../actions';
 import { useFirestore } from 'react-redux-firebase';
-import KeywordBubble from './KeywordBubble';
+import KeywordPill from './styles/KeywordPill';
 
 function Keyword(props) {
   const firestore = useFirestore();
@@ -24,8 +24,11 @@ function Keyword(props) {
 
   return (
     <div onClick={() => goToKeywordDetails(props.keywordData.text)}>
-      <KeywordBubble rating = {rating}>{props.keywordData.text}
-      </KeywordBubble>
+      <KeywordPill rating = {rating}>
+        <div className='pill-bg'>
+          <div className='pill-text'>{props.keywordData.text}</div>
+        </div>
+      </KeywordPill>
     </div>
   );
 }

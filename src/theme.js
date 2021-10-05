@@ -14,8 +14,8 @@ export default {
     sansSerif: "'Roboto', san-serif"
   },
   keywords: {
-    bad: '#BCBEDE',
-    ok: '#E0CBE0',
-    great: '#F1CAD2'
+    bad: '#827CC8',
+    ok: '#9E4EA8',
+    great: '#DD8BAD'
   }
 };

@@ -8,7 +8,7 @@ align-items: center;
 margin-bottom: 10px;
 
 .profile-pic {
-  width: 100px;
+  width: 60px;
   border-radius: 50%;
   overflow: hidden;
 

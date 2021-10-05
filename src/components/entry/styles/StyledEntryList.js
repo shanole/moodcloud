@@ -7,7 +7,7 @@ position: relative;
 transform: translateZ(0);
 
 #list {
-  height: 590px;
+  max-height: 70vh;
   overflow-y: scroll;
 }
 .scroll-up {

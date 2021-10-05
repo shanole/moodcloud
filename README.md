@@ -110,9 +110,9 @@
     - [x] entry details
   - [ ] chart column
     - [ ] date toggle buttons
-  - [ ] keywords
+  - [x] keywords
     - [x] keyword pill
-    - [ ] keyword details
+    - [x] keyword details
   - [ ] user
     - [ ] user control
     - [ ] user profile --FINISH BY END OF 10/3
