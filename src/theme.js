@@ -7,7 +7,8 @@ export default {
     pinkNavbar: '#ffc0cb',
     lightPinkNavBar: '#FFDCE1',
     mediumGray: '#4f4f4f',
-    mintGray: '#D0EEDF'
+    mintGray: '#D0EEDF',
+    teal: '#89D6D0'
   }, 
   fonts: {
     serif: "'DM Serif Display', serif",

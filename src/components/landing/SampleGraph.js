@@ -1,40 +1,32 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Chart from 'chart.js/auto';
-import { useSelector, useDispatch } from 'react-redux';
-import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
-import { showEntry } from './../../actions/index'
 import theme from '../../theme';
 
-function Graph(props) {  
+const sampleData = [3, 5, 7, 6, 8, 9, 4];
+
+const sampleLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+
+const sampleEntries = [
+  {timePosted: 'Monday, January 1 2021', keywords: ['work','gym', 'appointment']},
+  {timePosted: 'Tuesday, January 2 2021', keywords: ['work', 'thai food', 'hangout']},
+  {timePosted: 'Wednesday, January 3 2021', keywords: ['work', 'gym','date','netflix']},
+  {timePosted: 'Thursday, January 4 2021', keywords: ['work', 'happy hour']},
+  {timePosted: 'Friday, January 5 2021', keywords: ['work','happy hour','weekend']},
+  {timePosted: 'Saturday, January 6 2021', keywords: ['weekend','drinks','date']},
+  {timePosted: 'Sunday, January 7 2021', keywords: ['brunch','sunday scaries','gym']},
+]
+
+function SampleGraph() {  
   const chartRef = useRef(null)
-  const [entries, setEntries] = useState([])
-  const [labels, setLabels] = useState([]);
-  const [datapoints, setDatapoints] = useState([]);
-  const { timespan } = props;
 
-  const dispatch = useDispatch()
-  const auth = useSelector(state => state.firebase.auth);
-
-  useFirestoreConnect({collection: 'entries', storeAs: 'graphData', orderBy: ['timestamp', 'desc'], where: ['uuid','==',auth.uid], ...(timespan && {limit: timespan})} );
-  const graphData = useSelector(state => state.firestore.ordered.graphData);
-  
-  useEffect(() => {
-    if (isLoaded(graphData)) {
-      let reversedData = [...graphData].reverse()
-      setEntries(reversedData);
-      setLabels(reversedData.map(entry => {return entry.timePosted.slice(0,3)}))
-      setDatapoints(reversedData.map(entry => {return entry.rating}))
-    }
-  }, [setLabels, setDatapoints, graphData])
-  
   useEffect(() => {
     const ctx = chartRef.current.getContext('2d');
     const testChart = new Chart(ctx, {
       type: "line",
       data: {
-        labels: labels,
+        labels: sampleLabels,
         datasets: [{ 
-          data: datapoints,
+          data: sampleData,
           label: "Mood Rating",
           borderColor: theme.colors.teal,
           backgroundColor: theme.colors.teal,
@@ -57,11 +49,11 @@ function Graph(props) {
             callbacks: {
               title: function(tooltipItem) {
                 let index = tooltipItem[0].dataIndex
-                return entries[index].timePosted;
+                return sampleEntries[index].timePosted;
               },
               afterLabel: function(tooltipItem) {
                 let index = tooltipItem.dataIndex;
-                return 'Keywords: '+ entries[index].keywords.map(keyword => keyword.text)
+                return 'Keywords: '+ sampleEntries[index].keywords.map(keyword => keyword)
               }
             }
           }
@@ -81,14 +73,7 @@ function Graph(props) {
           line: {
             tension: 0.25
           }
-        },
-        onClick: function clickHandler(evt) {
-          const points = testChart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
-      
-          if (points.length) {
-            dispatch(showEntry(entries[points[0].index]))
-          }
-       }
+        }
       }
     });
     return () => testChart.destroy();
@@ -101,4 +86,4 @@ function Graph(props) {
   );
 }
 
-export default Graph;
+export default SampleGraph;

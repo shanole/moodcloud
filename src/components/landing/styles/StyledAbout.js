@@ -39,4 +39,20 @@ export default styled.div`
   .about h1 {
     margin-bottom: 30px;
   }
+
+  .about-links {
+    margin-top: 20px;
+    font-family: ${theme.fonts.serif};
+    text-transform: lowercase;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    font-style: italic;
+
+    a {
+      margin-bottom: 15px;
+      &:hover {
+        border-bottom: 1px solid;
+      }
+    }
+  }
 `;
