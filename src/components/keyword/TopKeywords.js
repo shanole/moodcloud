@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase';
-import Keyword from './../keyword/Keyword';
+import Keyword from './Keyword';
+import StyledTopKeywords from './styles/StyledTopKeywords';
 
 function TopKeywords(props) {
   const { timespan } = props;
@@ -16,10 +17,8 @@ function TopKeywords(props) {
   useEffect(() => {
     if (isLoaded(data) && !isEmpty(data)) {
       const sortedKeywords = sortByFrequency(data);
-      console.log(sortedKeywords);
-      setKeywords(sortedKeywords);
     }
-  }, []);
+  }, [data]);
 
   const sortByFrequency = (arr) => {
     let keywordFreq = {};
@@ -42,13 +41,16 @@ function TopKeywords(props) {
 
     sortedList.sort( (a,b) =>  keywordFreq[b]- keywordFreq[a]);
 
-    return sortedList;
+    return setKeywords(sortedList);
   }
 
-  console.log(keywords);
-
   return (
-    keywords.map((keyword, index) => <Keyword key={index} keywordData={{id: keyword, text: keyword}} />)
+    <StyledTopKeywords>
+      <div className='keywords-header'>Keywords from the past {timespan} entries:</div>
+      <div className='top-keywords'>
+        {keywords.map((keyword, index) => <Keyword key={index} keywordData={{id: keyword, text: keyword}} />)}
+      </div>
+    </StyledTopKeywords>
   );
 }
 

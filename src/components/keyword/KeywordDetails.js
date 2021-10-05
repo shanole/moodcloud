@@ -11,7 +11,7 @@ function KeywordDetails(props) {
         <div className='keyword-summary'>
           <h4 className='keyword-title'>{keyword.text}</h4>
           <p>On average, you rate this keyword:</p>
-          <p className='rating-fraction'><sup className='avg-rating'>{keyword.avgRating}</sup>/<sub>10</sub></p>
+          <p className='rating-fraction'><sup className='avg-rating'>{Math.round(keyword.avgRating)}</sup>/<sub>10</sub></p>
         </div>
         <div className='keyword-entries'>
           <Accordion flush>

@@ -102,4 +102,20 @@ p.link {
   }
 }
 
+.time-toggle {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-evenly;
+  button {
+    color: ${theme.colors.navy};
+    background: none;
+    font-size: 18px;
+    margin-right: 20px;
+
+    &:hover {
+      background: ${theme.colors.lightPinkNavBar};
+    }
+  }
+}
+
 `

@@ -9,7 +9,7 @@ import NewEntryForm from './../entry/NewEntryForm';
 import EditEntryForm from './../entry/EditEntryForm';
 import EntryDetails from './../entry/EntryDetails';
 import KeywordDetails from './../keyword/KeywordDetails';
-import TopKeywords from './TopKeywords';
+import TopKeywords from '../keyword/TopKeywords';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 
