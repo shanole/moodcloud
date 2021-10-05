@@ -63,6 +63,11 @@ export default styled.div`
         @media (max-width: 768px) {
           width: 80%;
         }
+
+        .icon {
+          font-size: 6.5em;
+          color: ${theme.colors.pink};
+        }
       }
       .card-caption {
         font-family: ${theme.fonts.serif};

@@ -73,6 +73,15 @@ function SampleGraph() {
           line: {
             tension: 0.25
           }
+        },
+        animations: {
+          tension: {
+            duration: 1000,
+            easing: 'linear',
+            from: 0,
+            to: 0.5,
+            loop: true,
+          }
         }
       }
     });

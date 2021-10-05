@@ -3,6 +3,7 @@ import StyledAbout from './styles/StyledAbout';
 import SampleGraph from './SampleGraph';
 import SampleTopKeywords from './SampleTopKeywords';
 import Carousel from 'react-bootstrap/Carousel'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function About() {
   return (
@@ -18,7 +19,7 @@ function About() {
         </div>
         <div className='column chart'>
           
-          <Carousel variant='dark'>
+          <Carousel variant='dark' interval='8000' pause='hover'>
             <Carousel.Item>
               <div className='graph-card'>
                 <div className='card-content'>
@@ -38,7 +39,9 @@ function About() {
             <Carousel.Item>
               <div className='graph-card'>
                 <div className='card-content'>
-                  <SampleTopKeywords />
+                  <div className='icon'>
+                    <FontAwesomeIcon icon='smile' transform='shrink-8 down-1' mask={['fas','cloud']} size='lg'/>
+                  </div>
                 </div>
                 <h3 className='card-caption'>live your best life ☺</h3>
               </div>
