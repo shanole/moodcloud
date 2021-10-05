@@ -97,7 +97,6 @@
 
 - [ ] UI & styling that is responsive
   - [x] basic dashboard layout & 'global' styling
-    - [ ] why does the dashboard re-render??
     - [ ] privateroute redirecting
   - [x] navbar
   - [x] chart
@@ -109,15 +108,15 @@
     - [x] entry list
     - [x] entry details
   - [ ] chart column
-    - [ ] date toggle buttons
+    - [x] date toggle buttons
+    - [ ] Top 5 keywords
   - [x] keywords
     - [x] keyword pill
     - [x] keyword details
-  - [ ] user
-    - [ ] user control
-    - [ ] user profile --FINISH BY END OF 10/3
-  - [ ] keyword cloud
+  - [ ] user control page (/account)
   - [ ] animations
+  - [ ] finish about section
+  - [ ] footer
   - [ ] final theming touches
   - [ ] responsive design
 - [ ] readme --FINISH BY 10/9
