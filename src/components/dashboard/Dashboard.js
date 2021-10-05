@@ -16,7 +16,8 @@ class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cloudVisible: true
+      cloudVisible: true,
+      timespan: 7
     };
   }
 
@@ -39,6 +40,10 @@ class Dashboard extends React.Component {
     const { dispatch } = this.props;
     const action = a.showDashboard();
     dispatch(action);
+  }
+
+  changeTimespan = (int) => {
+    this.setState({timespan: int});
   }
 
   handleDeleteKeywordTransaction = async (keyword, rating) => {
@@ -122,12 +127,13 @@ class Dashboard extends React.Component {
               <UserDetails />           
           </Row>
           <Row className='columns'>
-            {/* <Col>
-              <UserDetails />
-            </Col> */}
             <Col className='col-l' sm={5}>
               <h3 className='section-heading'>mood chart</h3>
-              <Graph />
+              <div className='time-toggle'>
+                <button onClick={() => this.changeTimespan(7)}>past week</button>
+                <button onClick={() => this.changeTimespan(30)}>past month</button>
+              </div>
+              <Graph timespan={this.state.timespan}/>
             </Col>
             <Col className='col-r' sm={5}>
               <h3 className='section-heading'>entries</h3>

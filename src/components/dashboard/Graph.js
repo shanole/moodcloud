@@ -4,14 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 import { showEntry } from './../../actions/index'
 import theme from '../../theme';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-function Graph() {  
+function Graph(props) {  
   const chartRef = useRef(null)
   const [entries, setEntries] = useState([])
   const [labels, setLabels] = useState([]);
   const [datapoints, setDatapoints] = useState([]);
-  const [timespan, setTimespan] = useState(7);
+  const { timespan } = props;
 
   const dispatch = useDispatch()
   const auth = useSelector(state => state.firebase.auth);
@@ -99,8 +98,6 @@ function Graph() {
   return (
     <React.Fragment>
       <canvas id="myCanvas" ref={chartRef}></canvas>
-      <button onClick={() => setTimespan(7)}>Past week</button>
-      <button onClick={() => setTimespan(30)}>Past 30 days</button>
     </React.Fragment>
   );
 }
