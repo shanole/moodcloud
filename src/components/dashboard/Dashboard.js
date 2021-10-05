@@ -9,6 +9,7 @@ import NewEntryForm from './../entry/NewEntryForm';
 import EditEntryForm from './../entry/EditEntryForm';
 import EntryDetails from './../entry/EntryDetails';
 import KeywordDetails from './../keyword/KeywordDetails';
+import TopKeywords from './TopKeywords';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 
@@ -105,6 +106,7 @@ function Dashboard() {
               <button onClick={() => setTimespan(30)}>past month</button>
             </div>
             <Graph timespan={timespan}/>
+            <TopKeywords timespan={timespan}/>
           </Col>
           <Col className='col-r' sm={5}>
             <h3 className='section-heading'>entries</h3>
