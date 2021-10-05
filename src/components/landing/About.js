@@ -1,6 +1,9 @@
 import React from 'react';
 import StyledAbout from './styles/StyledAbout';
 import SampleGraph from './SampleGraph';
+import SampleTopKeywords from './SampleTopKeywords';
+import Carousel from 'react-bootstrap/Carousel'
+
 function About() {
   return (
     <StyledAbout>
@@ -14,8 +17,33 @@ function About() {
           </div>
         </div>
         <div className='column chart'>
-          <SampleGraph />
-          <h1>See your mood trends</h1>
+          
+          <Carousel variant='dark'>
+            <Carousel.Item>
+              <div className='graph-card'>
+                <div className='card-content'>
+                  <SampleGraph />
+                </div>
+                <h3 className='card-caption'>see your mood trends</h3>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <div className='graph-card'>
+                <div className='card-content'>
+                  <SampleTopKeywords />
+                </div>
+                <h3 className='card-caption'>track keywords of your lifestyle</h3>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <div className='graph-card'>
+                <div className='card-content'>
+                  <SampleTopKeywords />
+                </div>
+                <h3 className='card-caption'>live your best life ☺</h3>
+              </div>
+            </Carousel.Item>
+          </Carousel>
           </div>
       </div>
     </StyledAbout>

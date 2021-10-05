@@ -35,6 +35,49 @@ export default styled.div`
     @media (max-width: 768px) {
       border: none;
     }
+
+    .graph-card {
+      @media (max-width: 768px) {
+        padding: 0px;
+        min-width: 80vw;
+        height: 25vh;
+        justify-content: center;
+      }
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      align-content: center;
+      min-width: 550px;
+      max-width: 50%;
+      height: 400px;
+      padding: 50px;
+
+      .card-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        width: 100%;
+        @media (max-width: 768px) {
+          width: 80%;
+        }
+      }
+      .card-caption {
+        font-family: ${theme.fonts.serif};
+        color: ${theme.keywords.ok};
+        font-size: 1.5em;
+        margin-top: 15px;
+        width: 100%;
+        text-align: center;
+        align-self: flex-end;
+        @media (max-width: 768px) {
+          margin-top: none;
+          font-size: 1em;
+        }
+      }
+    }
   }
   .about h1 {
     margin-bottom: 30px;
