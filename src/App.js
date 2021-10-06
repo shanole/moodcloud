@@ -10,7 +10,6 @@ import LandingPage from './components/landing/LandingPage'
 import PrivateRoute from './components/auth/PrivateRoute';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-// will need to add routing
 function App() {
   return (
     <GlobalStyle>

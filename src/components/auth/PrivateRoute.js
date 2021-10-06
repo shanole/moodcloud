@@ -21,17 +21,31 @@ function PrivateRoute({ children, ...rest }) {
   return (
     <Route
       {...rest}
-      render={({ location }) =>
-        (isLoaded(auth) && !isEmpty(auth)) || loggedIn ? (
-          children
-        ) : (
+      render={({ location }) => {
+
+        if (isLoaded(auth) && !(isEmpty(auth))) {
+          return children;
+        } else if (!isLoaded(auth) && !(isEmpty(auth))) {
+          return <div>Loading...</div>
+        } else {
           <Redirect
             to={{
               pathname: "/#account",
               state: { from: location }
             }}
           />
-        )
+        }
+      }
+        // (isLoaded(auth) && !isEmpty(auth) || loggedIn) ? (
+        //   children
+        // ) : (
+        //   <Redirect
+        //     to={{
+        //       pathname: "/#account",
+        //       state: { from: location }
+        //     }}
+        //   />
+        // )
       }
     />
   );
