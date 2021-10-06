@@ -13,34 +13,35 @@ export default styled.div`
     align-items: center;
     height: 100%;
     
-    @media (max-width: 768px) {
+    @media (max-width: 769px) {
       flex-direction: column;
     }
   }
 
   .column {
-    flex-basis: 100%;
+    flex: 1;
     height: 100%;
+    max-width: 50vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 200px;
-    @media (max-width: 768px) {
-      padding: 40px;
+    @media (max-width: 769px) {
+      max-width: none;
+      width: 100vw;
     }
   }
   .chart {
     border-right: 1px black solid;
-    @media (max-width: 768px) {
+    @media (max-width: 769px) {
       border: none;
     }
 
     .graph-card {
-      @media (max-width: 768px) {
+      @media (max-width: 769px) {
         padding: 0px;
         min-width: 80vw;
-        height: 25vh;
+        max-height: 30vh;
         justify-content: center;
       }
 
@@ -60,13 +61,19 @@ export default styled.div`
         align-items: center;
         align-content: center;
         width: 100%;
-        @media (max-width: 767px) {
-          width: 80%;
-        }
 
+        .graph-container {
+          width: 100%;
+          @media (max-width: 768px) {
+            width: 80%;
+          }
+        }
         .icon {
-          font-size: 6.5em;
+          font-size: 6em;
           color: ${theme.colors.pink};
+          @media (max-width: 768px) {
+            font-size: 5em;
+          }
         }
       }
       .card-caption {
@@ -77,12 +84,17 @@ export default styled.div`
         width: 100%;
         text-align: center;
         align-self: flex-end;
-        @media (max-width: 768px) {
+        @media (max-width: 769px) {
           margin-top: none;
           font-size: 1em;
         }
       }
     }
+  }
+
+  .about {
+    padding: 7vw;
+
   }
   .about h1 {
     margin-bottom: 30px;

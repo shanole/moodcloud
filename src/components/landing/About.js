@@ -24,7 +24,9 @@ function About() {
             <Carousel.Item>
               <div className='graph-card'>
                 <div className='card-content'>
-                  <SampleGraph />
+                  <div className='graph-container'>
+                    <SampleGraph />
+                  </div>
                 </div>
                 <h3 className='card-caption'>see your mood trends</h3>
               </div>
