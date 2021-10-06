@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import theme from '../../../theme';
-import gradientbg from './../../../assets/img/gradient1.jpg'
 
 export default styled.div`
 color: ${theme.colors.navy};
@@ -43,7 +42,8 @@ width: 100vw;
 .modal-comp {
   position: fixed;
   z-index: 4;
-  background: url(${gradientbg}) no-repeat;
+  background: rgb(228,253,241);
+  background: linear-gradient(180deg, rgba(228,253,241,1) 0%, rgba(229,223,211,1) 65%);
   width: auto;
   max-width: 800px;
   overflow: auto;
