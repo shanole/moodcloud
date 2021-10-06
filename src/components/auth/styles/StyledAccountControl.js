@@ -16,7 +16,7 @@ export default styled.div`
   .question {
     color: ${theme.colors.cream};
     font-family: ${theme.fonts.serif};
-    font-size: 6vh;
+    font-size: 5vh;
     margin-bottom: 50px;
 
     &:hover {

@@ -207,10 +207,8 @@ function EntryList(props) {
 
     return(
       <StyledEntryList>
-      
       {allPosts}
       {transition((style,item) => item &&  <animated.button style={style} className='scroll-up' onClick={backToTop}><FontAwesomeIcon icon='long-arrow-alt-up'/></animated.button>)}
-      {/* {scrollUpVisible && (<button className='scroll-up' onClick={backToTop}><FontAwesomeIcon icon='long-arrow-alt-up'/></button>)} */}
     </StyledEntryList>
     );
 }

@@ -62,7 +62,7 @@ export default styled.div`
         width: 80%;
 
         .graph-container {
-          width: 100%;
+          width: 80%;
           @media (max-width: 768px) {
             width: 58%;
           }

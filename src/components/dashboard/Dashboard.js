@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useFirebase, useFirestore } from 'react-redux-firebase'
 import { useDispatch, useSelector } from 'react-redux'
 import * as a from './../../actions/index';
@@ -104,9 +104,6 @@ function Dashboard() {
           {currentlyVisibleComponent}
         </animated.div>)}
 
-        {/* {(modal) ? <div className="modal-comp"><div className='close-modal' onClick={() => dispatch(a.showDashboard())}><FontAwesomeIcon icon='long-arrow-alt-left' /> back</div> */}
-        {/* {currentlyVisibleComponent}
-        </div> : null} */}
         <Row className='columns'>
           <Col className='col-l' sm={5}>
             <h3 className='section-heading'>mood chart</h3>

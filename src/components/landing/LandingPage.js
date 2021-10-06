@@ -13,7 +13,6 @@ function LandingPage() {
       <About />
       <AccountControl/>
       <ScrollToTop />
-      <ScrollToTop />
       <Footer />
     </div>
     );
