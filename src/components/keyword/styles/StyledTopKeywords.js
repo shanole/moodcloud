@@ -11,7 +11,7 @@ overflow-Y: scroll;
 
 .keywords-header{
   font-family: ${theme.fonts.serif};
-  font-size: 23px;
+  font-size: 1.3em;
   margin-bottom: 10px;
 }
 

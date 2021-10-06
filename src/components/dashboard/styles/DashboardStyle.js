@@ -21,11 +21,19 @@ min-height: 100vh;
     flex-direction: column;
     align-content: center;
     margin-right: 20px;
+    @media (max-width: 768px) {
+      margin-top: 30px;
+    }
   }
   
   .col-r {
     margin-left: 20px;
     padding-right: 10px;
+    @media (max-width: 768px) {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid;
+    }
   }
 
   .modal-comp {

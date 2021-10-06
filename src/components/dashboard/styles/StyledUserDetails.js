@@ -6,6 +6,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 margin-bottom: 10px;
+text-align: center;
 
 .profile-pic {
   width: 60px;
