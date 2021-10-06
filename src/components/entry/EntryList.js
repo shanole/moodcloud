@@ -7,6 +7,7 @@ import { useFirestore } from 'react-redux-firebase'
 import { useSelector } from 'react-redux';
 import StyledEntryList from './styles/StyledEntryList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useTransition, animated } from 'react-spring'
 
 function EntryList(props) {
   const firestore = useFirestore();
@@ -189,6 +190,9 @@ function EntryList(props) {
     }
   }
 
+  const transition = useTransition(scrollUpVisible, { enter: {opacity: 1, y: 0}, from: { opacity: 0, y: 300}, leave: { opacity: 0, y: 300 }, duration: 200});
+
+
   const allPosts = (
     <div id='list' onScroll={handleScroll}>
         {loadedEntries.map( entry => {
@@ -205,7 +209,8 @@ function EntryList(props) {
       <StyledEntryList>
       
       {allPosts}
-      {scrollUpVisible && (<button className='scroll-up' onClick={backToTop}><FontAwesomeIcon icon='long-arrow-alt-up'/></button>)}
+      {transition((style,item) => item &&  <animated.button style={style} className='scroll-up' onClick={backToTop}><FontAwesomeIcon icon='long-arrow-alt-up'/></animated.button>)}
+      {/* {scrollUpVisible && (<button className='scroll-up' onClick={backToTop}><FontAwesomeIcon icon='long-arrow-alt-up'/></button>)} */}
     </StyledEntryList>
     );
 }

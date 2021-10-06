@@ -31,7 +31,7 @@ export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
 
-  const transition = useTransition(isVisible, { enter: {opacity: 1, y: 0}, from: { opacity: 0, y: 300}, duration: 300});
+  const transition = useTransition(isVisible, { enter: {opacity: 1, y: 0}, from: { opacity: 0, y: 300}, leave: { opacity: 0, y: 300 }, duration: 300});
 
   // Top: 0 takes us all the way back to the top of the page
   // Behavior: smooth keeps it smooth!
@@ -57,18 +57,11 @@ export default function ScrollToTop() {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-//scroll-to-top classes: fixed, bottom:0, right:0
   return (
     <div>
       {transition((style,item) => item &&  <UpButton style= {style} onClick={scrollToTop}>
           <FontAwesomeIcon icon='long-arrow-alt-up'/>
         </UpButton>)}
-
-      {/* {isVisible && (
-        <UpButton style= {buttonAnimation} onClick={scrollToTop}>
-          <FontAwesomeIcon icon='long-arrow-alt-up'/>
-        </UpButton>
-      )} */}
     </div>
   );
 }
