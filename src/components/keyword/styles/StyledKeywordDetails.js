@@ -7,7 +7,10 @@ display: flex;
 flex-direction: column;
 align-items: center;
 min-width: 500px;
-
+@media (max-width: 767px) {
+  min-width: 50vw;
+  max-width: 90vw;
+}
 .keyword-title {
   font-family: ${theme.fonts.serif};
   font-size: 35px;
@@ -33,5 +36,8 @@ min-width: 500px;
 }
 .keyword-entries {
   width: 500px;
+  @media (max-width: 767px) {
+    max-width: 70vw;
+  }
 }
 `

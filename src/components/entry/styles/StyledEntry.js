@@ -7,11 +7,6 @@ flex-direction: column;
 margin-bottom: 20px;
 margin-right: 20px;
 padding: 8px 15px;
-&:hover {
-  cursor: pointer;
-  // background: ${theme.colors.lightPink};
-  // border-radius: 25px;
-}
 
 .entry-title {
   &: hover {
@@ -34,5 +29,11 @@ padding: 8px 15px;
     flex: 2;
     padding-right: 15px;
   }
+
+}
+.entry-keywords {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 `

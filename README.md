@@ -47,8 +47,10 @@
   - working on styling all the dashboard components!
 - Oct 3
   - more styling dashboard components
-
-</details>
+- Oct 6
+  - focused on styling and responsive design.
+  - found bug in entry list component and how it reacts to firestore realtime updates... found a workaround but i think implementing actual real time updates with actual pagination is kind of beyond my scope.
+  </details>
 
 <details>
   <summary>TO DOS (will be deleted)</summary>
@@ -113,16 +115,16 @@
   - [x] keywords
     - [x] keyword pill
     - [x] keyword details
-  - [ ] user control page (/account)
+  - [x] user control page (/account)
   - [ ] animations
     - [ ] transition into dashboard
     - [ ] modal transition
     - [ ] keywords on topkeywords section?
   - [x] finish about section
-  - [ ] footer
+  - [x] footer
   - [ ] final theming touches
-  - [ ] responsive design
-    - [ ] NAVBAR
+  - [x] responsive design
+    - [x] NAVBAR
 - [ ] readme --FINISH BY 10/9
   - [ ] component diagram
 

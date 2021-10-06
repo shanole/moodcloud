@@ -10,7 +10,6 @@ import { showDashboard } from './../../actions/index'
 import { faSmile } from '@fortawesome/free-solid-svg-icons';
 
 function Hero() {
-  const auth = useSelector(state => state.firebase.auth);
   const profile = useSelector(state => state.firebase.profile)
   const dispatch = useDispatch();
 
@@ -29,7 +28,7 @@ function Hero() {
   return (
   <StyledHero>
     <div className="content">
-    <h1><FontAwesomeIcon icon={faSmile} transform='shrink-8 down-1' mask={['fas','cloud']} size='lg'/></h1>
+    {/* <h1><FontAwesomeIcon icon={faSmile} transform='shrink-8 down-1' mask={['fas','cloud']} size='lg'/></h1> */}
       <h1>moodcloud</h1>
       <p>{welcomeMessage}</p>
       {button}

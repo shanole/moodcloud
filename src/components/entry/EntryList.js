@@ -196,7 +196,7 @@ function EntryList(props) {
         })}
         {loading ? (<p>Loading...</p>
       ) : lastKey !== "" && lastKey !== undefined && lastKey != null ? (null) : (
-        "All entries loaded.."
+        "All entries loaded"
         )}
       </div>
     )
