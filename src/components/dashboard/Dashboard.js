@@ -12,7 +12,7 @@ import KeywordDetails from './../keyword/KeywordDetails';
 import TopKeywords from './../keyword/TopKeywords';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
-import { useSpring, animated } from 'react-spring'
+import { useTransition, animated } from 'react-spring'
 
 function Dashboard() {
   const firebase = useFirebase();
@@ -21,7 +21,6 @@ function Dashboard() {
   const dashboardView = useSelector(state => state.dashboardView);
   
   const [timespan, setTimespan] = useState(7);
-  // const [modVisible, setModVisible] = useState(false);
 
   const handleDeleteKeywordTransaction = async (keyword, rating) => {
     const uuid = firebase.auth().currentUser.uid;
@@ -71,20 +70,13 @@ function Dashboard() {
   const handleDelete = (entry) => {
     firestore.delete({collection: 'entries', doc: entry.id});
     handleDeletingKeywords(entry.keywords, parseInt(entry.rating));
-    // const action = a.showDashboard();
-    // dispatch(action);
-    handleHomeClick();
-  }
-
-  const handleHomeClick = () => {
     dispatch(a.showDashboard());
-    // setModVisible(false);
   }
 
   const { selectedForm, selectedKeyword, selectedEntry, modal } = dashboardView;
   let currentlyVisibleComponent;
 
-  const spring = useSpring({});
+  const transition = useTransition(modal, { enter: {opacity: 1, x:'-50%', y:'-50%'}, from: { opacity: 0, y:'-100%'}, leave: { opacity: 0, y:'-100%'}, duration: 100});
 
   if (selectedForm != null && selectedEntry === null) {
     currentlyVisibleComponent = <NewEntryForm onSubmittingKeyword={handleAddKeywordTransaction}/>
@@ -98,26 +90,23 @@ function Dashboard() {
     currentlyVisibleComponent = null;
   }
 
-  // useEffect(() => {
-  //   if (currentlyVisibleComponent) {
-  //     setModVisible(true);
-  //   }
-  // }, [currentlyVisibleComponent])
-  
-  // modal = (currentlyVisibleComponent) ? <div className="modal-comp"><div className='close-modal' onClick={() => dispatch(a.showDashboard())}><FontAwesomeIcon icon='long-arrow-alt-left' /> back</div>
-  //   {currentlyVisibleComponent}
-  //   </div> : null;
-
   return(
     <React.Fragment>
       <Container fluid="md" className="dashboard-container">
         <Row>
             <UserDetails />           
         </Row>
-        {/* {modal} */}
-        {(modal) ? <div className="modal-comp"><div className='close-modal' onClick={handleHomeClick}><FontAwesomeIcon icon='long-arrow-alt-left' /> back</div>
-        {currentlyVisibleComponent}
-        </div> : null}
+        {transition((style,item) => item && 
+        <animated.div className="modal-comp" style={style}>
+          <div className='close-modal' onClick={() => dispatch(a.showDashboard())}>
+            <FontAwesomeIcon icon='long-arrow-alt-left' /> back
+          </div>
+          {currentlyVisibleComponent}
+        </animated.div>)}
+
+        {/* {(modal) ? <div className="modal-comp"><div className='close-modal' onClick={() => dispatch(a.showDashboard())}><FontAwesomeIcon icon='long-arrow-alt-left' /> back</div> */}
+        {/* {currentlyVisibleComponent}
+        </div> : null} */}
         <Row className='columns'>
           <Col className='col-l' sm={5}>
             <h3 className='section-heading'>mood chart</h3>
