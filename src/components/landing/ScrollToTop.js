@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from "styled-components";
+import { useTransition, animated } from 'react-spring'
 
-const UpButton = styled.div`
+
+const UpButton = styled(animated.div)`
 background-color: #fff;
 opacity: 80%;
 color: pink;
@@ -27,6 +29,9 @@ border-radius: 10px;
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+
+
+  const transition = useTransition(isVisible, { enter: {opacity: 1, y: 0}, from: { opacity: 0, y: 300}, duration: 300});
 
   // Top: 0 takes us all the way back to the top of the page
   // Behavior: smooth keeps it smooth!
@@ -55,11 +60,15 @@ export default function ScrollToTop() {
 //scroll-to-top classes: fixed, bottom:0, right:0
   return (
     <div>
-      {isVisible && (
-        <UpButton onClick={scrollToTop}>
+      {transition((style,item) => item &&  <UpButton style= {style} onClick={scrollToTop}>
+          <FontAwesomeIcon icon='long-arrow-alt-up'/>
+        </UpButton>)}
+
+      {/* {isVisible && (
+        <UpButton style= {buttonAnimation} onClick={scrollToTop}>
           <FontAwesomeIcon icon='long-arrow-alt-up'/>
         </UpButton>
-      )}
+      )} */}
     </div>
   );
 }
