@@ -40,7 +40,7 @@ export default styled.div`
     .graph-card {
       @media (max-width: 769px) {
         padding: 0px;
-        min-width: 80vw;
+        min-width: 100vw;
         max-height: 30vh;
         justify-content: center;
       }
@@ -50,8 +50,7 @@ export default styled.div`
       justify-content: space-between;
       align-items: center;
       align-content: center;
-      min-width: 550px;
-      max-width: 50%;
+      min-width: 50vw;
       height: 400px;
       padding: 50px;
 
@@ -60,12 +59,12 @@ export default styled.div`
         justify-content: center;
         align-items: center;
         align-content: center;
-        width: 100%;
+        width: 80%;
 
         .graph-container {
           width: 100%;
           @media (max-width: 768px) {
-            width: 80%;
+            width: 58%;
           }
         }
         .icon {
