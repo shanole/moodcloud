@@ -21,7 +21,7 @@ function Navbar() {
 
   return (
     <StyledNavbar>
-      <Link className='logo' to='/dashboard' onClick={goHome}>moodcloud</Link>
+      <Link className='logo' to='/dashboard' onClick={goHome}><FontAwesomeIcon icon={faSmile} transform='shrink-8 down-1' mask={['fas','cloud']} size='xs'/> moodcloud</Link>
       <div id="nav">
         <Link className='nav-link' to='/dashboard' onClick={goHome}>dashboard</Link>
         <Link className='nav-link' to='/dashboard' onClick={goToForm}>new entry</Link>

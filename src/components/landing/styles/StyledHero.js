@@ -6,11 +6,11 @@ export default styled.div`
   color: ${theme.colors.cream};
 
   h1 {
-    font-size: 8vh;
+    font-size: 7vh;
   }
 
   p {
-    font-size: 25px;
+    font-size: 1.4em;
   }
 
   .learn {

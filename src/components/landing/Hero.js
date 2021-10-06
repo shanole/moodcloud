@@ -7,6 +7,7 @@ import StyledHero from './styles/StyledHero';
 import gradientVid from './../../assets/img/gradient-vid.mp4';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { showDashboard } from './../../actions/index'
+import { faSmile } from '@fortawesome/free-solid-svg-icons';
 
 function Hero() {
   const auth = useSelector(state => state.firebase.auth);
@@ -16,7 +17,7 @@ function Hero() {
   let button;
   let welcomeMessage;
 
-  if ((isLoaded(auth)) && (!isEmpty(auth))) {
+  if ((isLoaded(profile)) && (!isEmpty(profile))) {
     welcomeMessage = `welcome to moodboard, ${profile.displayName}`
     button = <Link to='/dashboard' onClick={() => dispatch(showDashboard())} className='btn primary-link'>go inside</Link>
   } else {
@@ -28,6 +29,7 @@ function Hero() {
   return (
   <StyledHero>
     <div className="content">
+    <h1><FontAwesomeIcon icon={faSmile} transform='shrink-8 down-1' mask={['fas','cloud']} size='lg'/></h1>
       <h1>moodcloud</h1>
       <p>{welcomeMessage}</p>
       {button}
