@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux'
 import { useFirebase, useFirebaseConnect, isLoaded } from 'react-redux-firebase'
-import { Container, Row, Col } from 'react-bootstrap';
+import StyledUserControl from './styles/StyledUserControl';
 
 function UserControl() {
   const [formVisible, setFormVisible] = useState(false);
@@ -76,12 +76,12 @@ function UserControl() {
 
   if (formVisible) {
     visibleComponent = (
-    <div>
+    <div className='profile-form'>
       <form onSubmit={onUpload}>
-        <label htmlFor='displayName'>display name:</label>
-        <input type='text' name='displayName' defaultValue={profile.displayName} />
-        <label htmlFor='photoUrl'>upload profile picture:</label>
-        <input type="file" onChange={onFileChange}/> 
+        <label className='lbl' htmlFor='displayName'>display name:</label>
+        <input className='inpt' type='text' name='displayName' defaultValue={profile.displayName} />
+        <label className='lbl' htmlFor='photoUrl'>upload profile picture:</label>
+        <input className='upload' type="file" onChange={onFileChange}/> 
         {(file && uploadProgress > 0) && (
             <div className="progress">
               <div
@@ -96,37 +96,35 @@ function UserControl() {
               </div>
             </div>
           )}
-        <button type='submit'>save</button>
+        <button className='btn' type='submit'>save</button>
       </form>
 
-      <button onClick={() => setFormVisible(false)}>
+      <button className='btn' onClick={() => setFormVisible(false)}>
         back
       </button>
       
     </div>)
   } else { 
     visibleComponent = (<div>
-    <p>display name: {profile.displayName}</p>
-    <p>email: {profile.email}</p> 
-    <button onClick={() => setFormVisible(true)}>edit profile</button>
+    <h4 className='lbl'>display name:</h4>
+    <p className='inpt'>{profile.displayName}</p>
+    <h4 className='lbl'>email:</h4>
+    <p className='inpt'>{profile.email}</p> 
+    <button className='btn' onClick={() => setFormVisible(true)}>edit profile</button>
   </div>
   )
   }
   return (
-    <Container>
-      <h2>user profile</h2>
-      <img src={profile.photoUrl} width="300" height="300" alt="profile-pic"  style={{borderRadius: '50%'}}/>
-      <h3>hello, {profile.displayName}</h3>
-      {visibleComponent}
-      <button onClick={doSignOut}>log out</button>
-      {/* <div>
-        {
-          isLoaded(profile)
-            ? JSON.stringify(profile, null, 2)
-            : 'Loading...'
-        }
-      </div> */}
-    </Container>
+    <StyledUserControl>
+      <div className='account-container'>
+        <h1 className='section-header'>your account</h1> 
+        <div className='img-container'><img src={profile.photoUrl} alt="profile-pic"/></div>
+        <div className='profile-content'>
+          {visibleComponent}
+          <button className='btn' onClick={doSignOut}>log out</button>
+        </div>
+      </div>
+    </StyledUserControl>
   )
 }
 export default UserControl;

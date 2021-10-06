@@ -24,8 +24,8 @@ function ReusableForm(props) {
             min="0" max="10" step="1" 
             defaultValue = {entryRating}
             required/>
-            <ul class="range-labels">
-              <li class="active selected">0</li>
+            <ul className="range-labels">
+              <li className="active selected">0</li>
               <li>1 </li>
               <li>2</li>
               <li>3</li>

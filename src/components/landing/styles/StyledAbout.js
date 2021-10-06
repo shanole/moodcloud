@@ -60,7 +60,7 @@ export default styled.div`
         align-items: center;
         align-content: center;
         width: 100%;
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
           width: 80%;
         }
 

@@ -6,6 +6,7 @@ export default styled.div`
 color: ${theme.colors.navy};
 background-color: ${theme.colors.cream};
 min-height: 100vh;
+width: 100vw;
 
 .dashboard-container {
   margin: auto;
@@ -21,15 +22,16 @@ min-height: 100vh;
     flex-direction: column;
     align-content: center;
     margin-right: 20px;
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       margin-top: 30px;
+      border: none;
     }
   }
   
   .col-r {
     margin-left: 20px;
     padding-right: 10px;
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       margin-top: 40px;
       padding-top: 20px;
       border-top: 1px solid;

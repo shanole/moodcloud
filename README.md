@@ -107,18 +107,22 @@
   - [x] entries
     - [x] entry list
     - [x] entry details
-  - [ ] chart column
+  - [x] chart column
     - [x] date toggle buttons
-    - [ ] Top 5 keywords
+    - [x] Top 5 keywords
   - [x] keywords
     - [x] keyword pill
     - [x] keyword details
   - [ ] user control page (/account)
   - [ ] animations
-  - [ ] finish about section
+    - [ ] transition into dashboard
+    - [ ] modal transition
+    - [ ] keywords on topkeywords section?
+  - [x] finish about section
   - [ ] footer
   - [ ] final theming touches
   - [ ] responsive design
+    - [ ] NAVBAR
 - [ ] readme --FINISH BY 10/9
   - [ ] component diagram
 
