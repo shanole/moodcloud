@@ -9,7 +9,7 @@ import NewEntryForm from './../entry/NewEntryForm';
 import EditEntryForm from './../entry/EditEntryForm';
 import EntryDetails from './../entry/EntryDetails';
 import KeywordDetails from './../keyword/KeywordDetails';
-import TopKeywords from '../keyword/TopKeywords';
+import TopKeywords from './../keyword/TopKeywords';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 
@@ -98,6 +98,7 @@ function Dashboard() {
         <Row>
             <UserDetails />           
         </Row>
+        {modal}
         <Row className='columns'>
           <Col className='col-l' sm={5}>
             <h3 className='section-heading'>mood chart</h3>
@@ -112,7 +113,7 @@ function Dashboard() {
             <h3 className='section-heading'>entries</h3>
             <EntryList limit={3}/>
           </Col>
-          {modal}
+          {/* {modal} */}
         </Row>
       </Container>
     </React.Fragment>

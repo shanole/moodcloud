@@ -176,9 +176,9 @@ function EntryList(props) {
   const handleScroll = (event) => {
     const bottom = event.target.scrollHeight - event.target.scrollTop === event.target.clientHeight;
 
-    if (event.target.scrollTop > 200) {
+    if (event.target.scrollTop > 205) {
       setScrollUpVisible(true);
-    } else if (event.target.scrollTop <= 200) {
+    } else if (event.target.scrollTop <= 205) {
       setScrollUpVisible(false);
     }
     if (bottom) {

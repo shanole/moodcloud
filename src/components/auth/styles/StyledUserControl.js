@@ -9,6 +9,9 @@ justify-content: center;
 align-items: center;
 align-content: center;
 
+button {
+  color: ${theme.colors.navy};
+}
 .lbl {
   font-family: ${theme.fonts.serif};
   font-size: 23px;

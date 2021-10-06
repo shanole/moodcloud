@@ -8,7 +8,7 @@ transform: translateZ(0);
 
 #list {
   max-height: 70vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .scroll-up {
   position: fixed;

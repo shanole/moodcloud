@@ -4,6 +4,7 @@ import SampleGraph from './SampleGraph';
 import SampleTopKeywords from './SampleTopKeywords';
 import Carousel from 'react-bootstrap/Carousel'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSmile } from '@fortawesome/free-regular-svg-icons';
 
 function About() {
   return (
@@ -40,7 +41,7 @@ function About() {
               <div className='graph-card'>
                 <div className='card-content'>
                   <div className='icon'>
-                    <FontAwesomeIcon icon='smile' transform='shrink-8 down-1' mask={['fas','cloud']} size='lg'/>
+                    <FontAwesomeIcon icon={faSmile} transform='shrink-8 down-1' mask={['fas','cloud']} size='lg'/>
                   </div>
                 </div>
                 <h3 className='card-caption'>live your best life ☺</h3>

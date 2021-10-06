@@ -27,7 +27,7 @@ export default styled.div`
     }
   }
 
-  .nav {
+  #nav {
     display: flex;
     align-items: center;
     height: 100%;
@@ -42,6 +42,16 @@ export default styled.div`
         background: ${theme.colors.lightPinkNavBar};
         color: ${theme.colors.navy};
       }
+    }
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  #nav-mobile {
+    display: none;
+    @media (max-width: 767px) {
+      display: flex;
     }
   }
 `

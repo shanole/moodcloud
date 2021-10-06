@@ -38,30 +38,31 @@ width: 100vw;
     }
   }
 
-  .modal-comp {
-    position: absolute;
-    z-index: 1;
-    background: url(${gradientbg}) no-repeat;
-    // background: ${theme.colors.lightPinkNavBar};
-    width: auto;
-    max-width: 800px;
-    // height: 58%;
-    overflow: auto;
-    margin: auto;
-    padding: 30px;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
+}
+.modal-comp {
+  position: fixed;
+  z-index: 4;
+  background: url(${gradientbg}) no-repeat;
+  width: auto;
+  max-width: 800px;
+  overflow: auto;
+  margin: auto;
+  padding: 30px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    .close-modal {
-      width: 100%;
-      margin-bottom: 10px;
-      font-style: italic;
+  .close-modal {
+    width: 100%;
+    margin-bottom: 10px;
+    font-style: italic;
 
-      &:hover {
-        cursor: pointer;
-        color: ${theme.colors.cream}
-      }
+    &:hover {
+      cursor: pointer;
+      color: ${theme.colors.cream}
     }
   }
 }
