@@ -29,7 +29,7 @@ function SampleTopKeywords() {
   ]
   return (
     <SampleKeywordStyle>
-      {sampleKeywords.map(keyword, index => {
+      {sampleKeywords.map((keyword, index) => {
         return <KeywordPill key={index} rating={keyword.rating}><div className='text'>{keyword.text}</div></KeywordPill>
       })}
     </SampleKeywordStyle>
