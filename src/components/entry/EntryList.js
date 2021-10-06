@@ -1,4 +1,5 @@
 // for some reason it doesn't rerender when u delete the last post??
+// also as soon as you make an edit, the whole collection loads
 
 import React, { useState, useEffect, useCallback } from 'react';
 import Entry from './Entry';
@@ -14,6 +15,12 @@ function EntryList(props) {
 
   const { keyword, limit } = props;
   
+  const [loadedEntries, setLoadedEntries] = useState([]);
+  const [lastKey, setLastKey] = useState("");
+  const [loading, setLoading] = useState (false);
+  const [firstLoad, setFirstLoad] = useState(true);
+  const [scrollUpVisible, setScrollUpVisible] = useState(false);
+
   const getFirstBatch = useCallback(
     async () => {
       try {
@@ -95,12 +102,6 @@ function EntryList(props) {
     }
   }
 
-  const [loadedEntries, setLoadedEntries] = useState([]);
-  const [lastKey, setLastKey] = useState("");
-  const [loading, setLoading] = useState (false);
-  const [firstLoad, setFirstLoad] = useState(true);
-  const [scrollUpVisible, setScrollUpVisible] = useState(false);
-
   useEffect( () => {
     if (firstLoad) {
       getFirstBatch()
@@ -116,7 +117,7 @@ function EntryList(props) {
     }, [firstLoad, getFirstBatch])
 
   useEffect(() => {
-    const currentLoadedPosts = loadedEntries.length > limit ? loadedEntries.length : limit;
+    const currentLoadedPosts = (loadedEntries.length > 0) ? loadedEntries.length : 2;
     let data;
       if (keyword !== undefined) {
         data = firestore
@@ -124,16 +125,17 @@ function EntryList(props) {
           .where('uuid', '==', auth.uid)
           .where('keywords','array-contains',{id: keyword, text: keyword})
           .orderBy('timestamp','desc')
-          .limit(currentLoadedPosts)
+          // .limit(currentLoadedPosts)
       } else {
         data = firestore 
           .collection('entries')
           .where('uuid', '==', auth.uid)
           .orderBy('timestamp', 'desc')
-          .limit(currentLoadedPosts)
-      }   
+          // .limit(currentLoadedPosts)
+      }
+
     const unsubscribe = data.onSnapshot( snapshot => {
-        if (snapshot.size) {
+        if (snapshot.docChanges()) {
           let newList = []
           snapshot.forEach((doc) => { 
             newList.push ({
@@ -146,12 +148,13 @@ function EntryList(props) {
                 timePosted: doc.data().timePosted })
           });
           setLoadedEntries(newList);
+          setLastKey(null);
         }
       })
-    return () => {
-      unsubscribe()
+      return () => {
+      unsubscribe();
     }
-  }, [keyword, limit, loadedEntries.length, firestore, auth.uid])
+  }, [keyword, limit, firestore, auth.uid])
 
   const fetchMorePosts = (key) => {
       if (key !== "") {
@@ -192,12 +195,12 @@ function EntryList(props) {
           return <Entry key={entry.id} entryContent={entry}/>
         })}
         {loading ? (<p>Loading...</p>
-      ) : lastKey !== "" && lastKey !== undefined ? (null) : (
-        "All entries loaded!"
+      ) : lastKey !== "" && lastKey !== undefined && lastKey != null ? (null) : (
+        "All entries loaded.."
         )}
       </div>
     )
-    
+
     return(
       <StyledEntryList>
       
