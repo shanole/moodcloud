@@ -18,8 +18,11 @@ function Keyword(props) {
     })
   }
 
-  firestore.collection('keywords').doc(auth.uid).collection('userKeywords').doc(props.keywordData.text).get().then(doc => {
-    setRating(Math.round(doc.data().avgRating));
+  firestore.collection('keywords').doc(auth.uid).collection('userKeywords').doc(props.keywordData.text).get().then(
+    doc => {
+      if (doc.exists) {
+        setRating(Math.round(doc.data().avgRating));
+      }
   })
 
   return (
