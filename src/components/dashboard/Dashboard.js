@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useFirebase, useFirestore } from 'react-redux-firebase'
 import { useDispatch, useSelector } from 'react-redux'
 import * as a from './../../actions/index';
@@ -12,13 +12,16 @@ import KeywordDetails from './../keyword/KeywordDetails';
 import TopKeywords from './../keyword/TopKeywords';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
+import { useSpring, animated } from 'react-spring'
 
 function Dashboard() {
   const firebase = useFirebase();
   const firestore = useFirestore();
-  const [timespan, setTimespan] = useState(7);
   const dispatch = useDispatch();
   const dashboardView = useSelector(state => state.dashboardView);
+  
+  const [timespan, setTimespan] = useState(7);
+  // const [modVisible, setModVisible] = useState(false);
 
   const handleDeleteKeywordTransaction = async (keyword, rating) => {
     const uuid = firebase.auth().currentUser.uid;
@@ -68,13 +71,20 @@ function Dashboard() {
   const handleDelete = (entry) => {
     firestore.delete({collection: 'entries', doc: entry.id});
     handleDeletingKeywords(entry.keywords, parseInt(entry.rating));
-    const action = a.showDashboard();
-    dispatch(action);
+    // const action = a.showDashboard();
+    // dispatch(action);
+    handleHomeClick();
   }
 
-  const { selectedForm, selectedKeyword, selectedEntry } = dashboardView;
+  const handleHomeClick = () => {
+    dispatch(a.showDashboard());
+    // setModVisible(false);
+  }
+
+  const { selectedForm, selectedKeyword, selectedEntry, modal } = dashboardView;
   let currentlyVisibleComponent;
-  let modal;
+
+  const spring = useSpring({});
 
   if (selectedForm != null && selectedEntry === null) {
     currentlyVisibleComponent = <NewEntryForm onSubmittingKeyword={handleAddKeywordTransaction}/>
@@ -87,10 +97,16 @@ function Dashboard() {
   } else {
     currentlyVisibleComponent = null;
   }
+
+  // useEffect(() => {
+  //   if (currentlyVisibleComponent) {
+  //     setModVisible(true);
+  //   }
+  // }, [currentlyVisibleComponent])
   
-  modal = (currentlyVisibleComponent) ? <div className="modal-comp"><div className='close-modal' onClick={() => dispatch(a.showDashboard())}><FontAwesomeIcon icon='long-arrow-alt-left' /> back</div>
-    {currentlyVisibleComponent}
-    </div> : null;
+  // modal = (currentlyVisibleComponent) ? <div className="modal-comp"><div className='close-modal' onClick={() => dispatch(a.showDashboard())}><FontAwesomeIcon icon='long-arrow-alt-left' /> back</div>
+  //   {currentlyVisibleComponent}
+  //   </div> : null;
 
   return(
     <React.Fragment>
@@ -98,7 +114,10 @@ function Dashboard() {
         <Row>
             <UserDetails />           
         </Row>
-        {modal}
+        {/* {modal} */}
+        {(modal) ? <div className="modal-comp"><div className='close-modal' onClick={handleHomeClick}><FontAwesomeIcon icon='long-arrow-alt-left' /> back</div>
+        {currentlyVisibleComponent}
+        </div> : null}
         <Row className='columns'>
           <Col className='col-l' sm={5}>
             <h3 className='section-heading'>mood chart</h3>

@@ -1,5 +1,6 @@
 import { dashboardReducer } from './../../reducers/dashboard-reducer';
 import * as c from './../../actions/ActionTypes';
+import { faPlusSquare } from '@fortawesome/free-regular-svg-icons';
 
 describe('dashboardReducer', () => {
   let action;
@@ -8,13 +9,15 @@ describe('dashboardReducer', () => {
     selectedKeyword: null,
     selectedEntry: null,
     selectedForm: null,
+    modal: false
   }
 
   // this is a hypothetical state for testing purposes
   const seeAllState = {
     selectedKeyword: "keyword here",
     selectedEntry: "entry here",
-    selectedForm: "form type here"
+    selectedForm: "form type here",
+    modal: true
   }
 
   const selectedEntryState = {
@@ -27,7 +30,8 @@ describe('dashboardReducer', () => {
     expect(dashboardReducer(defaultState, {type: null})).toEqual({
       selectedKeyword:null,
       selectedEntry: null,
-      selectedForm: null
+      selectedForm: null,
+      modal: false
     });
   });
 
@@ -39,7 +43,8 @@ describe('dashboardReducer', () => {
     expect(dashboardReducer(seeAllState, action)).toEqual({
       selectedKeyword: "keyword",
       selectedEntry: null,
-      selectedForm: null
+      selectedForm: null,
+      modal: true
     })
   });
 
@@ -51,7 +56,8 @@ describe('dashboardReducer', () => {
     expect(dashboardReducer(seeAllState, action)).toEqual({
       selectedKeyword: null,
       selectedEntry: "entry",
-      selectedForm: null
+      selectedForm: null,
+      modal: true
     })
   });
 
@@ -63,7 +69,8 @@ describe('dashboardReducer', () => {
     expect(dashboardReducer(seeAllState, action)).toEqual({
       selectedKeyword: null,
       selectedEntry: null,
-      selectedForm: "form"
+      selectedForm: "form",
+      modal: true
     })
   });
 
@@ -82,7 +89,8 @@ describe('dashboardReducer', () => {
     expect(dashboardReducer(selectedEntryState, action)).toEqual({
       selectedKeyword: null,
       selectedEntry: 'entry here',
-      selectedForm: 'edit'
+      selectedForm: 'edit',
+      modal: true
     })
   })
 });
