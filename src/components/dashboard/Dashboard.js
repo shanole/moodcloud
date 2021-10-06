@@ -105,6 +105,7 @@ function Dashboard() {
             <div className='time-toggle'>
               <button onClick={() => setTimespan(7)}>past week</button>
               <button onClick={() => setTimespan(30)}>past month</button>
+              <button onClick={() => setTimespan(null)}>all time</button>
             </div>
             <Graph timespan={timespan}/>
             <TopKeywords timespan={timespan}/>
@@ -113,7 +114,6 @@ function Dashboard() {
             <h3 className='section-heading'>entries</h3>
             <EntryList limit={3}/>
           </Col>
-          {/* {modal} */}
         </Row>
       </Container>
     </React.Fragment>

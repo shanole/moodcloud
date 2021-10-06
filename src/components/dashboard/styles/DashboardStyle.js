@@ -15,6 +15,7 @@ width: 100vw;
 .columns {
   display: flex;
   justify-content: center;
+  margin-bottom: 15px;
 
   .col-l {
     border-right: 1px solid ${theme.colors.navy};
@@ -72,7 +73,7 @@ width: 100vw;
 
 .section-heading {
   font-family: ${theme.fonts.serif};
-  font-size: 35px;
+  font-size: 4vh;
   text-align: center;
 }
 

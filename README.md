@@ -99,10 +99,10 @@
 
 - [ ] UI & styling that is responsive
   - [x] basic dashboard layout & 'global' styling
-    - [ ] privateroute redirecting
+    - [x] privateroute redirecting
   - [x] navbar
   - [x] chart
-    - [ ] demo chart on landing page --FINISH BY 10/2
+    - [x] demo chart on landing page --FINISH BY 10/2
   - [x] new form
     - [x] react tags
     - [x] input range
@@ -123,6 +123,7 @@
   - [x] finish about section
   - [x] footer
   - [ ] final theming touches
+    - [ ] favicon
   - [x] responsive design
     - [x] NAVBAR
 - [ ] readme --FINISH BY 10/9
