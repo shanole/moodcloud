@@ -28,6 +28,9 @@ function Keyword(props) {
         doc => {
           if (doc.exists) {
             setRating(Math.round(doc.data().avgRating));
+          } else {
+            // default rating before it updates
+            setRating(5);
           }
       });
     }

@@ -179,7 +179,7 @@ Installation
 - PrivateRoute redirects users to LandingPage even when user is authorized - this is especially buggy on deployed page
 - making a change to EntryList effectively cancels out pagination/infinite scroll and just loads all the documents in the collection. It might be that I have to make a choice between live updates vs pagination
 - Longer entries look bad in mobile
-- Sometimes keywords that have just been added don't display?
+- Keywords that have just been added to database don't show correct color
 
 I am proud of the work I have done for moodcloud, but it is definitely still a work in progress. If you notice any further bugs or issues please let me know!
 
