@@ -17,7 +17,7 @@ function Hero() {
   let welcomeMessage;
 
   if ((isLoaded(profile)) && (!isEmpty(profile))) {
-    welcomeMessage = `welcome to moodboard, ${profile.displayName}`
+    welcomeMessage = `welcome to moodcloud, ${profile.displayName}`
     button = <Link to='/dashboard' onClick={() => dispatch(showDashboard())} className='btn primary-link'>go inside</Link>
   } else {
     welcomeMessage = 'welcome to moodcloud '

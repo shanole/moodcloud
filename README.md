@@ -19,46 +19,8 @@
 moodcloud is a web application that is designed to help users track their mood over time, as well as track what factors are influencing their daily mood. This app was made as a capstone project for Epicodus Portland 2021.
 
 ☁️ [VIDEO DEMO](https://www.youtube.com/watch?v=dSzXK4oa-WM) ☁️
+
 ☁️ [SEE LIVE DEMO](https://moodcloud-b54e6.web.app/) ☁️
-
-<details>
-  <summary>Progress log (will be deleted)</summary>
-
-- Sep 19
-  - Submitted new capstone proposal, set up basic react environment
-  - Planning component diagram, researching authentication w/ Firebase
-  - Create to do list of tasks
-- Sept 21
-  - Static layout, Redux, and firebase set up
-- Sept 22
-  - Basic CRUD for new entries
-  - I am SO CLOSE to getting the NewEntryForm component to add keywords to the keywords collection... I can get it to add, but not to update averages!!! Figure this out next time, as well as what to do when editing and deleting
-- Sept 26
-  - Finished database design for keyword collection
-  - Incorporated pagination w/ EntryList - having trouble w/ infinite scroll
-- Sept 27
-  - Finished infinite scrolling EntryList
-  - Researched Chart.js
-  - Got basic implementation of chart down
-  - Started authentication/authorization
-- Sept 28
-  - got auth/authorization logic figured out
-  - created different routes
-  - created and styled landing page
-- Sept 29
-  - user can now change display name and profile photo
-  - styling for landing page
-- Oct 2
-  - working on styling all the dashboard components!
-- Oct 3
-  - more styling dashboard components
-- Oct 7
-  - focused on styling and responsive design.
-  - found bug in entry list component and how it reacts to firestore realtime updates... found a workaround but i think implementing actual real time updates with actual pagination is kind of beyond my scope.
-- Oct 6
-  - added react spring animation
-  - I think i'm becoming obsessive about this project so I may need to step away.
-  </details>
 
 <details>
   <summary>TO DOS (will be deleted)</summary>
@@ -105,7 +67,7 @@ moodcloud is a web application that is designed to help users track their mood o
 
 ---
 
-- [ ] UI & styling that is responsive
+- [x] UI & styling that is responsive
   - [x] basic dashboard layout & 'global' styling
     - [x] privateroute redirecting
   - [x] navbar
@@ -125,14 +87,14 @@ moodcloud is a web application that is designed to help users track their mood o
     - [x] keyword details
   - [x] user control page (/account)
   - [x] animations
-    - [ ] transition into dashboard
+    - [ ] _transition into dashboard_
     - [x] modal transition
     - [x] scroll up buttons
-    - [ ] keywords on topkeywords section?
+    - [ ] _keywords on topkeywords section?_
   - [x] finish about section
   - [x] footer
-  - [ ] final theming touches
-    - [ ] favicon
+  - [x] final theming touches
+    - [x] favicon
   - [x] responsive design
     - [x] NAVBAR
 - [ ] readme --FINISH BY 10/9
