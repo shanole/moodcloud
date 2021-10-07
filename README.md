@@ -18,6 +18,8 @@
 
 moodcloud is a web application that is designed to help users track their mood over time, as well as track what factors are influencing their daily mood. This app was made as a capstone project for Epicodus Portland 2021.
 
+[SEE LIVE DEMO](https://moodcloud-b54e6.web.app/)
+
 <details>
   <summary>Progress log (will be deleted)</summary>
 
@@ -182,16 +184,17 @@ Setup requirements
   <details>
 
     <summary>Firebase config .env</summary>
-    
-    ```
-    REACT_APP_FIREBASE_API_KEY = "YOUR-UNIQUE-CREDENTIALS"
-    REACT_APP_FIREBASE_AUTH_DOMAIN = "YOUR-PROJECT-NAME.firebaseapp.com"
-    REACT_APP_FIREBASE_DATABASE_URL = "https://YOUR-PROJECT-NAME.firebaseio.com"
-    REACT_APP_FIREBASE_PROJECT_ID = "YOUR-PROJECT-FIREBASE-PROJECT-ID"
-    REACT_APP_FIREBASE_STORAGE_BUCKET = "YOUR-PROJECT-NAME.appspot.com"
-    REACT_APP_FIREBASE_MESSAGING_SENDER_ID = "YOUR-PROJECT-SENDER-ID"
-    REACT_APP_FIREBASE_APP_ID = "YOUR-PROJECT-APP-ID"
-    ```
+
+  ```
+  REACT_APP_FIREBASE_API_KEY = "YOUR-UNIQUE-CREDENTIALS"
+  REACT_APP_FIREBASE_AUTH_DOMAIN = "YOUR-PROJECT-NAME.firebaseapp.com"
+  REACT_APP_FIREBASE_DATABASE_URL = "https://YOUR-PROJECT-NAME.firebaseio.com"
+  REACT_APP_FIREBASE_PROJECT_ID = "YOUR-PROJECT-FIREBASE-PROJECT-ID"
+  REACT_APP_FIREBASE_STORAGE_BUCKET = "YOUR-PROJECT-NAME.appspot.com"
+  REACT_APP_FIREBASE_MESSAGING_SENDER_ID = "YOUR-PROJECT-SENDER-ID"
+  REACT_APP_FIREBASE_APP_ID = "YOUR-PROJECT-APP-ID"
+  ```
+
   </details>
 
 Installation
