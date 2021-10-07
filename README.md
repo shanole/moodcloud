@@ -16,6 +16,8 @@
 
 ## Description <a id="description"></a>
 
+moodcloud is a web application that is designed to help users track their mood over time, as well as track what factors are influencing their daily mood. This app was made as a capstone project for Epicodus Portland 2021.
+
 <details>
   <summary>Progress log (will be deleted)</summary>
 
@@ -47,10 +49,10 @@
   - working on styling all the dashboard components!
 - Oct 3
   - more styling dashboard components
-- Oct 6
+- Oct 7
   - focused on styling and responsive design.
   - found bug in entry list component and how it reacts to firestore realtime updates... found a workaround but i think implementing actual real time updates with actual pagination is kind of beyond my scope.
-- Oct 7
+- Oct 6
   - added react spring animation
   - I think i'm becoming obsessive about this project so I may need to step away.
   </details>
@@ -146,19 +148,51 @@ stretch goals/bonus features
 
 ## Technologies Used <a id="technologies"></a>
 
+Main technologies used:
+
 - React.js
+- Redux
 - JavaScript
 - Webpack
 - JSX
 - CSS
-- Bootstrap
 - Firebase / Firestore
+
+Additional libraries:
+
+- [React Redux Firebase](http://react-redux-firebase.com/)
+- [React Router](https://reactrouter.com/)
+- [React-Bootstrap](https://react-bootstrap.github.io/)
+- [React Tag Input](https://www.npmjs.com/package/react-tag-input)
+- [React-Spring](https://react-spring.io/)
+- [Chart.js](https://www.chartjs.org/docs/latest/)
+
+Misc. resources:
+
+- [Pexels.com](https://pexels.com)
+- [FontAwesome](https://fontawesome.com/)
 
 ## Setup/Installation Requirements <a id="setup"></a>
 
 Setup requirements
 
 - Make sure [Node.js](https://nodejs.org/en/) and [Node Package Manager (npm)](https://www.npmjs.com/) are set up on your local machine. If not, follow the installation guide [here](https://www.learnhowtoprogram.com/intermediate-javascript/getting-started-with-javascript/installing-node-js).
+- This project's backend is based on Firebase. To run this project on your local machine with your own database, first create a new Firebase project per [these instructions](https://www.learnhowtoprogram.com/react-part-time-c-and-react-track/react-with-nosql/setting-up-a-firebase-project).
+- In the root directory of this project, create an `.env` file and save your Firebase configuration:
+  <details>
+
+    <summary>Firebase config .env</summary>
+    
+    ```
+    REACT_APP_FIREBASE_API_KEY = "YOUR-UNIQUE-CREDENTIALS"
+    REACT_APP_FIREBASE_AUTH_DOMAIN = "YOUR-PROJECT-NAME.firebaseapp.com"
+    REACT_APP_FIREBASE_DATABASE_URL = "https://YOUR-PROJECT-NAME.firebaseio.com"
+    REACT_APP_FIREBASE_PROJECT_ID = "YOUR-PROJECT-FIREBASE-PROJECT-ID"
+    REACT_APP_FIREBASE_STORAGE_BUCKET = "YOUR-PROJECT-NAME.appspot.com"
+    REACT_APP_FIREBASE_MESSAGING_SENDER_ID = "YOUR-PROJECT-SENDER-ID"
+    REACT_APP_FIREBASE_APP_ID = "YOUR-PROJECT-APP-ID"
+    ```
+  </details>
 
 Installation
 
@@ -174,7 +208,13 @@ Installation
 
 </details>
 
-## Known Bugs <a id="bugs"></a>
+## Known Bugs/Issues <a id="bugs"></a>
+
+- PrivateRoute redirects users to LandingPage even when user is authorized
+- making a change to EntryList effectively cancels out pagination/infinite scroll and just loads all the documents in the collection. It might be that I have to make a choice between live updates vs pagination
+- Longer entries look bad in mobile
+
+I am proud of the work I have done for moodcloud, but it is definitely still a work in progress. If you notice any further bugs or issues please let me know!
 
 ## License <a id="license"></a>
 
