@@ -18,7 +18,8 @@
 
 moodcloud is a web application that is designed to help users track their mood over time, as well as track what factors are influencing their daily mood. This app was made as a capstone project for Epicodus Portland 2021.
 
-[SEE LIVE DEMO](https://moodcloud-b54e6.web.app/)
+☁️ [VIDEO DEMO](https://www.youtube.com/watch?v=dSzXK4oa-WM) ☁️
+☁️ [SEE LIVE DEMO](https://moodcloud-b54e6.web.app/) ☁️
 
 <details>
   <summary>Progress log (will be deleted)</summary>
@@ -213,9 +214,10 @@ Installation
 
 ## Known Bugs/Issues <a id="bugs"></a>
 
-- PrivateRoute redirects users to LandingPage even when user is authorized
+- PrivateRoute redirects users to LandingPage even when user is authorized - this is especially buggy on deployed page
 - making a change to EntryList effectively cancels out pagination/infinite scroll and just loads all the documents in the collection. It might be that I have to make a choice between live updates vs pagination
 - Longer entries look bad in mobile
+- Sometimes keywords that have just been added don't display?
 
 I am proud of the work I have done for moodcloud, but it is definitely still a work in progress. If you notice any further bugs or issues please let me know!
 
