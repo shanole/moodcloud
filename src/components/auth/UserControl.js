@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux'
 import { useFirebase, useFirebaseConnect } from 'react-redux-firebase'
 import StyledUserControl from './styles/StyledUserControl';
+import { faSmile } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function UserControl() {
   const [formVisible, setFormVisible] = useState(false);
@@ -124,6 +126,7 @@ function UserControl() {
           {visibleComponent}
           <button className='btn' onClick={doSignOut}>log out</button>
         </div>
+        <div><FontAwesomeIcon icon={faSmile} transform='shrink-8 down-1' mask={['fas','cloud']} size='lg'/></div>
       </div>
     </StyledUserControl>
   )
