@@ -6,6 +6,8 @@ import React, {useState, useEffect} from 'react';
 import { WithContext as ReactTags } from 'react-tag-input';
 import styled from 'styled-components';
 import theme from '../../theme';
+import PropTypes from "prop-types";
+
 
 const StyledTags = styled.div`
 .ReactTags__selected {
@@ -107,6 +109,11 @@ function KeywordForm(props) {
         />
     </StyledTags>
   );
+}
+
+KeywordForm.propTypes = {
+  prefilledTags: PropTypes.array,
+  addNewTags: PropTypes.func
 }
 
 export default KeywordForm;

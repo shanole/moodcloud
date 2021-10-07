@@ -4,6 +4,7 @@ import { useFirestore } from 'react-redux-firebase'
 import { useDispatch, useSelector } from 'react-redux'
 import { showDashboard } from './../../actions/index'
 import dateOptions from '../util/dateOptions';
+import PropTypes from "prop-types";
 
 function NewEntryForm(props) {
   const firestore = useFirestore();
@@ -38,13 +39,15 @@ function NewEntryForm(props) {
     setTags(tagsArray);
   }
 
-  console.log(auth);
-
   return (
     <React.Fragment>
       <ReusableForm title='New Journal Entry' newTagHandler={getTags} formSubmissionHandler={addPostToFirestore} buttonText="Submit"/>
     </React.Fragment>
   );
+}
+
+NewEntryForm.propTypes = {
+  onSubmittingKeyword: PropTypes.func
 }
 
 export default NewEntryForm;

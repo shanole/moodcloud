@@ -2,6 +2,7 @@ import React from 'react';
 import EntryList from './../entry/EntryList'
 import StyledKeywordDetails from './styles/StyledKeywordDetails';
 import { Accordion } from 'react-bootstrap';
+import PropTypes from "prop-types";
 
 function KeywordDetails(props) {
   const { keyword } = props;
@@ -27,6 +28,10 @@ function KeywordDetails(props) {
         </div>
       </StyledKeywordDetails>
   )
+}
+
+KeywordDetails.propTypes = {
+  keyword: PropTypes.object
 }
 
 export default KeywordDetails;

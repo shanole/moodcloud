@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import StyledEntryList from './styles/StyledEntryList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTransition, animated } from 'react-spring'
+import PropTypes from "prop-types";
 
 function EntryList(props) {
   const firestore = useFirestore();
@@ -118,7 +119,7 @@ function EntryList(props) {
     }, [firstLoad, getFirstBatch])
 
   useEffect(() => {
-    const currentLoadedPosts = (loadedEntries.length > 0) ? loadedEntries.length : 2;
+    // const currentLoadedPosts = (loadedEntries.length > 0) ? loadedEntries.length : 2;
     let data;
       if (keyword !== undefined) {
         data = firestore
@@ -211,6 +212,11 @@ function EntryList(props) {
       {transition((style,item) => item &&  <animated.button style={style} className='scroll-up' onClick={backToTop}><FontAwesomeIcon icon='long-arrow-alt-up'/></animated.button>)}
     </StyledEntryList>
     );
+}
+
+EntryList.propTypes = {
+  limit: PropTypes.number,
+  keyword: PropTypes.string
 }
 
 

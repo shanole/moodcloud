@@ -50,6 +50,9 @@
 - Oct 6
   - focused on styling and responsive design.
   - found bug in entry list component and how it reacts to firestore realtime updates... found a workaround but i think implementing actual real time updates with actual pagination is kind of beyond my scope.
+- Oct 7
+  - added react spring animation
+  - I think i'm becoming obsessive about this project so I may need to step away.
   </details>
 
 <details>
@@ -116,9 +119,10 @@
     - [x] keyword pill
     - [x] keyword details
   - [x] user control page (/account)
-  - [ ] animations
+  - [x] animations
     - [ ] transition into dashboard
-    - [ ] modal transition
+    - [x] modal transition
+    - [x] scroll up buttons
     - [ ] keywords on topkeywords section?
   - [x] finish about section
   - [x] footer

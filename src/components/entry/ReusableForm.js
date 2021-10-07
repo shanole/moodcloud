@@ -1,6 +1,7 @@
 import React from 'react';
 import KeywordForm from './../keyword/KeywordForm';
 import StyledForm from './styles/StyledForm';
+import PropTypes from "prop-types";
 
 function ReusableForm(props) {
   let entryRating, entryBlurb, entryKeywords;
@@ -52,6 +53,14 @@ function ReusableForm(props) {
       </form>
     </StyledForm>
    );
+}
+
+ReusableForm.propTypes = {
+  prefilledEntry: PropTypes.object,
+  title: PropTypes.string,
+  newTagHandler: PropTypes.func,
+  formSubmissionHandler: PropTypes.func,
+  buttonText: PropTypes.string
 }
 
 export default ReusableForm;

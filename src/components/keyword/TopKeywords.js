@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase';
 import Keyword from './Keyword';
 import StyledTopKeywords from './styles/StyledTopKeywords';
+import PropTypes from "prop-types";
 
 function TopKeywords(props) {
   const { timespan } = props;
@@ -16,7 +17,7 @@ function TopKeywords(props) {
 
   useEffect(() => {
     if (isLoaded(data) && !isEmpty(data)) {
-      const sortedKeywords = sortByFrequency(data);
+      sortByFrequency(data);
     }
   }, [data]);
 
@@ -52,6 +53,10 @@ function TopKeywords(props) {
       </div>
     </StyledTopKeywords>
   );
+}
+
+TopKeywords.propTypes = {
+  timespan: PropTypes.number
 }
 
 export default TopKeywords;

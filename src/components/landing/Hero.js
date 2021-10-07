@@ -7,7 +7,7 @@ import StyledHero from './styles/StyledHero';
 import gradientVid from './../../assets/img/gradient-vid.mp4';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { showDashboard } from './../../actions/index'
-import { faSmile } from '@fortawesome/free-solid-svg-icons';
+// import { faSmile } from '@fortawesome/free-solid-svg-icons';
 
 function Hero() {
   const profile = useSelector(state => state.firebase.profile)

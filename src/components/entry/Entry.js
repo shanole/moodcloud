@@ -3,6 +3,7 @@ import StyledEntry from './styles/StyledEntry';
 import Keyword from './../keyword/Keyword';
 import { useDispatch } from 'react-redux';
 import { showEntry } from './../../actions/index';
+import PropTypes from "prop-types";
 
 function Entry(props) {
   const { entryContent } = props;
@@ -28,6 +29,10 @@ function Entry(props) {
       <div className='entry-keywords'>{entryContent.keywords.map((keyword, index) => <Keyword rating={entryContent.rating} key={index} keywordData={keyword} />)}</div>
     </StyledEntry>
   );
+}
+
+Entry.propTypes = {
+  entryContent : PropTypes.object
 }
 
 export default Entry;

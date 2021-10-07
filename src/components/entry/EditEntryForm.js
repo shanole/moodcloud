@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import ReusableForm from './ReusableForm';
 import { useFirestore } from 'react-redux-firebase';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { showDashboard } from '../../actions/index'
-
+import PropTypes from "prop-types";
 
 function EditEntryForm(props) {
   const { entry } = props;
   const firestore = useFirestore();
   const dispatch = useDispatch();
-  const auth = useSelector(state => state.firebase.auth);
+  // const auth = useSelector(state => state.firebase.auth);
 
   async function handleEditPostFormSubmission(event) {
     event.preventDefault();
@@ -32,15 +32,15 @@ function EditEntryForm(props) {
       var docRef = firestore.collection('entries').doc(entry.id); 
       await docRef.get().then((doc) => {
         if (doc.exists) {
-          const data = {
-            uuid: auth.uid,
-            id: doc.id,
-            blurb: doc.data().blurb,
-            rating: doc.data().rating,
-            timestamp: doc.data().timestamp,
-            timePosted: doc.data().timePosted,
-            keywords: doc.data().keywords
-          }
+          // const data = {
+          //   uuid: auth.uid,
+          //   id: doc.id,
+          //   blurb: doc.data().blurb,
+          //   rating: doc.data().rating,
+          //   timestamp: doc.data().timestamp,
+          //   timePosted: doc.data().timePosted,
+          //   keywords: doc.data().keywords
+          // }
           dispatch(showDashboard());
         } else {
           console.log("No such document");
@@ -64,6 +64,10 @@ function EditEntryForm(props) {
       <ReusableForm title='Edit entry' newTagHandler={updateTags} prefilledEntry = {entry} formSubmissionHandler={handleEditPostFormSubmission} buttonText="Update entry" />
     </React.Fragment>
   );
+}
+
+EditEntryForm.propTypes = {
+  entry: PropTypes.object
 }
 
 export default EditEntryForm;

@@ -3,6 +3,7 @@ import Keyword from './../keyword/Keyword';
 import { useDispatch } from 'react-redux';
 import { toggleEditForm } from './../../actions/index';
 import StyledEntryDetails from './styles/StyledEntryDetails';
+import PropTypes from "prop-types";
 
 function EntryDetails(props) {
   const { entry } = props;
@@ -26,6 +27,11 @@ function EntryDetails(props) {
       </div>
     </StyledEntryDetails>
   )
+}
+
+EntryDetails.propTypes = {
+  entry: PropTypes.object,
+  onClickingDelete: PropTypes.func
 }
 
 export default EntryDetails;

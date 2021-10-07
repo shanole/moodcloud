@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux'
-import { useFirebase, useFirebaseConnect, isLoaded } from 'react-redux-firebase'
+import { useFirebase, useFirebaseConnect } from 'react-redux-firebase'
 import StyledUserControl from './styles/StyledUserControl';
 
 function UserControl() {
@@ -31,7 +31,6 @@ function UserControl() {
         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         setUploadProgress(progress);
-        console.log('Upload is ' + progress + '% done');
         
         switch (snapshot.state) {
           case firebase.storage.TaskState.PAUSED: // or 'paused'
@@ -40,6 +39,8 @@ function UserControl() {
           case firebase.storage.TaskState.RUNNING: // or 'running'
             console.log('Upload is running');
             break;
+          default:
+            console.log('Upload is ' + progress + '% done');
         }
       }, 
       (error) => {

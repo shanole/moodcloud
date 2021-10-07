@@ -1,6 +1,6 @@
 import theme from './../../theme'
 
-export default {
+const keywordColors = {
   0: theme.keywords.bad,
   1: theme.keywords.bad,
   2: theme.keywords.bad,
@@ -13,3 +13,5 @@ export default {
   9: theme.keywords.great,
   10: theme.keywords.great
 }
+
+export default keywordColors

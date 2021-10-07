@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { showKeyword } from '../../actions';
 import { useFirestore } from 'react-redux-firebase';
 import KeywordPill from './styles/KeywordPill';
+import PropTypes from "prop-types";
 
 function Keyword(props) {
   const firestore = useFirestore();
@@ -34,6 +35,10 @@ function Keyword(props) {
       </KeywordPill>
     </div>
   );
+}
+
+Keyword.propTypes = {
+  keywordData: PropTypes.object
 }
 
 export default Keyword;

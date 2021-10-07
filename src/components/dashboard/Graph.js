@@ -1,9 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Chart from 'chart.js/auto';
 import { useSelector, useDispatch } from 'react-redux';
-import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
+import { useFirestoreConnect, isLoaded } from 'react-redux-firebase'
 import { showEntry } from './../../actions/index'
 import theme from '../../theme';
+import PropTypes from "prop-types";
 
 function Graph(props) {  
   const chartRef = useRef(null)
@@ -99,6 +100,10 @@ function Graph(props) {
       <canvas id="myCanvas" ref={chartRef}></canvas>
     </React.Fragment>
   );
+}
+
+Graph.propTypes = {
+  timespan: PropTypes.number
 }
 
 export default Graph;
