@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { showKeyword } from '../../actions';
 import { useFirestore } from 'react-redux-firebase';
@@ -10,21 +10,29 @@ function Keyword(props) {
   const dispatch = useDispatch();
   const auth = useSelector(state => state.firebase.auth);
   const [rating, setRating] = useState(null);
+  const [didMount, setDidMount] = useState(false);
 
   const goToKeywordDetails = (keyword) => {
     var keywordRef = firestore.collection('keywords').doc(auth.uid).collection('userKeywords').doc(keyword);
     keywordRef.get().then((doc) => {
       const action = showKeyword(doc.data());
       dispatch(action);
-    })
+    });
   }
 
-  firestore.collection('keywords').doc(auth.uid).collection('userKeywords').doc(props.keywordData.text).get().then(
-    doc => {
-      if (doc.exists) {
-        setRating(Math.round(doc.data().avgRating));
-      }
-  })
+  useEffect( () => {
+    setDidMount(true);
+    const keywordRef = firestore.collection('keywords').doc(auth.uid).collection('userKeywords').doc(props.keywordData.text);
+    if (didMount) {
+      keywordRef.get().then(
+        doc => {
+          if (doc.exists) {
+            setRating(Math.round(doc.data().avgRating));
+          }
+      });
+    }
+    return () => setDidMount(false);
+  }, [firestore, auth.uid, props.keywordData.text, didMount])
 
   return (
     <div onClick={() => goToKeywordDetails(props.keywordData.text)}>
