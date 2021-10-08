@@ -23,6 +23,7 @@ function Register() {
   return (
     <StyledForm>
       <h1>Register</h1>
+      <p className='fyi'>Note: this live website is mainly for demo purposes. Please do not enter in any sensitive information that you would not like me to see!</p>
       <form onSubmit={doSignUp}>
         <input
           type='text'
