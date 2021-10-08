@@ -117,11 +117,11 @@ Main technologies used:
 
 - React.js
 - Redux
-- JavaScript
-- Webpack
-- JSX
-- CSS
+- JavaScript / JSX
 - Firebase / Firestore
+- Node Package Manager
+- HTML
+- CSS
 
 Additional libraries:
 
