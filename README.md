@@ -22,95 +22,6 @@ moodcloud is a web application that is designed to help users track their mood o
 
 ☁️ [SEE LIVE DEMO](https://moodcloud-b54e6.web.app/) ☁️
 
-<details>
-  <summary>TO DOS (will be deleted)</summary>
-
-- [x] set up basic component structure with static components
-  - [x] set up most static layout for dashboard
-  - [x] incorporate Redux
-    - [x] write reducers for dashboard display
-    - [x] incorporate firebase
-- [x] develop full CRUD for posts with firestore
-  - [x] create new entry
-  - [x] view entries on dashboard (Entry, EntryList)
-    - [x] display entry list by DATE
-    - [x] pagination
-      - [x] _infinite scroll_
-  - [x] view entry details (EntryDetails)
-    - [x] don't forget TIMESTAMP
-  - [x] edit/delete entry
-    - [x] basic edit functionality
-    - [x] basic delete functionality
-    - [x] make edit form redirect to entry DETAILS, not dashboard? --> learn about firestore queries lol
-  - [x] keyword/hashtag form [react tags?](https://github.com/react-tags/react-tags)
-- [x] **keyword collections in firestore**
-  - [x] add and update averages for keywords when creating new post
-  - [x] autosuggest
-  - [x] Keyword component instead of random list elements
-  - [x] KeywordDetails component - will have average, list of posts
-- [x] figure out toggling between dashboard, form, keyword, and post views --FINISH BY 9/26
-
----
-
-- [x] create GRAPH with Chart.js
-  - [x] Each node should be able to link to a specific post
-  - [x] Change timespans
-  - [x] Modal on hover
-- [x] Routing and landing page
-- [x] authentication / authorization
-  - [x] may need to change firestore db structure, esp for KEYWORDS -- all entries should have a userId assc w them; keywords may need to be nested in a user document
-  - [x] redirecting when logging in not working
-  - [x] security rules
-- [x] UserControl components
-  - [x] form to set displayName
-  - [x] profile pic
-
----
-
-- [x] UI & styling that is responsive
-  - [x] basic dashboard layout & 'global' styling
-    - [x] privateroute redirecting
-  - [x] navbar
-  - [x] chart
-    - [x] demo chart on landing page --FINISH BY 10/2
-  - [x] new form
-    - [x] react tags
-    - [x] input range
-  - [x] entries
-    - [x] entry list
-    - [x] entry details
-  - [x] chart column
-    - [x] date toggle buttons
-    - [x] Top 5 keywords
-  - [x] keywords
-    - [x] keyword pill
-    - [x] keyword details
-  - [x] user control page (/account)
-  - [x] animations
-    - [ ] _transition into dashboard_
-    - [x] modal transition
-    - [x] scroll up buttons
-    - [ ] _keywords on topkeywords section?_
-  - [x] finish about section
-  - [x] footer
-  - [x] final theming touches
-    - [x] favicon
-  - [x] responsive design
-    - [x] NAVBAR
-- [ ] readme --FINISH BY 10/9
-  - [ ] component diagram
-
----
-
-stretch goals/bonus features
-
-- [ ] _page to confirm delete?_
-- [ ] _weather widget with openWeather?_
-- [ ] _reset pw, change email, other user customization options_
-- [ ] _limit only one post a day_
-
-</details>
-
 ## Technologies Used <a id="technologies"></a>
 
 Main technologies used:
@@ -128,6 +39,7 @@ Additional libraries:
 - [React Redux Firebase](http://react-redux-firebase.com/)
 - [React Router](https://reactrouter.com/)
 - [React-Bootstrap](https://react-bootstrap.github.io/)
+- [Styled-Components](https://styled-components.com/)
 - [React Tag Input](https://www.npmjs.com/package/react-tag-input)
 - [React-Spring](https://react-spring.io/)
 - [Chart.js](https://www.chartjs.org/docs/latest/)
@@ -182,6 +94,19 @@ Installation
 - Keywords that have just been added to database don't show correct color
 
 I am proud of the work I have done for moodcloud, but it is definitely still a work in progress. If you notice any further bugs or issues please let me know!
+
+<details>
+  <summary>TO DOs</summary>
+
+stretch goals/bonus features
+
+- [ ] _more animations_
+- [ ] _page to confirm delete_
+- [ ] _weather widget with openWeather?_
+- [ ] _more fleshed out user registration flow_
+- [ ] _reset pw, change email, other user customization options_
+- [ ] _limit only one post a day_
+</details>
 
 ## License <a id="license"></a>
 
