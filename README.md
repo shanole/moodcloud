@@ -9,16 +9,15 @@
 1. [Description](#description)
 2. [Technologies Used](#technologies)
 3. [Setup/Installation Requirements](#setup)
-4. [Component Diagram](#diagram)
-5. [Known Bugs](#bugs)
-6. [License](#license)
-7. [Contact Information](#contact)
+4. [Known Bugs](#bugs)
+5. [License](#license)
+6. [Contact Information](#contact)
 
 ## Description <a id="description"></a>
 
 moodcloud is a web application that is designed to help users track their mood over time, as well as track what factors are influencing their daily mood. This app was made as a capstone project for Epicodus Portland 2021.
 
-☁️ [VIDEO DEMO](https://www.youtube.com/watch?v=dSzXK4oa-WM) ☁️
+☁️ [VIDEO DEMO](https://www.youtube.com/watch?v=seiU99_zsDc) ☁️
 
 ☁️ [SEE LIVE DEMO](https://moodcloud-b54e6.web.app/) ☁️
 
@@ -78,13 +77,6 @@ Installation
 - In the terminal, navigate to the top level of this directory `moodcloud/`
 - Recreate project environment and install required dependencies `$ npm install`
 - Open project in a development server on your web browser `$ npm start` to open it on http://localhost:3000
-
-## Component Diagrams <a id="diagram"></a>
-
-<details>
-  <summary>Component Diagram</summary>
-
-</details>
 
 ## Known Bugs/Issues <a id="bugs"></a>
 
