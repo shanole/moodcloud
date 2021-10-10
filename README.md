@@ -15,9 +15,9 @@
 
 ## Description <a id="description"></a>
 
-moodcloud is a web application that is designed to help users track their mood over time, as well as track what factors are influencing their daily mood. This app was made as a capstone project for Epicodus Portland 2021.
+moodcloud is a web application that is designed to help users track their mood over time, as well as track what factors are influencing their daily mood. This is meant to help people better understand their mental health and make note of which daily habits are positively or negatively impacting their lifestyles. This app was made as a capstone project for Epicodus Portland 2021.
 
-☁️ [VIDEO DEMO](https://www.youtube.com/watch?v=seiU99_zsDc) ☁️
+☁️ [VIDEO DEMO](https://www.youtube.com/watch?v=06mHd1ojZc8) ☁️
 
 ☁️ [SEE LIVE DEMO](https://moodcloud-b54e6.web.app/) ☁️
 
